@@ -1,15 +1,14 @@
 package model.insect.beetles;
 
+import model.board.Coordinate;
 import model.insect.Insect;
+import model.insect.Profile;
 
 public class Bogus extends Insect {
-    private static final int HEALTH_POINTS = 0;
-    private static final int DAMAGE = 0;
-    private static final int SPEED = 0;
-    private static final int ATTACK_RANGE = 0;
+    private static Profile profile = new Profile(0,0,0, 0);
 
-    public Bogus() {
-        super(HEALTH_POINTS, DAMAGE, SPEED, ATTACK_RANGE);
+    public Bogus(Coordinate coordinate) {
+        super(profile, coordinate);
     }
 
     @Override
@@ -20,5 +19,13 @@ public class Bogus extends Insect {
     @Override
     public boolean attack() {
         return false;
+    }
+
+    public static Profile getProfile() {
+        return profile;
+    }
+
+    public static void setProfile(Profile profile) {
+        Bogus.profile = profile;
     }
 }

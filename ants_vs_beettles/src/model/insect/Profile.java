@@ -1,3 +1,5 @@
+package model.insect;
+
 public class Profile {
 
     private int healthPoints;

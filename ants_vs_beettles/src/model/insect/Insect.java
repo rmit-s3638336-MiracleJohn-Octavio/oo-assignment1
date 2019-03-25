@@ -1,5 +1,7 @@
 package model.insect;
 
+import model.board.Coordinate;
+
 public abstract class Insect {
 
     private Profile profile;

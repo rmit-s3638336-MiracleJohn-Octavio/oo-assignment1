@@ -13,7 +13,7 @@ public class Player {
         return false;
     }
 
-    public boolean remove(String id) {
+    public boolean remove(int id) {
         return false;
     }
 

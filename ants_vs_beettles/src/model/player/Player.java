@@ -1,8 +1,8 @@
 package model.player;
 
-import model.insect.Insect;
-
 import java.util.HashMap;
+
+import model.insect.Insect;
 
 public class Player {
 

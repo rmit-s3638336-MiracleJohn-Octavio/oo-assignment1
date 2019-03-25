@@ -2,16 +2,12 @@ package model.insect;
 
 public abstract class Insect {
 
-    private int healthPoints;
-    private int damage;
-    private int speed;
-    private int attackRange;
+    private Profile profile;
+    private Coordinate coordinate;
 
-    public Insect(int healthPoints, int damage, int speed, int attackRange) {
-        this.healthPoints = healthPoints;
-        this.damage = damage;
-        this.speed = speed;
-        this.attackRange = attackRange;
+    public Insect(Profile profile, Coordinate coordinate) {
+        this.profile = profile;
+        this.coordinate = coordinate;
     }
 
     public abstract boolean move();

@@ -1,5 +1,35 @@
 package model.board;
 
-public class Tile {
+import model.insect.Insect;
 
+public class Tile {
+    Coordinate coordinate;
+    Insect insect = null;
+//    boolean food = false;
+
+    public Tile(Coordinate coordinate) {
+        this.coordinate = coordinate;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public Insect getInsect() {
+        return insect;
+    }
+
+    public void setInsect(Insect insect) {
+        this.insect = insect;
+    }
+
+    @Override
+    public String toString() {
+        return insect != null ? insect.toString() : " ";
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        return coordinate.equals(((Tile) object).getCoordinate());
+    }
 }

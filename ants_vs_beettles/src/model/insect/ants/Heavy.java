@@ -4,11 +4,11 @@ import model.board.Coordinate;
 import model.insect.Insect;
 import model.insect.Profile;
 
-public class Heavy  extends Insect {
-    private static Profile profile = new Profile(0,0,0, 0);
+public class Heavy extends Insect {
+    private static Profile profile = new Profile(0, 0, 0, 0);
 
-    public Heavy(Coordinate coordinate) {
-        super(profile, coordinate);
+    public Heavy(Profile profile) {
+        super(profile);
     }
 
     @Override

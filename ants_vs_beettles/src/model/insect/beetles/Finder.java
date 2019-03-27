@@ -7,8 +7,8 @@ import model.insect.Profile;
 public class Finder extends Insect {
     private static Profile profile = new Profile(0,0,0, 0);
 
-    public Finder(Coordinate coordinate) {
-        super(profile, coordinate);
+    public Finder(Profile profile) {
+        super(profile);
     }
 
     @Override
@@ -25,4 +25,8 @@ public class Finder extends Insect {
         Finder.profile = profile;
     }
 
+    @Override
+    public String toString() {
+        return "f";
+    }
 }

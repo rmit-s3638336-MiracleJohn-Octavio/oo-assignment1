@@ -7,8 +7,8 @@ import model.insect.Profile;
 public class Ranger extends Insect {
     private static Profile profile = new Profile(0,0,0, 0);
 
-    public Ranger(Coordinate coordinate) {
-        super(profile, coordinate);
+    public Ranger(Profile profile) {
+        super(profile);
     }
 
     @Override

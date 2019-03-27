@@ -4,11 +4,11 @@ import model.board.Coordinate;
 import model.insect.Insect;
 import model.insect.Profile;
 
-public class Scout  extends Insect {
-    private static Profile profile = new Profile(0,0,0, 0);
+public class Scout extends Insect {
+    private static Profile profile = new Profile(0, 0, 0, 0);
 
-    public Scout(Coordinate coordinate) {
-        super(profile, coordinate);
+    public Scout() {
+        super(profile);
     }
 
     @Override
@@ -27,5 +27,10 @@ public class Scout  extends Insect {
 
     public static void setProfile(Profile profile) {
         Scout.profile = profile;
+    }
+
+    @Override
+    public String toString() {
+        return "s";
     }
 }

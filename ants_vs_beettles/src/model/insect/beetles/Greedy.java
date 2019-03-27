@@ -7,8 +7,8 @@ import model.insect.Profile;
 public class Greedy extends Insect {
     private static Profile profile = new Profile(0,0,0, 0);
 
-    public Greedy(Coordinate coordinate) {
-        super(profile, coordinate);
+    public Greedy(Profile profile) {
+        super(profile);
     }
 
     @Override

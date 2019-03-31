@@ -7,7 +7,7 @@ import model.insect.Profile;
 public class Finder extends Insect {
     private static Profile profile = new Profile(0,0,0, 0);
 
-    public Finder(Profile profile) {
+    public Finder() {
         super(profile);
     }
 

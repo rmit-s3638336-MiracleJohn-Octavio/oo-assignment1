@@ -1,4 +1,4 @@
-package model.helper;
+package model.game_engine;
 
 public enum Mode {
     PLACE,

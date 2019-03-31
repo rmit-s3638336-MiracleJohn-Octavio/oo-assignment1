@@ -7,7 +7,7 @@ import model.insect.Profile;
 public class Bogus extends Insect {
     private static Profile profile = new Profile(0,0,0, 0);
 
-    public Bogus(Profile profile) {
+    public Bogus() {
         super(profile);
     }
 

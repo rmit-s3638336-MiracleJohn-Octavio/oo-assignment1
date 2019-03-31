@@ -7,7 +7,7 @@ import model.insect.Profile;
 public class Heavy extends Insect {
     private static Profile profile = new Profile(0, 0, 0, 0);
 
-    public Heavy(Profile profile) {
+    public Heavy() {
         super(profile);
     }
 

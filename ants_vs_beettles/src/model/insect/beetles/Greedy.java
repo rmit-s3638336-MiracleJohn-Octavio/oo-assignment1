@@ -7,7 +7,7 @@ import model.insect.Profile;
 public class Greedy extends Insect {
     private static Profile profile = new Profile(0,0,0, 0);
 
-    public Greedy(Profile profile) {
+    public Greedy() {
         super(profile);
     }
 

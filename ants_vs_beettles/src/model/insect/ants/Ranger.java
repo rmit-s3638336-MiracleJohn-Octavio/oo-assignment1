@@ -7,7 +7,7 @@ import model.insect.Profile;
 public class Ranger extends Insect {
     private static Profile profile = new Profile(0,0,0, 0);
 
-    public Ranger(Profile profile) {
+    public Ranger() {
         super(profile);
     }
 

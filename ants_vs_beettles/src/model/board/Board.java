@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 // TODO: make the list declaration more generic
 public class Board {
-    private static final int BOARD_SIZE = 20;
+    private static final int BOARD_SIZE = 10;
 
     // TODO: Extract to a new class???
     private static final int PLAYER_0_VALID_PLACING_COL = 0;

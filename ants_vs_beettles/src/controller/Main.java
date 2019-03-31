@@ -1,43 +1,130 @@
 package controller;
 
+import console_view.BoardView;
 import model.board.Board;
 import model.board.Coordinate;
 import model.board.Tile;
+import model.helper.Helper;
+import model.helper.Mode;
 import model.insect.Insect;
 import model.insect.ants.Scout;
-import model.insect.beetles.Finder;
 import model.player.Player;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class Main{
+public class Main {
+    // TODO: move these variables to helper?
+    private static BoardView boardView = new BoardView();
+    private static Board board = new Board(boardView);
+    private static Player[] players = new Player[]{new Player(), new Player()};
+    private static int turn;
+    private static Insect currentInsect;
+    private static List<Tile> currentValidTiles;
+    private static Mode mode;
+
     public static void main(String[] args) {
         // Init the game
-        System.out.println("Ants vs Beetles");
-        Board board = new Board();
-        Player player1 = new Player();
-        Player player2 = new Player();
+        Helper helper = new Helper();
 
-        // Generate the food (which class???) - TO BE IMPLEMENTED IN THE SECOND ASSIGNMENT?
+        // TODO: Generate the food (which class???) - TO BE IMPLEMENTED IN THE SECOND ASSIGNMENT?
 
-        // THE GAME
-        // TODO: get user choice
-        String choice;
-
-        // Player1 chooses to add a scout on the board
-        choice = "add";
-        Insect insect1 = new Scout();
-        ArrayList<Tile> validTiles = board.getValidTiles(1, choice);
-
-        // Player1 places the scout on the board
-        boolean validMovement = false;
-        while (!validMovement) {
-            // TODO: new method: Get user to input the coord
-            Coordinate coordinate = new Coordinate(0,0);
-            insect1.setCoordinate(coordinate);
-
-            validMovement = player1.placeInsect(validTiles, insect1);
+        // GAME LOOP
+        // TODO: change condition to checkWin()
+        boolean keepOnLooping = true;
+        while (keepOnLooping) {
+            // TODO: enable and disable insects; I HAVE NO IDEA HOW TO DO THIS!!!!
+            mockSelectNewInsect();
+            mockSelectTile();
+            keepOnLooping = false;
         }
-        board.registerInsect(insect1);
+    }
+
+    // TODO: move these methods to Helper
+    private static void toggleTurn() {
+        // Reset
+        currentInsect = null;
+        currentValidTiles = null;
+        mode = null;
+
+        // Switch to the other player
+        turn = (turn % 2 == 0) ? 1 : 0;
+    }
+
+    // TODO: some event handlers
+
+    // Mock handler
+    public static void mockSelectNewInsect() {
+        // insectType: to be parsed in
+        String insectType = "scout";
+
+        if (players[turn].reachedMaxInsects()) {
+            // display error (exception?)
+        }
+
+        // Set current insect - this is such a bad way of implementing this but I can't think of any other way
+        // NOTE: something to do with toString()?
+        switch (insectType) {
+            case "scout":
+                currentInsect = new Scout();
+                break;
+            // Other cases
+        }
+
+        mode = Mode.PLACE;
+        currentValidTiles = board.getValidPlaceTiles(turn);
+    }
+
+    // Mock handler
+    public static void mockSelectTile() {
+        // tileCoord: to be parsed in
+        String tileCoord = "0_0";
+
+        // TODO: method to extract x and y from tileCoord
+        int x = 0;
+        int y = 0;
+
+        Tile selectedTile = new Tile(new Coordinate(x, y));
+        processSelectedTile(selectedTile);
+    }
+
+    public static void processSelectedTile(Tile tile) {
+        /**3 cases:
+         * #1: The player click on the tile to select an existing insect to manipulate
+         * #2: The player click on the tile to place the insect / move the insect there / attack the insect on that tile
+         * #3: There's nothing on that tile */
+        switch (mode) {
+            case PLACE:
+                if (validTile(tile)) {
+                    currentInsect.setCoordinate(tile.getCoordinate());
+                    players[turn].placeInsect(currentInsect);
+                    board.registerInsect(currentInsect);
+                    toggleTurn();
+                } else {
+                    // TODO display error
+                }
+                break;
+            case MOVE:
+                if (validTile(tile)) {
+                    // do some stuff
+                    toggleTurn();
+                } else {
+                    // display error
+                }
+                break;
+            case ATTACK:
+                if (validTile(tile)) {
+                    // do some other stuff
+                    toggleTurn();
+                } else {
+                    // display error
+                }
+                break;
+            default:
+                // Check if there's an insect on that tile: YES: set currentInsect; NO: do nothing
+        }
+    }
+
+    private static boolean validTile(Tile tile) {
+        return currentValidTiles.contains(tile);
     }
 }

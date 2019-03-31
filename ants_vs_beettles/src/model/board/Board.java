@@ -5,18 +5,19 @@ import console_view.BoardView;
 
 import java.util.ArrayList;
 
+// TODO: make the list declaration more generic
 public class Board {
-    private static final int BOARD_SIZE = 10;
+    private static final int BOARD_SIZE = 20;
 
     // TODO: Extract to a new class???
-    private static final int PLAYER_1_VALID_PLACING_COL = 0;
-    private static final int PLAYER_2_VALID_PLACING_COL = BOARD_SIZE - 1;
+    private static final int PLAYER_0_VALID_PLACING_COL = 0;
+    private static final int PLAYER_1_VALID_PLACING_COL = BOARD_SIZE - 1;
 
     private Tile[][] tiles = new Tile[BOARD_SIZE][BOARD_SIZE];
     private BoardView boardView;
 
-    public Board() {
-        boardView = new BoardView();
+    public Board(BoardView boardView) {
+        this.boardView = boardView;
         initBoard();
     }
 
@@ -30,28 +31,10 @@ public class Board {
         boardView.drawBoard(tiles);
     }
 
-    // Show the valid tiles that the insect can be placed on / be moved to / attack
-    public ArrayList<Tile> getValidTiles(int player, String choice) {
-        ArrayList<Tile> validTiles;
-
-        // TODO: implement move and attack cases
-        switch (choice) {
-            case "add":
-                validTiles = getValidPlaceTiles(player);
-                break;
-            default:
-                validTiles = null;
-                break;
-        }
-
-        boardView.drawBoardWithValidTiles(tiles, validTiles);
-        return validTiles;
-    }
-
-    private ArrayList<Tile> getValidPlaceTiles(int player) {
+    public ArrayList<Tile> getValidPlaceTiles(int turn) {
         // TODO: Replace with a method?
         // Determine which player is playing
-        int validCol = (player == 1) ? PLAYER_1_VALID_PLACING_COL : PLAYER_2_VALID_PLACING_COL;
+        int validCol = (turn == 0) ? PLAYER_0_VALID_PLACING_COL : PLAYER_1_VALID_PLACING_COL;
 
         // Generate a list of valid tiles (side edge tiles with no insect in it) that the insect can be placed on
         ArrayList<Tile> validTiles = new ArrayList<>();
@@ -61,16 +44,19 @@ public class Board {
             }
         }
 
+        // TODO: Call VIEW method
+        boardView.drawBoardWithValidTiles(tiles, validTiles);
+
         return validTiles;
     }
 
-    private ArrayList<Tile> getValidMoveTiles() {
+    public ArrayList<Tile> getValidMoveTiles(int turn, Insect insect) {
         // TODO
 
         return null;
     }
 
-    private ArrayList<Tile> getValidAttackTiles() {
+    public ArrayList<Tile> getValidAttackTiles(int turn, Insect insect) {
         // TODO
 
         return null;

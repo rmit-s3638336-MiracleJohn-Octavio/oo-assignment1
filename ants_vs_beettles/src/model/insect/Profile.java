@@ -1,7 +1,6 @@
 package model.insect;
 
 public class Profile {
-
     private int healthPoints;
     private int damage;
     private int speed;

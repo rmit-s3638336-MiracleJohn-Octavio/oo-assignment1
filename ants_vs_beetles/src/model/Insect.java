@@ -7,6 +7,9 @@ public abstract class Insect {
 
     protected Image image;
     private enmDirection direction;
+    
+    public Insect() {
+    }
    
     public enmDirection getDirection() {
 		return direction;
@@ -15,9 +18,6 @@ public abstract class Insect {
 	public void setDirection(enmDirection direction) {
 		this.direction = direction;
 	}
-
-	public Insect() {
-    }
 
 	public Image getImage() {
 		return image;

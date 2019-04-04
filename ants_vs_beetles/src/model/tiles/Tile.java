@@ -1,4 +1,4 @@
-package model;
+package model.tiles;
 
 import controller.Config;
 import controller.Config.enmDirection;
@@ -9,15 +9,17 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import model.insects.Insect;
 
-public class Tile extends StackPane {
+public abstract class Tile extends StackPane {
 	
-	private Rectangle border = new Rectangle(Config.TILE_W, Config.TILE_H);
+	protected Rectangle border = new Rectangle(Config.TILE_W, Config.TILE_H);
+	protected Insect insect;
+	
 	private Image img;
 	private ImageView imv = new ImageView();
-	private Insect insect;
 	
-	public Tile(String value) {
+	public Tile() {
 		
         border.setFill(null);
         border.setStroke(Color.BLACK);
@@ -64,7 +66,7 @@ public class Tile extends StackPane {
 	public void setInsect(Insect insect) {
 		this.insect = insect;
 		
-		img = this.insect.image;
+		img = this.insect.getImage();
     	imv = new ImageView(img);
     	imv.setFitHeight(Config.TILE_W);
     	imv.setPreserveRatio(true);

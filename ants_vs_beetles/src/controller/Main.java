@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import controller.Config.enmGameState;
+import controller.Config.enmInsectType;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -16,17 +17,20 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import model.AntPlayer;
-import model.Beast;
-import model.BugPlayer;
-import model.Finder;
-import model.Greedy;
-import model.Heavy;
-import model.Insect;
-import model.Player;
-import model.Ranger;
-import model.Scout;
-import model.Tile;
+import model.insects.Insect;
+import model.insects.ants.Heavy;
+import model.insects.ants.Ranger;
+import model.insects.ants.Scout;
+import model.insects.bugs.Beast;
+import model.insects.bugs.Finder;
+import model.insects.bugs.Greedy;
+import model.players.AntPlayer;
+import model.players.BugPlayer;
+import model.players.Player;
+import model.tiles.AntTile;
+import model.tiles.BoardTile;
+import model.tiles.BugTile;
+import model.tiles.Tile;
 
 public class Main extends Application {
 
@@ -98,7 +102,7 @@ public class Main extends Application {
         // Create an array of Tiles 
         List<Tile> tiles = new ArrayList<>();
         for (int i = 0; i < Config.BOARD_SIZE; i++) {
-            tiles.add(new Tile(String.valueOf("")));
+            tiles.add(new BoardTile());
         }
 
         // Shuffle it
@@ -118,8 +122,6 @@ public class Main extends Application {
         }
 
          System.out.println((Double.toString(pane.getWidth())));
-//         root.setStyle("-fx-background-color: red");
-        
         return pane;
     }
     
@@ -128,7 +130,15 @@ public class Main extends Application {
     	vbox.setPrefWidth(PANE_WIDTH);
     	
         for (int i = 0; i < arrInsects.length; i++) {
-        	Tile tile = new Tile("");
+        	Insect insect = arrInsects[i];
+        	
+        	Tile tile = null;
+        	if (insect.getInsectType() == enmInsectType.ant) {
+        		tile = new AntTile();
+        	} else if (insect.getInsectType() == enmInsectType.bug) {
+        		tile = new BugTile();
+        	}
+        	
         	tile.setPrefSize(Config.TILE_W, Config.TILE_H);
         	tile.setInsect(arrInsects[i]);
         	

@@ -1,9 +1,9 @@
 package controller;
 
-import model.AntPlayer;
-import model.BugPlayer;
-import model.Insect;
-import model.Player;
+import model.insects.Insect;
+import model.players.AntPlayer;
+import model.players.BugPlayer;
+import model.players.Player;
 
 public class Config {
 
@@ -35,6 +35,11 @@ public class Config {
 	public enum enmGameState {
 		setup,
 		play
+	}
+	
+	public enum enmInsectType {
+		ant,
+		bug
 	}
 	
 }

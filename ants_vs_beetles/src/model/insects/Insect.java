@@ -1,11 +1,13 @@
-package model;
+package model.insects;
 
 import controller.Config.enmDirection;
+import controller.Config.enmInsectType;
 import javafx.scene.image.Image;
 
 public abstract class Insect {
 
-    protected Image image;
+    private Image image;
+    private enmInsectType insectType;
     private enmDirection direction;
     
     public Insect() {
@@ -25,6 +27,14 @@ public abstract class Insect {
 
 	public void setImage(Image image) {
 		this.image = image;
+	}
+
+	public enmInsectType getInsectType() {
+		return insectType;
+	}
+
+	public void setInsectType(enmInsectType insectType) {
+		this.insectType = insectType;
 	}
    
 }

@@ -2,71 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cad0eaf8-b822-4e19-85e8-773aeffe7fa9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beetles/src/assets/miniNetLogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beetles/src/controller/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beetles/src/controller/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beetles/src/controller/temp.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beetles/src/view/Controls.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beetles/src/view/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beetles/src/view/test.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/oo-assignment1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/oo-assignment1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/.project" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/.project" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/ants_vs_beettles.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/ants_vs_beettles.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/.idea/module_oo-assignment1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/.idea/oo-assignment1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/META-INF/oo-assignment1.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/ants_vs_beettles/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/ants_vs_beettles/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/ants_vs_beettles/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/ants_vs_beettles/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/ants_vs_beettles/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/ants_vs_beettles/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/ants_vs_beettles/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/ants_vs_beettles/ants_vs_beettles.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/controller/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/board/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/board/Coordinate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/board/Tile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/insect/Insect.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/insect/Profile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/insect/ants/Heavy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/insect/ants/Ranger.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/insect/ants/Scout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/insect/beetles/Bogus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/insect/beetles/Finder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/insect/beetles/Greedy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/player/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/oo-assignment1.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/oo-assignment1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/controller/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/controller/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/board/Coordinate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/board/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Insect.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insect/Insect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insect/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Heavy.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insect/ants/Heavy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Ranger.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insect/ants/Ranger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Scout.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insect/ants/Scout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Bogus.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insect/beetles/Bogus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Finder.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insect/beetles/Finder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Greedy.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insect/beetles/Greedy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beetles/src/controller/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/controller/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beetles/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beetles/src/model/AntPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/players/AntPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beetles/src/model/Beast.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insects/bugs/Beast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beetles/src/model/BugPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/players/BugPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beetles/src/model/Finder.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insects/bugs/Finder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beetles/src/model/Greedy.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insects/bugs/Greedy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beetles/src/model/Heavy.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insects/ants/Heavy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beetles/src/model/Insect.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insects/Insect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beetles/src/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/players/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beetles/src/model/Ranger.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insects/ants/Ranger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beetles/src/model/Scout.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/insects/ants/Scout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beetles/src/model/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beetles/src/model/tiles/Tile.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,48 +29,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ants_vs_beetles/src/controller/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="375">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ants_vs_beetles/src/controller/temp.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ants_vs_beetles/src/view/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ants_vs_beetles/src/view/test.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -185,7 +99,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -220,13 +134,29 @@
             </path>
             <path>
               <item name="oo-assignment1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oo-assignment1" type="462c0819:PsiDirectoryNode" />
+              <item name="ants_vs_beetles" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="insects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oo-assignment1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oo-assignment1" type="462c0819:PsiDirectoryNode" />
+              <item name="ants_vs_beetles" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="players" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oo-assignment1" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -318,7 +248,8 @@
       <workItem from="1553584624335" duration="1011000" />
       <workItem from="1553634591148" duration="597000" />
       <workItem from="1553724968089" duration="136000" />
-      <workItem from="1554099006947" duration="703000" />
+      <workItem from="1554099006947" duration="1165000" />
+      <workItem from="1554339756740" duration="150000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1553493851514</created>
@@ -331,12 +262,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25189000" />
+    <option name="totallyTimeSpent" value="25801000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="809" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12804006" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22246066" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -535,16 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beetles/src/controller/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beetles/src/view/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -556,20 +477,27 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beetles/src/view/test.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beetles/src/controller/temp.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beetles/src/controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

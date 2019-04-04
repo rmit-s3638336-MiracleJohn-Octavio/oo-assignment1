@@ -1,10 +1,8 @@
 package model.insect.beetles;
 
-import model.board.Coordinate;
-import model.insect.Insect;
 import model.insect.Profile;
 
-public class Finder extends Insect {
+public class Finder extends Beetle {
     private static Profile profile = new Profile(0,0,0, 0);
 
     public Finder() {
@@ -12,17 +10,8 @@ public class Finder extends Insect {
     }
 
     @Override
-    public boolean move() {
-        return false;
-    }
-
-    @Override
-    public boolean attack() {
-        return false;
-    }
-
-    public static void setProfile(Profile profile) {
-        Finder.profile = profile;
+    public void airAttack() {
+        // TODO
     }
 
     @Override

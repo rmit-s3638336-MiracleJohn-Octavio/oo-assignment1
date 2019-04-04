@@ -1,10 +1,8 @@
 package model.insect.beetles;
 
-import model.board.Coordinate;
-import model.insect.Insect;
 import model.insect.Profile;
 
-public class Greedy extends Insect {
+public class Greedy extends Beetle {
     private static Profile profile = new Profile(0,0,0, 0);
 
     public Greedy() {
@@ -12,16 +10,12 @@ public class Greedy extends Insect {
     }
 
     @Override
-    public boolean move() {
-        return false;
+    public void airAttack() {
+        // TODO
     }
 
     @Override
-    public boolean attack() {
-        return false;
-    }
-
-    public static void setProfile(Profile profile) {
-        Greedy.profile = profile;
+    public String toString() {
+        return "g";
     }
 }

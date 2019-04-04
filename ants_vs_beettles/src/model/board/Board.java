@@ -5,7 +5,6 @@ import console_view.BoardView;
 
 import java.util.ArrayList;
 
-// TODO: make the list declaration more generic
 public class Board {
     private static final int BOARD_SIZE = 10;
 
@@ -28,7 +27,12 @@ public class Board {
             }
         }
 
+        // TODO: call VIEW
         boardView.drawBoard(tiles);
+    }
+
+    public Tile getTile(Coordinate coordinate) {
+        return tiles[coordinate.getX()][coordinate.getY()];
     }
 
     public ArrayList<Tile> getValidPlaceTiles(int turn) {
@@ -50,13 +54,13 @@ public class Board {
         return validTiles;
     }
 
-    public ArrayList<Tile> getValidMoveTiles(int turn, Insect insect) {
+    public ArrayList<Tile> getValidMoveTiles(Insect insect) {
         // TODO
 
         return null;
     }
 
-    public ArrayList<Tile> getValidAttackTiles(int turn, Insect insect) {
+    public ArrayList<Tile> getValidAttackTiles(Insect insect) {
         // TODO
 
         return null;

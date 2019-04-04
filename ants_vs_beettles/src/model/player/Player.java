@@ -15,13 +15,12 @@ public class Player {
         return insects.size() == MAX_INSECT;
     }
 
-    public boolean placeInsect(Insect insect) {
+    public void placeInsect(Insect insect) {
         insects.put(counter++, insect);
-        return true;
     }
 
-    public boolean removeInsect(int id) {
+    public void removeInsect(int id) {
         // TODO
-        return false;
+        insects.remove(id);
     }
 }

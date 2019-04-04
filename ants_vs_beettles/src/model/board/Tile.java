@@ -3,9 +3,8 @@ package model.board;
 import model.insect.Insect;
 
 public class Tile {
-    Coordinate coordinate;
-    Insect insect = null;
-//    boolean food = false;
+    private Coordinate coordinate;
+    private Insect insect = null;
 
     public Tile(Coordinate coordinate) {
         this.coordinate = coordinate;

@@ -1,11 +1,10 @@
 package model.insect;
 
-import model.board.Coordinate;
+import model.board.*;
 
 public abstract class Insect {
     private int healthPoints;
     private Profile profile;
-    private Coordinate coordinate;
 
     public Insect(Profile profile) {
         this.profile = profile;
@@ -14,14 +13,6 @@ public abstract class Insect {
 
     public void decreaseHealthPoints(int damage) {
         healthPoints -= damage;
-    }
-
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
-    }
-
-    public Coordinate getCoordinate() {
-        return coordinate;
     }
 
     public Profile getProfile() {

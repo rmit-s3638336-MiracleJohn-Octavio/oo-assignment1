@@ -1,4 +1,4 @@
-package console_view;
+package view;
 
 public class ErrorMessage {
     public void printError(String msg) {

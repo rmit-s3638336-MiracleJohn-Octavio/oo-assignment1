@@ -1,7 +1,7 @@
 package model.board;
 
 import model.insect.Insect;
-import console_view.BoardView;
+import view.BoardView;
 
 import java.util.ArrayList;
 
@@ -68,7 +68,7 @@ public class Board {
 
     // Keep a record of the insect in its current tile
     public void registerInsect(Insect insect) {
-        tiles[insect.getCoordinate().getX()][insect.getCoordinate().getY()].setInsect(insect);
-        boardView.drawBoard(tiles);
+//        tiles[insect.getCoordinate().getX()][insect.getCoordinate().getY()].setInsect(insect);
+//        boardView.drawBoard(tiles);
     }
 }

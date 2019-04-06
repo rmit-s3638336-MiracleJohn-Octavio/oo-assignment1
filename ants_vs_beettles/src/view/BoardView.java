@@ -1,4 +1,4 @@
-package console_view;
+package view;
 
 import model.board.Tile;
 

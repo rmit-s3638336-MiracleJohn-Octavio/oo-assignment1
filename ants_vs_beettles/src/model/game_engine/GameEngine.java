@@ -1,8 +1,5 @@
 package model.game_engine;
 
-import com.google.java.contract.Requires;
-import console_view.BoardView;
-import console_view.ErrorMessage;
 import model.board.Board;
 import model.board.Coordinate;
 import model.board.Tile;
@@ -14,6 +11,8 @@ import model.insect.beetles.Bogus;
 import model.insect.beetles.Finder;
 import model.insect.beetles.Greedy;
 import model.player.Player;
+import view.BoardView;
+import view.ErrorMessage;
 
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class GameEngine {
 
     // TODO: add methods that set mode to MOVE or ATTACK here
 
-    @Requires("insectType != null")
+//    @Requires("insectType != null")
     // TODO: Another way of creating a new insect - factory?
     private Insect newInsect(String insectType) {
         Insect insect = null;
@@ -99,15 +98,15 @@ public class GameEngine {
     }
 
     private void placeInsectOnto(Tile selectedTile) {
-        if (validTileSelection(selectedTile)) {
-            currentInsect.setCoordinate(selectedTile.getCoordinate());
-            players[turn].placeInsect(currentInsect);
-            board.registerInsect(currentInsect);
-            toggleTurn();
-        } else {
-            // TODO: VIEW - display error
-            errorMessage.printError("The insect cannot be placed on the selected tile.");
-        }
+//        if (validTileSelection(selectedTile)) {
+//            currentInsect.setCoordinate(selectedTile.getCoordinate());
+//            players[turn].placeInsect(currentInsect);
+//            board.registerInsect(currentInsect);
+//            toggleTurn();
+//        } else {
+//            // TODO: VIEW - display error
+//            errorMessage.printError("The insect cannot be placed on the selected tile.");
+//        }
     }
 
     // TODO

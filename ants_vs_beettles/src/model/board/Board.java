@@ -12,7 +12,7 @@ public class Board {
     private static final int PLAYER_0_VALID_PLACING_COL = 0;
     private static final int PLAYER_1_VALID_PLACING_COL = BOARD_SIZE - 1;
 
-    private Tile[][] tiles = new Tile[BOARD_SIZE][BOARD_SIZE];
+    private TileOld[][] tiles = new TileOld[BOARD_SIZE][BOARD_SIZE];
     private BoardView boardView;
 
     public Board(BoardView boardView) {
@@ -23,7 +23,7 @@ public class Board {
     private void initBoard() {
         for (int row = 0; row < BOARD_SIZE; row++) {
             for (int col = 0; col < BOARD_SIZE; col++) {
-                tiles[row][col] = new Tile(new Coordinate(row, col));
+                tiles[row][col] = new TileOld(new Coordinate(row, col));
             }
         }
 
@@ -31,17 +31,17 @@ public class Board {
         boardView.drawBoard(tiles);
     }
 
-    public Tile getTile(Coordinate coordinate) {
+    public TileOld getTile(Coordinate coordinate) {
         return tiles[coordinate.getX()][coordinate.getY()];
     }
 
-    public ArrayList<Tile> getValidPlaceTiles(int turn) {
+    public ArrayList<TileOld> getValidPlaceTiles(int turn) {
         // TODO: Replace with a method?
         // Determine which player is playing
         int validCol = (turn == 0) ? PLAYER_0_VALID_PLACING_COL : PLAYER_1_VALID_PLACING_COL;
 
         // Generate a list of valid tiles (side edge tiles with no insect in it) that the insect can be placed on
-        ArrayList<Tile> validTiles = new ArrayList<>();
+        ArrayList<TileOld> validTiles = new ArrayList<>();
         for (int row = 0; row < BOARD_SIZE; row++) {
             if (tiles[row][validCol].getInsect() == null) {
                 validTiles.add(tiles[row][validCol]);
@@ -54,13 +54,13 @@ public class Board {
         return validTiles;
     }
 
-    public ArrayList<Tile> getValidMoveTiles(Insect insect) {
+    public ArrayList<TileOld> getValidMoveTiles(Insect insect) {
         // TODO
 
         return null;
     }
 
-    public ArrayList<Tile> getValidAttackTiles(Insect insect) {
+    public ArrayList<TileOld> getValidAttackTiles(Insect insect) {
         // TODO
 
         return null;

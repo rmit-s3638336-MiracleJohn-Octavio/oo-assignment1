@@ -17,7 +17,7 @@ public class Config {
 	
 	// Window Size
 	public static final Double WINDOW_W = (double) TILE_W * COLUMN_COUNT;   // tileWidth * columnCount
-	public static final Double WINDOW_H = (double) WINDOW_W;
+	public static final Double WINDOW_H = (double) WINDOW_W + HEADER_HEIGHT;
 	
 	// Test Switch
 	public static int playerSwitch = 1;

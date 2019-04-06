@@ -1,5 +1,6 @@
 package model.insect.beetles;
 
+import javafx.scene.image.Image;
 import model.insect.Profile;
 
 public class Greedy extends Beetle {
@@ -7,6 +8,8 @@ public class Greedy extends Beetle {
 
     public Greedy() {
         super(profile);
+        this.image = new Image("/assets/bug-red.png",200,150,true,true);
+        setImage(image);
     }
 
     @Override

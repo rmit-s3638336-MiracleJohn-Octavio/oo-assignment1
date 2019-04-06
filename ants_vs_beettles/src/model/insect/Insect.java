@@ -1,9 +1,11 @@
 package model.insect;
 
-import model.board.*;
+import javafx.scene.image.Image;
 
 public abstract class Insect {
-    private int healthPoints;
+	
+	protected Image image;
+	private int healthPoints;
     private Profile profile;
 
     public Insect(Profile profile) {
@@ -22,4 +24,12 @@ public abstract class Insect {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
+    
+    public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
 }

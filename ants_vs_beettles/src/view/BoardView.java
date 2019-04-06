@@ -1,11 +1,11 @@
 package view;
 
-import model.board.Tile;
+import model.board.TileOld;
 
 import java.util.ArrayList;
 
 public class BoardView {
-    public void drawBoard(Tile[][] tiles) {
+    public void drawBoard(TileOld[][] tiles) {
         System.out.println("\nBoard: ");
         for (int row = 0; row < tiles.length; row++) {
             System.out.print("|");
@@ -16,7 +16,7 @@ public class BoardView {
         }
     }
 
-    public void drawBoardWithValidTiles(Tile[][] tiles, ArrayList<Tile> validTiles) {
+    public void drawBoardWithValidTiles(TileOld[][] tiles, ArrayList<TileOld> validTiles) {
         System.out.println("\nValid tiles (*): ");
         int index = 0;
         for (int row = 0; row < tiles.length; row++) {

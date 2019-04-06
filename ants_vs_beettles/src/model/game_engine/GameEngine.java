@@ -2,7 +2,7 @@ package model.game_engine;
 
 import model.board.Board;
 import model.board.Coordinate;
-import model.board.Tile;
+import model.board.TileOld;
 import model.insect.Insect;
 import model.insect.ants.Heavy;
 import model.insect.ants.Ranger;
@@ -22,7 +22,7 @@ public class GameEngine {
     private Player[] players = new Player[]{new Player(), new Player()};
     private int turn = 0;
     private Insect currentInsect = null;
-    private List<Tile> currentValidTiles = null;
+    private List<TileOld> currentValidTiles = null;
     private Mode mode = null;
     private ErrorMessage errorMessage = new ErrorMessage();
 
@@ -79,7 +79,7 @@ public class GameEngine {
          *      - attack the insect on that tile: valid selectedTile has an insect on it
          * #3: There's nothing on that tile */
 
-        Tile selectedTile = board.getTile(new Coordinate(x, y));
+        TileOld selectedTile = board.getTile(new Coordinate(x, y));
         switch (mode) {
             case PLACE:
                 placeInsectOnto(selectedTile);
@@ -97,7 +97,7 @@ public class GameEngine {
         }
     }
 
-    private void placeInsectOnto(Tile selectedTile) {
+    private void placeInsectOnto(TileOld selectedTile) {
 //        if (validTileSelection(selectedTile)) {
 //            currentInsect.setCoordinate(selectedTile.getCoordinate());
 //            players[turn].placeInsect(currentInsect);
@@ -110,7 +110,7 @@ public class GameEngine {
     }
 
     // TODO
-    private void moveInsectTo(Tile selectedTile) {
+    private void moveInsectTo(TileOld selectedTile) {
         if (validTileSelection(selectedTile)) {
             // TODO: some stuff
             toggleTurn();
@@ -121,7 +121,7 @@ public class GameEngine {
     }
 
     // TODO
-    private void attack(Tile selectedTile) {
+    private void attack(TileOld selectedTile) {
         if (validTileSelection(selectedTile)) {
             // TODO: some other stuff
             toggleTurn();
@@ -131,7 +131,7 @@ public class GameEngine {
         }
     }
 
-    private boolean validTileSelection(Tile selectedTile) {
+    private boolean validTileSelection(TileOld selectedTile) {
         return currentValidTiles.contains(selectedTile);
     }
 

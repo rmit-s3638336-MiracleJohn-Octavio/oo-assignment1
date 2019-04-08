@@ -19,14 +19,16 @@ public class Config {
 	public static final Double WINDOW_W = (double) TILE_W * COLUMN_COUNT;   // tileWidth * columnCount
 	public static final Double WINDOW_H = (double) WINDOW_W + HEADER_HEIGHT;
 	
-	// Test Switch
-	public static int playerSwitch = 1;
-	
 //	public static Insect selectedInsect;
 	
 	public enum enmDirection {
 		left,
 		right
+	}
+	
+	public enum enmPlayerSwitch {
+		player1,
+		player2
 	}
 	
 }

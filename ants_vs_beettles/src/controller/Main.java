@@ -4,17 +4,15 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import model.board.Tile;
 import model.game_engine.GameEngine;
 import view.Board;
 import view.Header;
-import view.Panel;
 import view.PanelLeft;
 import view.PanelRight;
 
 public class Main extends Application {
 
-//    private static GameEngine gameEngine = new GameEngine();
+    private static GameEngine gameEngine = new GameEngine();
 
     /*
      * +------+
@@ -30,11 +28,11 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
     	BorderPane objBorderPane = new BorderPane();
     	objBorderPane.setTop(new Header());
-    	objBorderPane.setLeft(new PanelLeft());
-    	objBorderPane.setCenter(new Board());
-    	objBorderPane.setRight(new PanelRight());
+    	objBorderPane.setLeft(new PanelLeft(primaryStage));
+    	objBorderPane.setCenter(new Board(primaryStage));
+    	objBorderPane.setRight(new PanelRight(primaryStage));
     	
-    	primaryStage.setTitle("Hello World");
+    	primaryStage.setTitle("Ants VS Beetle [Player1 Move]");
         primaryStage.setScene(new Scene(objBorderPane, Config.WINDOW_W + (Config.PANE_WIDTH *2), Config.WINDOW_H));
         primaryStage.show();
     	

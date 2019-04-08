@@ -2,25 +2,16 @@ package model.player;
 
 import model.insect.Insect;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Player {
-    private final int MAX_INSECT = 10;
-    private Map<Integer, Insect> insects = new HashMap<>();
-    private int counter = 0;
+	
+	private Insect selectedInsect = null;
 
-    // Disable the adding insect option
-    public boolean reachedMaxInsects() {
-        return insects.size() == MAX_INSECT;
-    }
+	public Insect getSelectedInsect() {
+		return selectedInsect;
+	}
 
-    public void placeInsect(Insect insect) {
-        insects.put(counter++, insect);
-    }
-
-    public void removeInsect(int id) {
-        // TODO
-        insects.remove(id);
-    }
+	public void setSelectedInsect(Insect selectedInsect) {
+		this.selectedInsect = selectedInsect;
+	}
+	
 }

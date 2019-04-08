@@ -23,6 +23,7 @@ public class Board extends Pane {
         	// Returns the element at a specified position in this list
             Tile tile = tiles.get(i);
             tile.setGamePanel(this);
+            tile.setText(Integer.toString(i));
             GameEngine.panelBoard = this;
             
             // Defines the coordinates

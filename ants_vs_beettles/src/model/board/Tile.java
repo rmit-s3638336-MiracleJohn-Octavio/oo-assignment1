@@ -2,6 +2,7 @@ package model.board;
 
 import controller.Config;
 import controller.Controls;
+import controller.Config.enmDirection;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -9,9 +10,11 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.game_engine.GameEngine;
 import model.insect.*;
@@ -26,6 +29,7 @@ import view.PanelRight;
 
 public class Tile extends StackPane {
 	
+	private Text text = new Text();
 	private Insect assignedInsect;
 	private Rectangle border = new Rectangle(Config.TILE_W, Config.TILE_H);
 	private Image img;
@@ -44,7 +48,7 @@ public class Tile extends StackPane {
     	imv = new ImageView();
 		
     	setAlignment(Pos.CENTER);
-        getChildren().addAll(border, imv);
+        getChildren().addAll(border, text, imv);
         
 		// Events
 		
@@ -59,6 +63,7 @@ public class Tile extends StackPane {
 						if (GameEngine.currentPlayer instanceof Player1) {
 							GameEngine.currentPlayer.setSelectedInsect(getAssignedInsect());
 							clearBorder();
+							highlightLeft();
 						} else {
 							// Current Player is Player2
 							Controls.myAlert("Message Box", "Warning", "Player2 should make the selection from the Beetles!", AlertType.WARNING);
@@ -67,16 +72,13 @@ public class Tile extends StackPane {
 						if (GameEngine.currentPlayer instanceof Player2) {
 							GameEngine.currentPlayer.setSelectedInsect(getAssignedInsect());
 							clearBorder();
+							highlightRight();
 						} else {
 							// Current Player is Player1
 							Controls.myAlert("Message Box", "Warning", "Player1 should make the selection from the Ants!", AlertType.WARNING);
 						}
 					}
-					
 				} else if (getGamePanel() instanceof Board) {
-					
-					clearBorder();	
-					
 					// Check it there is currently selected Insect
 					if (GameEngine.currentPlayer.getSelectedInsect() != null) {
 						// Contains selection
@@ -93,6 +95,7 @@ public class Tile extends StackPane {
 						}
 						
 						GameEngine.currentPlayer.setSelectedInsect(null);
+						clearBorder();
 					} else {
 						// Does not contains selection
 						// Need to select from the Ants
@@ -183,7 +186,41 @@ public class Tile extends StackPane {
 	    }
 	}
 	
+	public void highlightLeft() {
+		Pane panelParent = null;
+		
+		panelParent = (Pane) GameEngine.panelBoard;
+		for (Node component : panelParent.getChildren()) {
+			Tile tempTile = (Tile) component;
+			int arr[] = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90};
+			for (int i=0; i<arr.length; i++) {
+				System.out.println(tempTile.getText());
+				System.out.println(Integer.toString(i));
+				if (arr[i] == Integer.parseInt(tempTile.getText())) {
+					tempTile.border.setFill(Color.LIGHTSTEELBLUE);
+				}
+				
+			}
+	    }
+	}
 	
+	public void highlightRight() {
+		Pane panelParent = null;
+		
+		panelParent = (Pane) GameEngine.panelBoard;
+		for (Node component : panelParent.getChildren()) {
+			Tile tempTile = (Tile) component;
+			int arr[] = {9, 19, 29, 39, 49, 59, 69, 79, 89, 99};
+			for (int i=0; i<arr.length; i++) {
+				System.out.println(tempTile.getText());
+				System.out.println(Integer.toString(i));
+				if (arr[i] == Integer.parseInt(tempTile.getText())) {
+					tempTile.border.setFill(Color.LIGHTSTEELBLUE);
+				}
+				
+			}
+	    }
+	}
 	
 	// Getters and Setters	
 	
@@ -194,6 +231,11 @@ public class Tile extends StackPane {
     	imv = new ImageView(img);
     	imv.setFitHeight(Config.TILE_W);
     	imv.setPreserveRatio(true);
+    	if (insect instanceof Ant) {
+    		imv.setRotate(imv.getRotate() + 90);
+    	} else {
+    		imv.setRotate(imv.getRotate() + -90);
+    	}
     	getChildren().add(imv);
 	}
 	
@@ -213,5 +255,16 @@ public class Tile extends StackPane {
 	public void setGamePanel(Object gamePanel) {
 		this.gamePanel = gamePanel;
 	}
+
+	
+	public String getText() {
+		return text.getText();
+	}
+
+	public void setText(String string) {
+		this.text.setText(string);
+	}
+	
+	
 	
 }

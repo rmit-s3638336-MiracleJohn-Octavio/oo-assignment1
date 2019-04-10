@@ -1,5 +1,6 @@
 package model.board;
 
+import com.google.java.contract.Ensures;
 import model.insect.Insect;
 import console_view.BoardView;
 
@@ -31,8 +32,12 @@ public class Board {
         boardView.drawBoard(tiles);
     }
 
-    public Tile getTile(Coordinate coordinate) {
-        return tiles[coordinate.getX()][coordinate.getY()];
+    public Tile getTile(int x, int y) {
+        return containsCoord(x, y) ? tiles[x][y] : null;
+    }
+
+    private boolean containsCoord(int x, int y) {
+        return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
     }
 
     public ArrayList<Tile> getValidPlaceTiles(int turn) {
@@ -66,6 +71,7 @@ public class Board {
         return null;
     }
 
+    @Ensures("!old(tiles).equals(tiles)")
     // Keep a record of the insect in its current tile
     public void registerInsect(Insect insect) {
         tiles[insect.getCoordinate().getX()][insect.getCoordinate().getY()].setInsect(insect);

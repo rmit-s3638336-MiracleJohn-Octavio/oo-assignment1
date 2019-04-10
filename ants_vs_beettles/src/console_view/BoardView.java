@@ -23,7 +23,7 @@ public class BoardView {
             System.out.print("|");
             for (int col = 0; col < tiles[row].length; col++) {
                 // Default
-                String content = " ";
+                String content = tiles[row][col].toString();
                 // Tiles that can be used
                 if (index < validTiles.size() && tiles[row][col] == validTiles.get(index)) {
                     content = "*";

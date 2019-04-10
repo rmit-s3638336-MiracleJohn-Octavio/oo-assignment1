@@ -2,6 +2,9 @@ package model.insect;
 
 import model.board.Coordinate;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public abstract class Insect {
     private int healthPoints;
     private Profile profile;
@@ -31,4 +34,8 @@ public abstract class Insect {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
+
+    public abstract ArrayList<Coordinate> move();
+
+    public abstract ArrayList<Coordinate> attack();
 }

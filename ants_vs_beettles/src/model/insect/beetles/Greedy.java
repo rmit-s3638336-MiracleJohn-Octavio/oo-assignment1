@@ -1,6 +1,9 @@
 package model.insect.beetles;
 
+import model.board.Coordinate;
 import model.insect.Profile;
+
+import java.util.ArrayList;
 
 public class Greedy extends Beetle {
     private static Profile profile = new Profile(0,0,0, 0);
@@ -10,12 +13,14 @@ public class Greedy extends Beetle {
     }
 
     @Override
-    public void airAttack() {
-        // TODO
+    public String toString() {
+        return "g";
     }
 
     @Override
-    public String toString() {
-        return "g";
+    public ArrayList<Coordinate> attack() {
+        // TODO
+
+        return null;
     }
 }

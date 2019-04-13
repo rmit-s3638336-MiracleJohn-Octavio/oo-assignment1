@@ -4,11 +4,10 @@ import model.insect.Insect;
 import console_view.BoardView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Board {
 	private static final int BOARD_SIZE = 10;
-
-	// TODO: Extract to a new class???
 	private static final int PLAYER_0_VALID_PLACING_COL = 0;
 	private static final int PLAYER_1_VALID_PLACING_COL = BOARD_SIZE - 1;
 
@@ -20,7 +19,7 @@ public class Board {
 		initBoard();
 	}
 
-	public void drawBoard() {
+	public void updateBoard() {
 		boardView.drawBoard(tiles);
 	}
 
@@ -30,9 +29,6 @@ public class Board {
 				tiles[row][col] = new Tile(row, col);
 			}
 		}
-
-		// TODO: call VIEW
-		boardView.drawBoard(tiles);
 	}
 
 	public Tile getTile(int x, int y) {
@@ -44,7 +40,6 @@ public class Board {
 	}
 
 	public ArrayList<Tile> getValidPlaceTiles(int turn) {
-		// TODO: Replace with a method?
 		// Determine which player is playing
 		int validCol = (turn == 0) ? PLAYER_0_VALID_PLACING_COL : PLAYER_1_VALID_PLACING_COL;
 
@@ -63,27 +58,24 @@ public class Board {
 		return validTiles;
 	}
 
-//	public ArrayList<Tile> getValidMoveTiles(Insect insect) {
-//		// TODO
-//		ArrayList<Tile> validTiles = insect.getValidMoveTiles(this);
-//		boardView.drawBoardWithValidTiles(tiles, validTiles);
-//		return validTiles;
-//
-//	}
-
 	public ArrayList<Tile> getValidMoveTiles(Insect insect) {
 		ArrayList<Tile> validTiles = new ArrayList<>();
 
+		// Get the insect's location and move range
 		Tile insectLoc = insect.getTile();
 		int x = insectLoc.getX();
 		int y = insectLoc.getY();
 		int range = insect.getProfile().getSpeed();
 
+		// Get valid tiles
 		validTiles.addAll(insect.getValidMoveTiles(x, y, 1, 0, range, this));
 		validTiles.addAll(insect.getValidMoveTiles(x, y, -1, 0, range, this));
 		validTiles.addAll(insect.getValidMoveTiles(x, y, 0, 1, range, this));
 		validTiles.addAll(insect.getValidMoveTiles(x, y, 0, -1, range, this));
 
+		Collections.sort(validTiles);
+
+		// TODO: VIEW
 		boardView.drawBoardWithValidTiles(tiles, validTiles);
 
 		return validTiles;
@@ -93,16 +85,5 @@ public class Board {
 		// TODO
 
 		return null;
-	}
-
-	// Keep a record of the insect in its current tile
-	public void registerInsect(Insect insect) {
-		int x = insect.getTile().getX();
-		int y = insect.getTile().getY();
-
-		tiles[x][y].setInsect(insect);
-
-		// TODO: Call VIEW method
-		boardView.drawBoard(tiles);
 	}
 }

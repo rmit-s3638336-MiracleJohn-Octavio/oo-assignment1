@@ -36,4 +36,6 @@ public abstract class Insect {
     }
 
     public abstract ArrayList<Tile> getValidMoveTiles(int x, int y, int xInc, int yInc, int range, Board board);
+
+    public abstract ArrayList<Tile> getValidAttackTiles();
 }

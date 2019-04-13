@@ -2,7 +2,7 @@ package model.board;
 
 import model.insect.Insect;
 
-public class Tile {
+public class Tile implements Comparable<Tile>{
 	private int x;
 	private int y;
 	private Insect insect = null;
@@ -44,5 +44,16 @@ public class Tile {
 		}
 
 		return false;
+	}
+
+	@Override
+	public int compareTo(Tile tile) {
+		if (this.equals(tile)) {
+			return 0;
+		} else if (x < tile.getX() || (x == tile.getX() && y < tile.getY())) {
+			return -1;
+		} else {
+			return 1;
+		}
 	}
 }

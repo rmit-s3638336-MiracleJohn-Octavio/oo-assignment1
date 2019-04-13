@@ -35,5 +35,5 @@ public abstract class Insect {
         this.profile = profile;
     }
 
-    public abstract ArrayList<Tile> getValidMoveTiles(Board board);
+    public abstract ArrayList<Tile> getValidMoveTiles(int x, int y, int xInc, int yInc, int range, Board board);
 }

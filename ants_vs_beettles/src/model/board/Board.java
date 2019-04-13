@@ -63,12 +63,30 @@ public class Board {
 		return validTiles;
 	}
 
-	public ArrayList<Tile> getValidMoveTiles(Insect insect) {
-		// TODO
-		ArrayList<Tile> validTiles = insect.getValidMoveTiles(this);
-		boardView.drawBoardWithValidTiles(tiles, validTiles);
-		return validTiles;
+//	public ArrayList<Tile> getValidMoveTiles(Insect insect) {
+//		// TODO
+//		ArrayList<Tile> validTiles = insect.getValidMoveTiles(this);
+//		boardView.drawBoardWithValidTiles(tiles, validTiles);
+//		return validTiles;
+//
+//	}
 
+	public ArrayList<Tile> getValidMoveTiles(Insect insect) {
+		ArrayList<Tile> validTiles = new ArrayList<>();
+
+		Tile insectLoc = insect.getTile();
+		int x = insectLoc.getX();
+		int y = insectLoc.getY();
+		int range = insect.getProfile().getSpeed();
+
+		validTiles.addAll(insect.getValidMoveTiles(x, y, 1, 0, range, this));
+		validTiles.addAll(insect.getValidMoveTiles(x, y, -1, 0, range, this));
+		validTiles.addAll(insect.getValidMoveTiles(x, y, 0, 1, range, this));
+		validTiles.addAll(insect.getValidMoveTiles(x, y, 0, -1, range, this));
+
+		boardView.drawBoardWithValidTiles(tiles, validTiles);
+
+		return validTiles;
 	}
 
 	public ArrayList<Tile> getValidAttackTiles(Insect insect) {

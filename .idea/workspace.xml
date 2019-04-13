@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d3b44bf-cee3-4821-bfa2-d099a0a80d0b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/module_oo-assignment1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/oo-assignment1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/ants_vs_beettles.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/ants_vs_beettles.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/controller/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/GameEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Insect.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Insect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Ant.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Ant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Heavy.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Heavy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Beetle.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Beetle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/ants/Ant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/ants/Ant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/ants/Heavy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/ants/Heavy.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,19 +37,19 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2105" />
+          <entry key="java" value="2190" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2105" />
+          <entry key="JAVA" value="2190" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/GameEngine.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -80,19 +70,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Beetle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="43" column="39" lean-forward="true" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
+            <state relative-caret-position="289">
+              <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="272">
+              <caret line="83" column="77" lean-forward="true" selection-start-line="83" selection-start-column="77" selection-end-line="83" selection-end-column="77" />
               <folding>
                 <element signature="e#527#528#0" expanded="true" />
+                <element signature="e#542#543#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Insect.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="37" column="57" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="57" />
+              <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,19 +102,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Profile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Ant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+            <state relative-caret-position="323">
+              <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -137,15 +119,6 @@
                 <element signature="e#1112#1113#0" expanded="true" />
                 <element signature="e#1137#1138#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Heavy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -180,13 +153,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Insect.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/Board.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/controller/Main.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Heavy.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Beetle.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Ant.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/GameEngine.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Heavy.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/Board.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Ant.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Beetle.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Insect.java" />
       </list>
     </option>
   </component>
@@ -288,7 +261,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555131997211" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555133689190" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -334,12 +307,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555124691412</updated>
-      <workItem from="1555124695279" duration="7292000" />
+      <workItem from="1555124695279" duration="8977000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7292000" />
+    <option name="totallyTimeSpent" value="8977000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1455" height="935" extended-state="6" />
@@ -350,7 +323,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24946237" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24946237" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" weight="0.32876712" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
@@ -359,7 +332,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4358655" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.38231632" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -380,7 +353,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.24946237" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.24946237" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -389,7 +362,7 @@
       <window_info anchor="bottom" id="Messages" order="4" weight="0.32876712" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.38231632" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -430,17 +403,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Profile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Finder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/GameEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="111" column="48" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Heavy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="56" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -455,51 +435,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Heavy.java">
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Profile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="187">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/Board.java">
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Beetle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#527#528#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Ant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+        <state relative-caret-position="323">
+          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Insect.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
-          <caret line="37" column="57" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="57" />
+          <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Beetle.java">
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="43" column="39" lean-forward="true" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/GameEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="111" column="48" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
+        <state relative-caret-position="272">
+          <caret line="83" column="77" lean-forward="true" selection-start-line="83" selection-start-column="77" selection-end-line="83" selection-end-column="77" />
+          <folding>
+            <element signature="e#527#528#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

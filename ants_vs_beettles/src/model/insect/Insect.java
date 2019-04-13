@@ -1,6 +1,9 @@
 package model.insect;
 
+import model.board.Board;
 import model.board.Tile;
+
+import java.util.ArrayList;
 
 public abstract class Insect {
     private int healthPoints;
@@ -31,4 +34,6 @@ public abstract class Insect {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
+
+    public abstract ArrayList<Tile> getValidMoveTiles(Board board);
 }

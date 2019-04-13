@@ -17,6 +17,10 @@ public class Main {
         mockSelectTile("0_9");
 
         mockSelectTile("0_11");
+
+        mockSelectTile("5_0");
+        mockSelectOption("move");
+        mockSelectTile("4_0");
     }
 
     // TODO: some event handlers
@@ -34,5 +38,9 @@ public class Main {
         int y = Integer.parseInt(coord[1]);
 
         gameEngine.processSelectedTile(x, y);
+    }
+
+    public static void mockSelectOption(String option) {
+        gameEngine.setMode(option);
     }
 }

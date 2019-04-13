@@ -50,6 +50,10 @@ public class GameEngine {
 		if (mode.equals("move")) {
 			this.mode = Mode.MOVE;
 			currentValidTiles = board.getValidMoveTiles(currentInsect);
+			System.out.println("Valid tiles: ");
+			for (Tile tile : currentValidTiles) {
+				System.out.println("\t" + tile.getX() + "_" + tile.getY());
+			}
 		} else {
 			this.mode = Mode.ATTACK;
 		}
@@ -77,7 +81,7 @@ public class GameEngine {
 			attack(selectedTile);
 			break;
 		case UNDEFINED:
-			setCurrentinsect(selectedTile);
+			setCurrentInsect(selectedTile);
 		}
 	}
 
@@ -105,7 +109,10 @@ public class GameEngine {
 		if (validTileSelection(selectedTile)) {
 			currentInsect.getTile().resetInsect();
 			currentInsect.setTile(selectedTile);
+			selectedTile.setInsect(currentInsect);
 
+			// TODO: delete this
+			board.drawBoard();
 			toggleTurn();
 		} else {
 			// TODO: VIEW - display error

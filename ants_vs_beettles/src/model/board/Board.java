@@ -20,6 +20,10 @@ public class Board {
 		initBoard();
 	}
 
+	public void drawBoard() {
+		boardView.drawBoard(tiles);
+	}
+
 	private void initBoard() {
 		for (int row = 0; row < BOARD_SIZE; row++) {
 			for (int col = 0; col < BOARD_SIZE; col++) {
@@ -61,7 +65,9 @@ public class Board {
 
 	public ArrayList<Tile> getValidMoveTiles(Insect insect) {
 		// TODO
-		return insect.getValidMoveTiles(BOARD_SIZE);
+		ArrayList<Tile> validTiles = insect.getValidMoveTiles(this);
+		boardView.drawBoardWithValidTiles(tiles, validTiles);
+		return validTiles;
 
 	}
 

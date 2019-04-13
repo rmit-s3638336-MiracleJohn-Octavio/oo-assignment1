@@ -3,7 +3,7 @@ package model.insect.ants;
 import model.insect.Profile;
 
 public class Heavy extends Ant {
-    private static Profile profile = new Profile(0, 0, 0, 0);
+    private static Profile profile = new Profile(0, 0, 1, 0);
 
     public Heavy() {
         super(profile);

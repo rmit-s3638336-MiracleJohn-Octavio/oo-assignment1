@@ -5,13 +5,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="344.0" prefWidth="348.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
-   <children>
-      <Group layoutX="31.0" layoutY="21.0" StackPane.alignment="CENTER">
-         <children>
-            <BorderPane prefHeight="302.0" prefWidth="287.0" />
-         </children>
-      </Group>
-   </children>
-</AnchorPane>
+<BorderPane fx:id="dashboard" prefHeight="414.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
+   <top>
+      <Pane onMouseClicked="#topPane_clicked" prefHeight="87.0" prefWidth="469.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <HBox prefHeight="65.0" prefWidth="469.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

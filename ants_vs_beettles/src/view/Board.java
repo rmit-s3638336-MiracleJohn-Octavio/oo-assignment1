@@ -10,12 +10,12 @@ import model.game_engine.GameEngine;
 
 public class Board extends Pane {
 
-	public Board(Stage primaryStage) {
+	public Board() {
 		
 		// Create an array of Tiles 
         List<Tile> tiles = new ArrayList<>();
         for (int i = 0; i < Config.BOARD_SIZE; i++) {
-            tiles.add(new Tile(primaryStage));
+            tiles.add(new Tile());
         }
         
 		for (int i = 0; i < tiles.size(); i++) {

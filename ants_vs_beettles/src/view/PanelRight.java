@@ -13,7 +13,7 @@ public class PanelRight extends Panel {
 	public PanelRight(Stage primaryStage) {
 		for (int i = 0; i < 3; i++) {
 
-        	Tile tile = new Tile(primaryStage);
+        	Tile tile = new Tile();
         	tile.setGamePanel(this);
         	GameEngine.panelRight = this;
         	tile.setStrokeColor(Color.BLUE);

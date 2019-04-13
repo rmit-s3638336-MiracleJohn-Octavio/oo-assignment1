@@ -1,6 +1,8 @@
 package controller;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -13,6 +15,7 @@ import view.PanelRight;
 public class Main extends Application {
 
     private static GameEngine gameEngine = new GameEngine();
+    public static Stage mainStage;
 
     /*
      * +------+
@@ -26,16 +29,16 @@ public class Main extends Application {
     
     @Override
 	public void start(Stage primaryStage) throws Exception {
-    	BorderPane objBorderPane = new BorderPane();
-    	objBorderPane.setTop(new Header());
-    	objBorderPane.setLeft(new PanelLeft(primaryStage));
-    	objBorderPane.setCenter(new Board(primaryStage));
-    	objBorderPane.setRight(new PanelRight(primaryStage));
+    	mainStage = primaryStage;
+    	
+    	Parent root = FXMLLoader.load(getClass().getResource("/view/Dashboard.fxml"));
     	
     	primaryStage.setTitle("Ants VS Beetle [Player1 Move]");
-        primaryStage.setScene(new Scene(objBorderPane, Config.WINDOW_W + (Config.PANE_WIDTH *2), Config.WINDOW_H));
+        primaryStage.setScene(new Scene(root, Config.WINDOW_W + (Config.PANE_WIDTH *2), Config.WINDOW_H));
         primaryStage.show();
     	
+        // This is to determine the current width and height of the whole window
+        
         primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
         	primaryStage.setTitle(newVal.toString());
        });
@@ -43,28 +46,6 @@ public class Main extends Application {
         primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
         	primaryStage.setTitle(newVal.toString());
        });
-        
-//    	mockSelectNewInsect("scout");
-//        mockSelectTile("5_0");
-//        mockSelectNewInsect("finder");
-//        mockSelectTile("0_9");
 	}
-
-    // TODO: some event handlers
-
-    // Mock handler
-    public static void mockSelectNewInsect(String insectType) {
-//        gameEngine.selectNewInsect(insectType);
-    }
-
-    // Mock handler
-    public static void mockSelectTile(String tileCoord) {
-//        String[] coord = tileCoord.split("_");
-//        int x = Integer.parseInt(coord[0]);
-//        int y = Integer.parseInt(coord[1]);
-//
-//        gameEngine.processSelectedTile(x, y);
-    }
-
 	
 }

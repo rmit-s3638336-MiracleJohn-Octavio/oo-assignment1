@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.layout.StackPane?>
+
+
+<StackPane fx:id="tile" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.TileController">
+   <children>
+      <Rectangle fx:id="rectangle" arcHeight="5.0" fill="#1f93ff00" height="40.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+      <ImageView fx:id="imgTile" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#rect_mouseClicked" onMouseEntered="#rect_mouseEntered" onMouseExited="#rect_mouseExited" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</StackPane>

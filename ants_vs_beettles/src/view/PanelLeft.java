@@ -14,7 +14,7 @@ public class PanelLeft extends Panel {
 	public PanelLeft(Stage primaryStage) {
 		for (int i = 0; i < 3; i++) {
 
-        	Tile tile = new Tile(primaryStage);
+        	Tile tile = new Tile();
         	tile.setGamePanel(this);
         	GameEngine.panelLeft = this;
         	tile.setStrokeColor(Color.BLUE);

@@ -2,7 +2,6 @@ package model.board;
 
 import controller.Config;
 import controller.Controls;
-import controller.Config.enmDirection;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -15,7 +14,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import model.game_engine.GameEngine;
 import model.insect.*;
 import model.insect.ants.Ant;
@@ -37,7 +35,7 @@ public class Tile extends StackPane {
 	private Color strokeColor = Color.RED;
 	private Object gamePanel = null; // This can be PanelLeft, PanelRight, and Board 
 
-	public Tile(Stage primaryStage) {
+	public Tile() {
 		super();
 		
 		border.setFill(null);
@@ -88,10 +86,10 @@ public class Tile extends StackPane {
 						// Change the switch
 						if (GameEngine.currentPlayer instanceof Player1) {
 							GameEngine.currentPlayer = GameEngine.player2;
-							primaryStage.setTitle("Ants VS Beetle [Player2 Move]");
+//							primaryStage.setTitle("Ants VS Beetle [Player2 Move]");
 						} else if (GameEngine.currentPlayer instanceof Player2) {
 							GameEngine.currentPlayer = GameEngine.player1;
-							primaryStage.setTitle("Ants VS Beetle [Player1 Move]");
+//							primaryStage.setTitle("Ants VS Beetle [Player1 Move]");
 						}
 						
 						GameEngine.currentPlayer.setSelectedInsect(null);

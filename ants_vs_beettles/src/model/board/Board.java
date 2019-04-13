@@ -15,15 +15,15 @@ public class Board {
     private Tile[][] tiles = new Tile[BOARD_SIZE][BOARD_SIZE];
     private BoardView boardView;
 
-    public Board(BoardView boardView) {
-        this.boardView = boardView;
+    public Board() {
+        boardView = new BoardView();
         initBoard();
     }
 
     private void initBoard() {
         for (int row = 0; row < BOARD_SIZE; row++) {
             for (int col = 0; col < BOARD_SIZE; col++) {
-                tiles[row][col] = new Tile(new Coordinate(row, col));
+                tiles[row][col] = new Tile(row, col);
             }
         }
 
@@ -31,8 +31,12 @@ public class Board {
         boardView.drawBoard(tiles);
     }
 
-    public Tile getTile(Coordinate coordinate) {
-        return tiles[coordinate.getX()][coordinate.getY()];
+    public Tile getTile(int x, int y) {
+        return containsTile(x, y) ? tiles[x][y] : null;
+    }
+
+    private boolean containsTile(int x, int y) {
+        return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
     }
 
     public ArrayList<Tile> getValidPlaceTiles(int turn) {
@@ -68,7 +72,12 @@ public class Board {
 
     // Keep a record of the insect in its current tile
     public void registerInsect(Insect insect) {
-        tiles[insect.getCoordinate().getX()][insect.getCoordinate().getY()].setInsect(insect);
+        int x = insect.getTile().getX();
+        int y = insect.getTile().getY();
+
+        tiles[x][y].setInsect(insect);
+
+        // TODO: Call VIEW method
         boardView.drawBoard(tiles);
     }
 }

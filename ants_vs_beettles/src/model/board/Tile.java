@@ -3,15 +3,22 @@ package model.board;
 import model.insect.Insect;
 
 public class Tile {
-    private Coordinate coordinate;
+    private int x;
+    private int y;
     private Insect insect = null;
 
-    public Tile(Coordinate coordinate) {
-        this.coordinate = coordinate;
+
+    public Tile(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
-    public Coordinate getCoordinate() {
-        return coordinate;
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     public Insect getInsect() {
@@ -29,6 +36,10 @@ public class Tile {
 
     @Override
     public boolean equals(Object object) {
-        return coordinate.equals(((Tile) object).getCoordinate());
+        if (object instanceof Tile) {
+            return x == ((Tile) object).x && y == ((Tile) object).y;
+        }
+
+        return false;
     }
 }

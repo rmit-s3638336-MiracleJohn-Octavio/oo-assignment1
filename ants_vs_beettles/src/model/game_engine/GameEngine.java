@@ -1,31 +1,36 @@
 package model.game_engine;
 
-import com.google.java.contract.Requires;
-import console_view.BoardView;
+import com.google.java.contract.Ensures;
 import console_view.ErrorMessage;
 import model.board.Board;
-import model.board.Coordinate;
 import model.board.Tile;
 import model.insect.Insect;
-import model.insect.ants.Heavy;
-import model.insect.ants.Ranger;
-import model.insect.ants.Scout;
-import model.insect.beetles.Bogus;
-import model.insect.beetles.Finder;
-import model.insect.beetles.Greedy;
+import model.insect.InsectGenerator;
 import model.player.Player;
 
 import java.util.List;
 
 public class GameEngine {
-    private BoardView boardView = new BoardView();
-    private Board board = new Board(boardView);
-    private Player[] players = new Player[]{new Player(), new Player()};
-    private int turn = 0;
-    private Insect currentInsect = null;
-    private List<Tile> currentValidTiles = null;
-    private Mode mode = null;
-    private ErrorMessage errorMessage = new ErrorMessage();
+    private Board board;
+    private Player[] players;
+    private int turn;
+    private InsectGenerator insectGenerator;
+    private Insect currentInsect;
+    private List<Tile> currentValidTiles;
+    private Mode mode;
+    private ErrorMessage errorMessage;
+
+    public GameEngine() {
+        board = new Board();
+
+        // TODO: left and right panels???
+
+        players = new Player[]{new Player(), new Player()};
+        turn = 0;
+        insectGenerator = new InsectGenerator();
+        mode = Mode.UNDEFINED;
+        errorMessage = new ErrorMessage();
+    }
 
     public void selectNewInsect(String insectType) {
         if (players[turn].reachedMaxInsects()) {
@@ -34,42 +39,12 @@ public class GameEngine {
             return;
         }
 
-        currentInsect = newInsect(insectType);
+        currentInsect = insectGenerator.createInsect(insectType);
         mode = Mode.PLACE;
         currentValidTiles = board.getValidPlaceTiles(turn);
     }
 
-    // TODO: add methods that set mode to MOVE or ATTACK here
-
-    @Requires("insectType != null")
-    // TODO: Another way of creating a new insect - factory?
-    private Insect newInsect(String insectType) {
-        Insect insect = null;
-        // Set current insect - this is such a bad way of implementing this but I can't think of any other way
-        // NOTE: something to do with toString()?
-        switch (insectType) {
-            case "scout":
-                insect = new Scout();
-                break;
-            case "heavy":
-                insect = new Heavy();
-                break;
-            case "ranger":
-                insect = new Ranger();
-                break;
-            case "finder":
-                insect = new Finder();
-                break;
-            case "greedy":
-                insect = new Greedy();
-                break;
-            case "bogus":
-                insect = new Bogus();
-                break;
-        }
-
-        return insect;
-    }
+    // TODO: add methods that set mode to MOVE or ATTACK here - to be called from the controller
 
     public void processSelectedTile(int x, int y) {
         /**3 cases:
@@ -77,10 +52,10 @@ public class GameEngine {
          * #2: The player click on the tile to
          *      - place the insect: currentInsect.getCoordinate == null
          *      - move the insect there: valid selectedTile has no insect on it
-         *      - attack the insect on that tile: valid selectedTile has an insect on it
+         *      - attack the insect on that tile: valid selectedTile has an insect on it (MEH)
          * #3: There's nothing on that tile */
 
-        Tile selectedTile = board.getTile(new Coordinate(x, y));
+        Tile selectedTile = board.getTile(x, y);
         switch (mode) {
             case PLACE:
                 placeInsectOnto(selectedTile);
@@ -91,16 +66,12 @@ public class GameEngine {
             case ATTACK:
                 attack(selectedTile);
                 break;
-            default:
-                // Select an insect to play
-                currentInsect = selectedTile.getInsect();
-                // TODO: call VIEW (either here or in Board) to display the 2 options
         }
     }
 
     private void placeInsectOnto(Tile selectedTile) {
         if (validTileSelection(selectedTile)) {
-            currentInsect.setCoordinate(selectedTile.getCoordinate());
+            currentInsect.setTile(selectedTile);
             players[turn].placeInsect(currentInsect);
             board.registerInsect(currentInsect);
             toggleTurn();
@@ -136,11 +107,12 @@ public class GameEngine {
         return currentValidTiles.contains(selectedTile);
     }
 
+    @Ensures("old(turn) != turn")
     private void toggleTurn() {
         // Reset
         currentInsect = null;
         currentValidTiles = null;
-        mode = null;
+        mode = Mode.UNDEFINED;
 
         // TODO: checkWin() and enable/disable ants/beetles
 

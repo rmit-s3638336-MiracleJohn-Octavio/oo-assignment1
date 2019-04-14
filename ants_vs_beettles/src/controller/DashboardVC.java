@@ -8,7 +8,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import model.insect.Insect;
 
 import java.io.IOException;
 import controller.TileVC;
@@ -16,7 +18,13 @@ import controller.TileVC;
 public class DashboardVC extends BorderPane {
 
 	@FXML
-	private BorderPane dashboard;
+	private BorderPane dashboard; 
+	
+	@FXML
+	private VBox vbxPanelLeft;
+	
+	@FXML
+	private VBox vbxPanelRight;
 	
 	public void initialize() throws IOException {
 		Pane board = new Pane();
@@ -24,7 +32,7 @@ public class DashboardVC extends BorderPane {
 		Boolean switchValue = false;
 		int columnCount = 0;
 		for (int i = 0; i < Helper.BOARD_SIZE; i++) {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TileUI.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TileView.fxml"));
 			StackPane tileUI = loader.load();
 
 			// Defines the coordinates
@@ -47,7 +55,9 @@ public class DashboardVC extends BorderPane {
             		img = new Image("/assets/tile1.png",40,40,true,true);
             	}
             }
+            // Get the controller
             TileVC controller = loader.getController();
+            // Assign the image
 			controller.setImg(img);
 			
 			columnCount ++;
@@ -60,20 +70,92 @@ public class DashboardVC extends BorderPane {
 			board.getChildren().add(tileUI);
 		}
 		
-		Image img = new Image("/assets/left.jpg",100,500,true,true);
-		ImageView imgv = new ImageView();
-		imgv.setImage(img);;
-		
-		Pane panel1 = new Pane();
-		panel1.setStyle("-fx-background-color: red;");
-//		panel1.getChildren().add(imgv);
-
-		Pane panel2 = new Pane();
-		panel2.setStyle("-fx-background-color: red;");
-		
+		// Add the board to Dash-board
 		dashboard.setCenter(board);
+		
+		// Load Panels
+		loadPanels();
     }
 
+	// Methods
+	
+	private void loadPanels() throws IOException {
+		FXMLLoader loader;
+		Pane insectView;
+		InsectVC controller;
+		Image img ;
+		for (int i = 0; i < 3; i++) {
+			
+			// Left Panel
+			
+			loader = new FXMLLoader(getClass().getResource("/view/InsectView.fxml"));
+			insectView = loader.load();
+			vbxPanelLeft.getChildren().add(insectView);
+			// Get the controller
+            controller = loader.getController();
+            // Assign the image
+            img = new Image(getAntImage(i, "L"), 200, 200,true,true);
+			controller.setImgInsect(img);
+			controller.setRotation(90);
+			
+			// Right Panel
+			
+			loader = new FXMLLoader(getClass().getResource("/view/InsectView.fxml"));
+			insectView = loader.load();
+			vbxPanelRight.getChildren().add(insectView);
+			// Get the controller
+            controller = loader.getController();
+            // Assign the image
+            img = new Image(getAntImage(i, "R"), 200, 200,true,true);
+			controller.setImgInsect(img);
+			controller.setRotation(270);
+		}		
+		// Default color is RED for visibility during edit in SceneBuilder
+		// Then change to TRANSPARENT to hide
+		vbxPanelLeft.setStyle("-fx-background-color: TRANSPARENT");
+		vbxPanelRight.setStyle("-fx-background-color: TRANSPARENT");
+	}
+	
+	private String getAntImage(int imageIndex, String location) {
+		String returnValue = "";
+		String fileName = "";
+		
+		if (location == "L") {
+			switch (imageIndex) {
+			case 0:
+				fileName = "ant-yellow";
+				break;
+			case 1:
+				fileName = "ant-blue";
+				break;
+			case 2:
+				fileName = "ant-red";
+				break;
+			default:
+				break;
+			}	
+		} else if (location == "R") {
+			switch (imageIndex) {
+			case 0:
+				fileName = "bug-yellow";
+				break;
+			case 1:
+				fileName = "bug-blue";
+				break;
+			case 2:
+				fileName = "bug-red";
+				break;
+			default:
+				break;
+			}	
+		}
+		
+		returnValue = "/assets/" + fileName + ".png";
+		return returnValue;
+	}
+	
+	// Events
+	
 	@FXML
 	public void topPane_clicked(MouseEvent event) {
 		Helper.printMe("Clicked!");

@@ -51,7 +51,7 @@ public class TileVC extends StackPane {
 	@FXML
 	public void rect_mouseEntered(MouseEvent event) {
 		rectangle.setStroke(Color.RED);
-		rectangle.setStrokeWidth(3);
+		rectangle.setStrokeWidth(2);
 	}
 	
 	@FXML

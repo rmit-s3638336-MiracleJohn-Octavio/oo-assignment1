@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane fx:id="dashboard" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardVC">
+   <left>
+      <Pane style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="480.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/left.jpg" />
+               </image>
+            </ImageView>
+            <VBox fx:id="vbxPanelLeft" layoutX="50.0" layoutY="15.0" prefHeight="301.0" prefWidth="50.0" spacing="5.0" style="-fx-background-color: red;" />
+         </children>
+      </Pane>
+   </left>
+   <right>
+      <Pane style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="480.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/right.jpg" />
+               </image>
+            </ImageView>
+            <VBox fx:id="vbxPanelRight" layoutX="50.0" layoutY="15.0" prefHeight="301.0" prefWidth="50.0" spacing="5.0" style="-fx-background-color: red;" />
+         </children>
+      </Pane>
+   </right>
+</BorderPane>

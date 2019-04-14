@@ -2,12 +2,18 @@ package model.game_engine;
 
 import com.google.java.contract.Ensures;
 import console_view.ErrorMessage;
+import controller.Helper;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import model.board.Board;
 import model.board.Tile;
 import model.insect.Insect;
 import model.insect.InsectGenerator;
 import model.player.Player;
 
+import java.io.IOException;
 import java.util.List;
 
 public class GameEngine {
@@ -20,9 +26,22 @@ public class GameEngine {
     private Mode mode;
     private ErrorMessage errorMessage;
 
-    public GameEngine() {
+    public GameEngine(Stage primaryStage) throws IOException {
         board = new Board();
         board.updateBoard();
+        
+    	// UI Version
+    	Parent dashboardUI = FXMLLoader.load(getClass().getResource("/view/DashboardView.fxml"));
+    	primaryStage.setTitle("Ants VS Beetle");
+    	primaryStage.setScene(new Scene(dashboardUI, Helper.WINDOW_W, Helper.WINDOW_H));
+    	primaryStage.setResizable(false);
+        primaryStage.show();
+        primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
+        	primaryStage.setTitle(newVal.toString());
+        });
+        primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
+        	primaryStage.setTitle(newVal.toString());
+        });
 
         players = new Player[]{new Player(), new Player()};
         turn = 0;

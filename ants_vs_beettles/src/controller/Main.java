@@ -2,16 +2,12 @@ package controller;
 
 import com.google.java.contract.Requires;
 import model.game_engine.GameEngine;
-import controller.Helper;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 	
-    private static GameEngine gameEngine = new GameEngine();
+    private static GameEngine gameEngine;
 
     public static void main(String[] args) {
     	launch(args);
@@ -19,25 +15,11 @@ public class Main extends Application {
     
     @Override
 	public void start(Stage primaryStage) throws Exception {
-
-    	// UI Version
     	
-    	Parent dashboardUI = FXMLLoader.load(getClass().getResource("/view/DashboardUI.fxml"));
-    	primaryStage.setTitle("Ants VS Beetle [Player1 Move]");
-    	primaryStage.setScene(new Scene(dashboardUI, Helper.WINDOW_W, Helper.WINDOW_H));
-    	primaryStage.setResizable(false);
-        primaryStage.show();
-        
-        primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
-        	primaryStage.setTitle(newVal.toString());
-       });
-
-        primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
-        	primaryStage.setTitle(newVal.toString());
-       });
-        
-        // Console Version
+    	// Start the engine
+    	gameEngine = new GameEngine(primaryStage);
     	
+    	// Console 
         System.out.println("\n\nSelect a Scout: ");
         mockSelectNewInsect("scout");
 

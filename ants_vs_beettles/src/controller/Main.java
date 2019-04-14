@@ -2,39 +2,68 @@ package controller;
 
 import com.google.java.contract.Requires;
 import model.game_engine.GameEngine;
+import controller.Helper;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-import java.util.regex.Pattern;
-
-public class Main {
+public class Main extends Application {
+	
     private static GameEngine gameEngine = new GameEngine();
 
     public static void main(String[] args) {
+    	launch(args);
+    }
+    
+    @Override
+	public void start(Stage primaryStage) throws Exception {
+
+    	// UI Version
+    	
+    	Parent dashboardUI = FXMLLoader.load(getClass().getResource("/view/DashboardUI.fxml"));
+    	primaryStage.setTitle("Ants VS Beetle [Player1 Move]");
+    	primaryStage.setScene(new Scene(dashboardUI, Helper.WINDOW_W, Helper.WINDOW_H));
+    	primaryStage.setResizable(false);
+        primaryStage.show();
+        
+        primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
+        	primaryStage.setTitle(newVal.toString());
+       });
+
+        primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
+        	primaryStage.setTitle(newVal.toString());
+       });
+        
+        // Console Version
+    	
         System.out.println("\n\nSelect a Scout: ");
         mockSelectNewInsect("scout");
 
         System.out.println("\n\nSelect a Heavy: ");
         mockSelectNewInsect("heavy");
 
-        System.out.println("\n\nPut the insect onto the board: ");
-        mockSelectTile("5_0");
-
-        System.out.println("\n\nNew Finder: ");
-        mockSelectNewInsect("finder");
-
-        System.out.println("\n\nPut the insect onto the board: ");
-        mockSelectTile("0_9");
-
-        System.out.println("\n\nSelect an invalid tile: ");
-        mockSelectTile("0_11");
-
-        System.out.println("\n\nSelect an existing insect: ");
-        mockSelectTile("5_0");
-
-        System.out.println("\n\nSelect MOVE: ");
-        mockSelectOption("move");
-
-        System.out.println("\n\nMove to a new position: ");
-        mockSelectTile("4_0");
+//        System.out.println("\n\nPut the insect onto the board: ");
+//        mockSelectTile("5_0");
+//
+//        System.out.println("\n\nNew Finder: ");
+//        mockSelectNewInsect("finder");
+//
+//        System.out.println("\n\nPut the insect onto the board: ");
+//        mockSelectTile("0_9");
+//
+//        System.out.println("\n\nSelect an invalid tile: ");
+//        mockSelectTile("0_11");
+//
+//        System.out.println("\n\nSelect an existing insect: ");
+//        mockSelectTile("5_0");
+//
+//        System.out.println("\n\nSelect MOVE: ");
+//        mockSelectOption("move");
+//
+//        System.out.println("\n\nMove to a new position: ");
+//        mockSelectTile("4_0");
     }
 
     // TODO: some event handlers

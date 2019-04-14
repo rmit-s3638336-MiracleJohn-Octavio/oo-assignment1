@@ -25,12 +25,12 @@ public class DashboardVC extends BorderPane {
 		int columnCount = 0;
 		for (int i = 0; i < Helper.BOARD_SIZE; i++) {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TileUI.fxml"));
-			StackPane _tile = loader.load();
+			StackPane tileUI = loader.load();
 
 			// Defines the coordinates
-			_tile.setId(Integer.toString(i));
-            _tile.setTranslateX(Helper.TILE_W * (i % Helper.COLUMN_COUNT));
-            _tile.setTranslateY(Helper.TILE_H * (i / Helper.COLUMN_COUNT));
+			tileUI.setId(Integer.toString(i));
+            tileUI.setTranslateX(Helper.TILE_W * (i % Helper.COLUMN_COUNT));
+            tileUI.setTranslateY(Helper.TILE_H * (i / Helper.COLUMN_COUNT));
             
             // Add image
             Image img;
@@ -57,7 +57,7 @@ public class DashboardVC extends BorderPane {
 			} 
 
 			// Attach to Board
-			board.getChildren().add(_tile);
+			board.getChildren().add(tileUI);
 		}
 		
 		Image img = new Image("/assets/left.jpg",100,500,true,true);
@@ -76,7 +76,7 @@ public class DashboardVC extends BorderPane {
 
 	@FXML
 	public void topPane_clicked(MouseEvent event) {
-		System.out.println("Clicked!");
+		Helper.printMe("Clicked!");
 	}
 
 }

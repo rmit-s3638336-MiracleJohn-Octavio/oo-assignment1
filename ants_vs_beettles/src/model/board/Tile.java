@@ -1,11 +1,13 @@
 package model.board;
 
+import javafx.scene.layout.StackPane;
 import model.insect.Insect;
 
 public class Tile implements Comparable<Tile>{
 	private int x;
 	private int y;
 	private Insect insect = null;
+	private StackPane imageUI;
 
 	public Tile(int x, int y) {
 		this.x = x;
@@ -55,5 +57,13 @@ public class Tile implements Comparable<Tile>{
 		} else {
 			return 1;
 		}
+	}
+	
+	public StackPane getImageUI() {
+		return imageUI;
+	}
+
+	public void setImageUI(StackPane imageUI) {
+		this.imageUI = imageUI;
 	}
 }

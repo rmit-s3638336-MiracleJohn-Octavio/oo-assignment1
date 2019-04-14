@@ -44,26 +44,26 @@ public class Main extends Application {
         System.out.println("\n\nSelect a Heavy: ");
         mockSelectNewInsect("heavy");
 
-//        System.out.println("\n\nPut the insect onto the board: ");
-//        mockSelectTile("5_0");
-//
-//        System.out.println("\n\nNew Finder: ");
-//        mockSelectNewInsect("finder");
-//
-//        System.out.println("\n\nPut the insect onto the board: ");
-//        mockSelectTile("0_9");
-//
-//        System.out.println("\n\nSelect an invalid tile: ");
-//        mockSelectTile("0_11");
-//
-//        System.out.println("\n\nSelect an existing insect: ");
-//        mockSelectTile("5_0");
-//
-//        System.out.println("\n\nSelect MOVE: ");
-//        mockSelectOption("move");
-//
-//        System.out.println("\n\nMove to a new position: ");
-//        mockSelectTile("4_0");
+        System.out.println("\n\nPut the insect onto the board: ");
+        mockSelectTile("5_0");
+
+        System.out.println("\n\nNew Finder: ");
+        mockSelectNewInsect("finder");
+
+        System.out.println("\n\nPut the insect onto the board: ");
+        mockSelectTile("0_9");
+
+        System.out.println("\n\nSelect an invalid tile: ");
+        mockSelectTile("0_11");
+
+        System.out.println("\n\nSelect an existing insect: ");
+        mockSelectTile("5_0");
+
+        System.out.println("\n\nSelect MOVE: ");
+        mockSelectOption("move");
+
+        System.out.println("\n\nMove to a new position: ");
+        mockSelectTile("4_0");
     }
 
     // TODO: some event handlers

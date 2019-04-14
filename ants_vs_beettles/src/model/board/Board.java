@@ -26,7 +26,9 @@ public class Board {
 	private void initBoard() {
 		for (int row = 0; row < BOARD_SIZE; row++) {
 			for (int col = 0; col < BOARD_SIZE; col++) {
-				tiles[row][col] = new Tile(row, col);
+				Tile tile = new Tile(row, col);
+				tiles[row][col] = tile;
+				
 			}
 		}
 	}

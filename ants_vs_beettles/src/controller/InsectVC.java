@@ -64,7 +64,7 @@ public class InsectVC extends Pane {
 	
 	@FXML
 	public void rect_mouseEntered(MouseEvent event) {
-		rectangle.setStroke(Color.BLUE);
+		rectangle.setStroke(Color.RED);
 		rectangle.setFill(Color.AZURE);
 		rectangle.setOpacity(.8);
 		rectangle.setStrokeWidth(2);

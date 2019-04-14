@@ -7,7 +7,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import model.insect.Insect;
@@ -33,7 +32,7 @@ public class DashboardVC extends BorderPane {
 		int columnCount = 0;
 		for (int i = 0; i < Helper.BOARD_SIZE; i++) {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TileView.fxml"));
-			StackPane tileUI = loader.load();
+			Pane tileUI = loader.load();
 
 			// Defines the coordinates
 			tileUI.setId(Integer.toString(i));

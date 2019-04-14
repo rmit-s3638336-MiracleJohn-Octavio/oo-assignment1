@@ -6,13 +6,10 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane fx:id="tile" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TileVC">
+<Pane fx:id="tile" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TileVC">
    <children>
-      <Pane>
-         <children>
-            <ImageView fx:id="imgTile" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#rect_mouseClicked" pickOnBounds="true" preserveRatio="true" />
-         	  <Rectangle fx:id="rectangle" arcHeight="5.0" fill="TRANSPARENT" height="40.0" onMouseEntered="#rect_mouseEntered" onMouseExited="#rect_mouseExited" stroke="TRANSPARENT" strokeType="INSIDE" width="40.0" />
-         </children>
-      </Pane>
+		<ImageView fx:id="imvTile" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#rect_mouseClicked" pickOnBounds="true" preserveRatio="true" />
+		<Rectangle fx:id="rectangle" arcHeight="5.0" fill="TRANSPARENT" height="40.0" onMouseEntered="#rect_mouseEntered" onMouseExited="#rect_mouseExited" stroke="TRANSPARENT" strokeType="INSIDE" width="40.0" />
+      <ImageView fx:id="imvInsect" fitHeight="40.0" fitWidth="27.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true" onMouseEntered="#rect_mouseEntered" onMouseExited="#rect_mouseExited"/>
    </children>
-</StackPane>
+</Pane>

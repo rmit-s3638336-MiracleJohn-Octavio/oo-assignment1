@@ -5,10 +5,13 @@ import model.board.Tile;
 
 import java.util.ArrayList;
 
+import javafx.scene.layout.Pane;
+
 public abstract class Insect {
     private int healthPoints;
     private Profile profile;
     private Tile tile;
+    private Pane tileView;
 
     public Insect(Profile profile) {
         this.profile = profile;
@@ -19,7 +22,15 @@ public abstract class Insect {
         healthPoints -= damage;
     }
 
-    public void setTile(Tile tile) {
+    public Pane getTileView() {
+		return tileView;
+	}
+
+	public void setTileView(Pane tileView) {
+		this.tileView = tileView;
+	}
+
+	public void setTile(Tile tile) {
         this.tile = tile;
     }
 

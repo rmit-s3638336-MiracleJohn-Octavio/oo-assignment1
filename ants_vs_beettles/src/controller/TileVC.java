@@ -5,20 +5,23 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class TileVC extends StackPane {
+public class TileVC extends Pane {
 	
 	@FXML
-	private StackPane tile;
+	private Pane tile;
 	
 	@FXML
 	private Rectangle rectangle;
 	
 	@FXML
-	private ImageView imgTile;
+	private ImageView imvTile;
+	
+	@FXML
+	private ImageView imvInsect;
 	
 	private Image img;
 
@@ -28,7 +31,7 @@ public class TileVC extends StackPane {
 
 	public void setImg(Image img) {
 		this.img = img;
-		imgTile.setImage(img);
+		imvTile.setImage(img);
 	}
 
 	public void initialize() {
@@ -36,11 +39,11 @@ public class TileVC extends StackPane {
     }
 	
 	public ImageView getImgTile() {
-		return imgTile;
+		return imvTile;
 	}
 
 	public void setImgTile(ImageView imgTile) {
-		this.imgTile = imgTile;
+		this.imvTile = imgTile;
 	}
 
 	@FXML

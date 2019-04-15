@@ -26,7 +26,7 @@ public class TileVC extends Pane {
 	
 	private Image img;
 	
-	GameEngine gameEngine;
+	private GameEngine gameEngine;
 
 	public Image getImg() {
 		return img;
@@ -59,7 +59,11 @@ public class TileVC extends Pane {
 		
 	@FXML
 	public void rect_mouseClicked(MouseEvent event) {
-		gameEngine.selectNewInsect(tile.getId());
+		String[] coord = tile.getId().split("_");
+		int x = Integer.parseInt(coord[0]);
+		int y = Integer.parseInt(coord[1]);
+
+		gameEngine.processSelectedTile(x, y);
 	}
 	
 	@FXML

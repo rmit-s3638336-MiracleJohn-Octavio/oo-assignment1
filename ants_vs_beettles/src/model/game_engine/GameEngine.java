@@ -29,30 +29,37 @@ public class GameEngine {
     private ErrorMessage errorMessage;
     private DashboardVC controller;
 
-    public GameEngine(Stage primaryStage) throws IOException {
+    public GameEngine(Stage primaryStage) {
     	// UI Version
     	FXMLLoader dashboardLoader = new FXMLLoader(getClass().getResource("/view/DashboardView.fxml"));
-    	Parent dashboardUI = dashboardLoader.load();
-    	controller = dashboardLoader.getController();
-    	controller.setGameEngine(this);
-    	
-    	board = new Board();
-    	controller.drawTiles(board.getAllTiles());
-    	board.updateBoard();
-    	
+        Parent dashboardUI = null;
+        try {
+            dashboardUI = dashboardLoader.load();
+            controller = dashboardLoader.getController();
+            controller.setGameEngine(this);
+
+            board = new Board();
+
+            // View
+            controller.drawTiles(board.getAllTiles());
+            controller.loadPanels();
+            board.updateBoard();
+
 //    	Parent dashboardUI = FXMLLoader.load(getClass().getResource("/view/DashboardView.fxml"));
-    	primaryStage.setTitle("Ants VS Beetle");
-    	primaryStage.setScene(new Scene(dashboardUI, Helper.WINDOW_W, Helper.WINDOW_H));
-    	primaryStage.setResizable(false);
-        primaryStage.show();
-        primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
-        	primaryStage.setTitle(newVal.toString());
-        });
-        primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
-        	primaryStage.setTitle(newVal.toString());
-        });
-    	
-       
+            primaryStage.setTitle("Ants VS Beetle");
+            primaryStage.setScene(new Scene(dashboardUI, Helper.WINDOW_W, Helper.WINDOW_H));
+            primaryStage.setResizable(false);
+            primaryStage.show();
+            primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
+                primaryStage.setTitle(newVal.toString());
+            });
+            primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
+                primaryStage.setTitle(newVal.toString());
+            });
+        } catch (IOException e) {
+            System.out.println("File not found");
+            // TODO: Exit? Popup?
+        }
 
         players = new Player[]{new Player(), new Player()};
         turn = 0;
@@ -71,7 +78,8 @@ public class GameEngine {
         currentInsect = insectGenerator.createInsect(insectType);
         mode = Mode.PLACE;
         currentValidTiles = board.getValidPlaceTiles(turn);
-        
+
+        System.out.println("CurrentInsect (after selecting a new one): " + currentInsect);
         controller.drawTiles(board.getAllTiles());
     }
 
@@ -86,6 +94,7 @@ public class GameEngine {
     }
 
     public void processSelectedTile(int x, int y) {
+        System.out.println("CurrentInsect: " + currentInsect);
         Tile selectedTile = board.getTile(x, y);
         switch (mode) {
             case PLACE:

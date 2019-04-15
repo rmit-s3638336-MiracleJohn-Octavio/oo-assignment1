@@ -8,7 +8,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import model.game_engine.GameEngine;
 import model.insect.Insect;
+
+import java.util.regex.Pattern;
 
 public class InsectVC extends Pane {
 
@@ -22,6 +25,9 @@ public class InsectVC extends Pane {
 	
 	@FXML
 	private ImageView imvInsect;
+
+	// TODO
+	private GameEngine gameEngine;
 	
 	private Image imgInsect;
 	private int rotation;
@@ -45,6 +51,10 @@ public class InsectVC extends Pane {
 		this.imgInsect = img;
 		imvInsect.setImage(img);		
 	}
+
+	public void setGameEngine(GameEngine gameEngine) {
+		this.gameEngine = gameEngine;
+	}
 	
 	// Events
 	
@@ -59,8 +69,20 @@ public class InsectVC extends Pane {
 
 	@FXML
 	public void rect_mouseClicked(MouseEvent event) {
-		
-		Helper.printMe(this.toString());
+		String id = pneInsectPanel.getId();
+		System.out.println("Insect id: " + id);
+
+		// TODO: move the handler to tileContainer
+		if (Pattern.compile("^[0-9]+[_][0-9]+$").matcher(id).matches()) {
+			String[] coord = id.split("_");
+			int x = Integer.parseInt(coord[0]);
+			int y = Integer.parseInt(coord[1]);
+
+			gameEngine.processSelectedTile(x, y);
+		} else {
+			gameEngine.selectNewInsect(pneInsectPanel.getId());
+//			Helper.printMe(this.toString());
+		}
 	}
 	
 	@FXML

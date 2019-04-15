@@ -5,6 +5,8 @@ import model.game_engine.GameEngine;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+import java.util.regex.Pattern;
+
 public class Main extends Application {
 	
     private static GameEngine gameEngine;
@@ -20,32 +22,32 @@ public class Main extends Application {
     	gameEngine = new GameEngine(primaryStage);
     	
     	// Console 
-        System.out.println("\n\nSelect a Scout: ");
-        mockSelectNewInsect("scout");
-
-        System.out.println("\n\nSelect a Heavy: ");
-        mockSelectNewInsect("heavy");
-
-        System.out.println("\n\nPut the insect onto the board: ");
-        mockSelectTile("5_0");
-
-        System.out.println("\n\nNew Finder: ");
-        mockSelectNewInsect("finder");
-
-        System.out.println("\n\nPut the insect onto the board: ");
-        mockSelectTile("0_9");
-
-        System.out.println("\n\nSelect an invalid tile: ");
-        mockSelectTile("0_11");
-
-        System.out.println("\n\nSelect an existing insect: ");
-        mockSelectTile("5_0");
-
-        System.out.println("\n\nSelect MOVE: ");
-        mockSelectOption("move");
-
-        System.out.println("\n\nMove to a new position: ");
-        mockSelectTile("4_0");
+//        System.out.println("\n\nSelect a Scout: ");
+//        mockSelectNewInsect("scout");
+//
+//        System.out.println("\n\nSelect a Heavy: ");
+//        mockSelectNewInsect("heavy");
+//
+//        System.out.println("\n\nPut the insect onto the board: ");
+//        mockSelectTile("5_0");
+//
+//        System.out.println("\n\nNew Finder: ");
+//        mockSelectNewInsect("finder");
+//
+//        System.out.println("\n\nPut the insect onto the board: ");
+//        mockSelectTile("0_9");
+//
+//        System.out.println("\n\nSelect an invalid tile: ");
+//        mockSelectTile("0_11");
+//
+//        System.out.println("\n\nSelect an existing insect: ");
+//        mockSelectTile("5_0");
+//
+//        System.out.println("\n\nSelect MOVE: ");
+//        mockSelectOption("move");
+//
+//        System.out.println("\n\nMove to a new position: ");
+//        mockSelectTile("4_0");
     }
 
     // TODO: some event handlers

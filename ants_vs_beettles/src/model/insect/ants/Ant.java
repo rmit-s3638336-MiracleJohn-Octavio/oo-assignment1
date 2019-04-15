@@ -7,7 +7,12 @@ import model.insect.Profile;
 
 import java.util.ArrayList;
 
+import javafx.scene.layout.Pane;
+
 public abstract class Ant extends Insect {
+	
+//	private InsectView insectView;
+	
     public Ant(Profile profile) {
         super(profile);
     }
@@ -32,5 +37,13 @@ public abstract class Ant extends Insect {
     }
 
     public abstract ArrayList<Tile> getValidAttackTiles();
+
+//	public Pane getInsectView() {
+//		return insectView;
+//	}
+//
+//	public void setInsectView(Pane insectView) {
+//		this.insectView = insectView;
+//	}
 }
 

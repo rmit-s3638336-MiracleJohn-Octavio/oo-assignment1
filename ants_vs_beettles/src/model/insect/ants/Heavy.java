@@ -10,6 +10,7 @@ public class Heavy extends Ant {
 
     public Heavy() {
         super(profile);
+//        setInsectView(insectView);
     }
 
     @Override

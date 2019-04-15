@@ -9,6 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import model.insect.Insect;
+import view.InsectDraw;
 
 public class InsectVC extends Pane {
 
@@ -29,6 +30,10 @@ public class InsectVC extends Pane {
 	// Constructors
 	
 	public InsectVC() {
+//		InsectDraw insectDraw = new InsectDraw(this);
+		
+//		this.imgInsect = img;
+//		imvInsect.setImage(img);	
 	}
 
 	public InsectVC(Node... children) {

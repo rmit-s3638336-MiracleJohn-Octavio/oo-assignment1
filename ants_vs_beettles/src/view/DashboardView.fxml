@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.shape.*?>
@@ -18,7 +19,8 @@
                   <Image url="@../assets/left.jpg" />
                </image>
             </ImageView>
-            <VBox fx:id="vbxPanelLeft" layoutX="50.0" layoutY="15.0" prefHeight="301.0" prefWidth="50.0" spacing="5.0" style="-fx-background-color: red;" />
+            <VBox fx:id="vbxPanelLeft" layoutX="50.0" layoutY="15.0" opacity="0.5" prefHeight="301.0" prefWidth="50.0" spacing="5.0" style="-fx-background-color: red;" />
+            <Text fx:id="txtTest" layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
          </children>
       </Pane>
    </left>

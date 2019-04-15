@@ -12,6 +12,7 @@ import model.board.Tile;
 import model.insect.Insect;
 import model.insect.InsectGenerator;
 import model.player.Player;
+import view.DashboardView;
 
 import java.io.IOException;
 import java.util.List;
@@ -27,6 +28,8 @@ public class GameEngine {
     private ErrorMessage errorMessage;
 
     public GameEngine(Stage primaryStage) throws IOException {
+    	DashboardView dashboardView = new DashboardView(); 
+    	
         board = new Board();
         board.updateBoard();
         

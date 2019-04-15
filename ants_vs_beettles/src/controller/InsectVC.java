@@ -59,6 +59,7 @@ public class InsectVC extends Pane {
 
 	@FXML
 	public void rect_mouseClicked(MouseEvent event) {
+		
 		Helper.printMe(this.toString());
 	}
 	

@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import model.game_engine.GameEngine;
 
 public class TileVC extends Pane {
 	
@@ -24,6 +25,8 @@ public class TileVC extends Pane {
 	private ImageView imvInsect;
 	
 	private Image img;
+	
+	GameEngine gameEngine;
 
 	public Image getImg() {
 		return img;
@@ -46,9 +49,17 @@ public class TileVC extends Pane {
 		this.imvTile = imgTile;
 	}
 
+	// Setters
+	
+	public void setGameEngine(GameEngine gameEngine) {
+		this.gameEngine = gameEngine;
+	}
+	
+	// Events
+		
 	@FXML
 	public void rect_mouseClicked(MouseEvent event) {
-		System.out.println(tile);
+		gameEngine.selectNewInsect(tile.getId());
 	}
 	
 	@FXML

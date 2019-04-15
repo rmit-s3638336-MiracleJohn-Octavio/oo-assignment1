@@ -34,6 +34,7 @@ public class GameEngine {
     	FXMLLoader dashboardLoader = new FXMLLoader(getClass().getResource("/view/DashboardView.fxml"));
     	Parent dashboardUI = dashboardLoader.load();
     	controller = dashboardLoader.getController();
+    	controller.setGameEngine(this);
     	
     	board = new Board();
     	controller.drawTiles(board.getAllTiles());
@@ -70,6 +71,8 @@ public class GameEngine {
         currentInsect = insectGenerator.createInsect(insectType);
         mode = Mode.PLACE;
         currentValidTiles = board.getValidPlaceTiles(turn);
+        
+        controller.drawTiles(board.getAllTiles());
     }
 
     public void setMode(String mode) {
@@ -97,6 +100,8 @@ public class GameEngine {
             case UNDEFINED:
                 setCurrentInsect(selectedTile);
         }
+        
+        controller.drawTiles(board.getAllTiles());
     }
 
     private void setCurrentInsect(Tile selectedTile) {

@@ -34,41 +34,43 @@ public class DashboardVC extends BorderPane {
 
 	// Methods
 	
-	public void drawTiles(Tile[][] tiles) throws IOException {
+	public void drawTiles(Tile[][] tiles) {
 		Pane board = new Pane();
 		Boolean switchValue = false;
 		
 		for (int row = 0; row < tiles.length; row++) {
 			for (int col = 0; col < tiles.length; col++) {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TileView.fxml"));
-				Pane tileView = loader.load();
-				
-				// Set id and coord
-				tileView.setId(row + "_" + col);
-				tileView.setTranslateX(Helper.TILE_W * col);
-				tileView.setTranslateY(Helper.TILE_H * row);
-				
-				// Add image
-				Image img = getTileImage(switchValue, col);
-	            TileVC tileController = loader.getController();
-				tileController.setImg(img);
+				Pane tileView;
+				try {
+					tileView = loader.load();
+					// Set id and coord
+					tileView.setId(row + "_" + col);
+					tileView.setTranslateX(Helper.TILE_W * col);
+					tileView.setTranslateY(Helper.TILE_H * row);
+					
+					// Add image
+					Image img = getTileImage(switchValue, col);
+		            TileVC tileController = loader.getController();
+					tileController.setImg(img);
+					tileController.setGameEngine(gameEngine);
 
-				// Validate
-				if (tiles[row][col].getInsect() != null) {
-					// Add insect
-					FXMLLoader insectLoader = new FXMLLoader(getClass().getResource("/view/InsectView.fxml"));
-					Pane insectView = insectLoader.load();
-					InsectVC insectController = insectLoader.getController();
-					Image insectImage = new Image("/assets/" + tiles[row][col].getInsect().getFullName() + ".png",40,40,true,true);
-					insectController.setImgInsect(insectImage);
+					// Validate
+					if (tiles[row][col].getInsect() != null) {
+						// Add insect
+						FXMLLoader insectLoader = new FXMLLoader(getClass().getResource("/view/InsectView.fxml"));
+						Pane insectView = insectLoader.load();
+						InsectVC insectController = insectLoader.getController();
+						Image insectImage = new Image("/assets/" + tiles[row][col].getInsect().getFullName() + ".png",40,40,true,true);
+						insectController.setImgInsect(insectImage);
+					}
+					
+					// Add to board
+					board.getChildren().add(tileView);
+				} catch (IOException e) {
+					System.out.println("File Not Found");
 				}
-				
-				
-				
-				// Add to board
-				board.getChildren().add(tileView);
 			}
-			
 			switchValue = !switchValue;
 		}
 		
@@ -174,15 +176,17 @@ public class DashboardVC extends BorderPane {
 		return returnValue;
 	}
 	
+	// Setters
+	
+	public void setGameEngine(GameEngine gameEngine) {
+		this.gameEngine = gameEngine;
+	}
+	
 	// Events
 	
 	@FXML
 	public void topPane_clicked(MouseEvent event) {
 		Helper.printMe("Clicked!");
-	}
-
-	public void setGameEngine(GameEngine gameEngine) {
-		this.gameEngine = gameEngine;
 	}
 
 }

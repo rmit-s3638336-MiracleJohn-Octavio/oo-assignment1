@@ -16,6 +16,11 @@ public class Greedy extends Beetle {
     public String toString() {
         return "g";
     }
+    
+    @Override
+    public String getFullName() {
+    	return "greedy";
+    }
 
     @Override
     public ArrayList<Tile> getValidAttackTiles() {

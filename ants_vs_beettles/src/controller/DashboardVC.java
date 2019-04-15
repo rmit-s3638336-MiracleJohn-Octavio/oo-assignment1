@@ -3,13 +3,12 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import model.insect.Insect;
+import model.board.Tile;
+import model.game_engine.GameEngine;
 
 import java.io.IOException;
 import controller.TileVC;
@@ -25,48 +24,52 @@ public class DashboardVC extends BorderPane {
 	@FXML
 	private VBox vbxPanelRight;
 	
+	GameEngine gameEngine;
+	
+	// Constructor
+	
 	public void initialize() throws IOException {
+//		drawTiles();
+    }
+
+	// Methods
+	
+	public void drawTiles(Tile[][] tiles) throws IOException {
 		Pane board = new Pane();
-		
 		Boolean switchValue = false;
-		int columnCount = 0;
-		for (int i = 0; i < Helper.BOARD_SIZE; i++) {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TileView.fxml"));
-			Pane tileUI = loader.load();
+		
+		for (int row = 0; row < tiles.length; row++) {
+			for (int col = 0; col < tiles.length; col++) {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TileView.fxml"));
+				Pane tileView = loader.load();
+				
+				// Set id and coord
+				tileView.setId(row + "_" + col);
+				tileView.setTranslateX(Helper.TILE_W * col);
+				tileView.setTranslateY(Helper.TILE_H * row);
+				
+				// Add image
+				Image img = getTileImage(switchValue, col);
+	            TileVC tileController = loader.getController();
+				tileController.setImg(img);
 
-			// Defines the coordinates
-			tileUI.setId(Integer.toString(i));
-            tileUI.setTranslateX(Helper.TILE_W * (i % Helper.COLUMN_COUNT));
-            tileUI.setTranslateY(Helper.TILE_H * (i / Helper.COLUMN_COUNT));
-            
-            // Add image
-            Image img;
-            if (switchValue) {
-            	if (Helper.isEven(i)) {
-            		img = new Image("/assets/tile1.png",40,40,true,true);	
-            	} else {
-            		img = new Image("/assets/tile2.png",40,40,true,true);
-            	}
-            } else {
-            	if (Helper.isEven(i)) {
-            		img = new Image("/assets/tile2.png",40,40,true,true);	
-            	} else {
-            		img = new Image("/assets/tile1.png",40,40,true,true);
-            	}
-            }
-            // Get the controller
-            TileVC controller = loader.getController();
-            // Assign the image
-			controller.setImg(img);
+				// Validate
+				if (tiles[row][col].getInsect() != null) {
+					// Add insect
+					FXMLLoader insectLoader = new FXMLLoader(getClass().getResource("/view/InsectView.fxml"));
+					Pane insectView = insectLoader.load();
+					InsectVC insectController = insectLoader.getController();
+					Image insectImage = new Image("/assets/" + tiles[row][col].getInsect().getFullName() + ".png",40,40,true,true);
+					insectController.setImgInsect(insectImage);
+				}
+				
+				
+				
+				// Add to board
+				board.getChildren().add(tileView);
+			}
 			
-			columnCount ++;
-			if (columnCount >= Helper.COLUMN_COUNT) {
-				switchValue = !switchValue;
-				columnCount = 0;
-			} 
-
-			// Attach to Board
-			board.getChildren().add(tileUI);
+			switchValue = !switchValue;
 		}
 		
 		// Add the board to Dash-board
@@ -74,9 +77,7 @@ public class DashboardVC extends BorderPane {
 		
 		// Load Panels
 		loadPanels();
-    }
-
-	// Methods
+	}
 	
 	private void loadPanels() throws IOException {
 		FXMLLoader loader;
@@ -115,6 +116,26 @@ public class DashboardVC extends BorderPane {
 		vbxPanelRight.setStyle("-fx-background-color: TRANSPARENT");
 	}
 	
+	private Image getTileImage(Boolean switchValue, int i) {
+		Image img = null;
+		
+		if (switchValue) {
+        	if (Helper.isEven(i)) {
+        		img = new Image("/assets/tile1.png",40,40,true,true);	
+        	} else {
+        		img = new Image("/assets/tile2.png",40,40,true,true);
+        	}
+        } else {
+        	if (Helper.isEven(i)) {
+        		img = new Image("/assets/tile2.png",40,40,true,true);	
+        	} else {
+        		img = new Image("/assets/tile1.png",40,40,true,true);
+        	}
+        }
+		
+		return img;
+	}
+	
 	private String getAntImage(int imageIndex, String location) {
 		String returnValue = "";
 		String fileName = "";
@@ -122,13 +143,13 @@ public class DashboardVC extends BorderPane {
 		if (location == "L") {
 			switch (imageIndex) {
 			case 0:
-				fileName = "ant-yellow";
+				fileName = "scout";
 				break;
 			case 1:
-				fileName = "ant-blue";
+				fileName = "ranger";
 				break;
 			case 2:
-				fileName = "ant-red";
+				fileName = "heavy";
 				break;
 			default:
 				break;
@@ -136,13 +157,13 @@ public class DashboardVC extends BorderPane {
 		} else if (location == "R") {
 			switch (imageIndex) {
 			case 0:
-				fileName = "bug-yellow";
+				fileName = "finder";
 				break;
 			case 1:
-				fileName = "bug-blue";
+				fileName = "bogus";
 				break;
 			case 2:
-				fileName = "bug-red";
+				fileName = "greedy";
 				break;
 			default:
 				break;
@@ -158,6 +179,10 @@ public class DashboardVC extends BorderPane {
 	@FXML
 	public void topPane_clicked(MouseEvent event) {
 		Helper.printMe("Clicked!");
+	}
+
+	public void setGameEngine(GameEngine gameEngine) {
+		this.gameEngine = gameEngine;
 	}
 
 }

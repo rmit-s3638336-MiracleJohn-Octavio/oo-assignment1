@@ -16,6 +16,11 @@ public class Bogus extends Beetle {
     public String toString() {
         return "b";
     }
+    
+    @Override
+    public String getFullName() {
+    	return "bogus";
+    }
 
     @Override
     public ArrayList<Tile> getValidAttackTiles() {

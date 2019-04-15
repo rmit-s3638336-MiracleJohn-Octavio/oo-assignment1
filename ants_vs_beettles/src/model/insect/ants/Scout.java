@@ -16,6 +16,11 @@ public class Scout extends Ant {
     public String toString() {
         return "s";
     }
+    
+    @Override
+    public String getFullName() {
+    	return "scout";
+    }
 
     @Override
     public ArrayList<Tile> getValidAttackTiles() {

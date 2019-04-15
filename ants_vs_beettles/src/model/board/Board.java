@@ -21,6 +21,11 @@ public class Board {
 
 	public void updateBoard() {
 		boardView.drawBoard(tiles);
+		
+	}
+	
+	public Tile[][] getAllTiles() {
+		return tiles;
 	}
 
 	private void initBoard() {
@@ -28,7 +33,6 @@ public class Board {
 			for (int col = 0; col < BOARD_SIZE; col++) {
 				Tile tile = new Tile(row, col);
 				tiles[row][col] = tile;
-				
 			}
 		}
 	}

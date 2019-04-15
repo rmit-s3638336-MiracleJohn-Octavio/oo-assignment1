@@ -16,6 +16,11 @@ public class Ranger extends Ant {
     public String toString() {
         return "r";
     }
+    
+    @Override
+    public String getFullName() {
+    	return "ranger";
+    }
 
     @Override
     public ArrayList<Tile> getValidAttackTiles() {

@@ -12,7 +12,7 @@ public class Helper {
 	public static final int FOOTER_HEIGHT = 20;
 	
 	// Board Size
-	public static final int COLUMN_COUNT = 12;
+	public static final int COLUMN_COUNT = 10;
 	public static final int BOARD_SIZE = COLUMN_COUNT * COLUMN_COUNT;
 	
 	// Window Size

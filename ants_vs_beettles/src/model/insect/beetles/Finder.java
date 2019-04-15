@@ -16,6 +16,11 @@ public class Finder extends Beetle {
     public String toString() {
         return "f";
     }
+    
+    @Override
+    public String getFullName() {
+    	return "finder";
+    }
 
     @Override
     public ArrayList<Tile> getValidAttackTiles() {

@@ -16,6 +16,11 @@ public class Heavy extends Ant {
     public String toString() {
         return "h";
     }
+    
+    @Override
+    public String getFullName() {
+    	return "heavy";
+    }
 
     @Override
     public ArrayList<Tile> getValidAttackTiles() {

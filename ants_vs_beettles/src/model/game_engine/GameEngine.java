@@ -2,10 +2,12 @@ package model.game_engine;
 
 import com.google.java.contract.Ensures;
 import console_view.ErrorMessage;
+import controller.DashboardVC;
 import controller.Helper;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.board.Board;
 import model.board.Tile;
@@ -25,13 +27,19 @@ public class GameEngine {
     private List<Tile> currentValidTiles;
     private Mode mode;
     private ErrorMessage errorMessage;
+    private DashboardVC controller;
 
     public GameEngine(Stage primaryStage) throws IOException {
-        board = new Board();
-        board.updateBoard();
-        
     	// UI Version
-    	Parent dashboardUI = FXMLLoader.load(getClass().getResource("/view/DashboardView.fxml"));
+    	FXMLLoader dashboardLoader = new FXMLLoader(getClass().getResource("/view/DashboardView.fxml"));
+    	Parent dashboardUI = dashboardLoader.load();
+    	controller = dashboardLoader.getController();
+    	
+    	board = new Board();
+    	controller.drawTiles(board.getAllTiles());
+    	board.updateBoard();
+    	
+//    	Parent dashboardUI = FXMLLoader.load(getClass().getResource("/view/DashboardView.fxml"));
     	primaryStage.setTitle("Ants VS Beetle");
     	primaryStage.setScene(new Scene(dashboardUI, Helper.WINDOW_W, Helper.WINDOW_H));
     	primaryStage.setResizable(false);
@@ -42,6 +50,8 @@ public class GameEngine {
         primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
         	primaryStage.setTitle(newVal.toString());
         });
+    	
+       
 
         players = new Player[]{new Player(), new Player()};
         turn = 0;

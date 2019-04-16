@@ -21,6 +21,7 @@ public abstract class Ant extends Insect {
             y += yInc;
             tile = board.getTile(x, y);
 
+            // Stop when meet an insect or reach the bound of the board
             if (tile == null || tile.getInsect() != null) {
                 break;
             }

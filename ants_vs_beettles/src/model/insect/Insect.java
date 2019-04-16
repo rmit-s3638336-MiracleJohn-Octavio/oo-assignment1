@@ -7,6 +7,12 @@ import java.util.ArrayList;
 
 import javafx.scene.layout.Pane;
 
+// Single-Responsibility Principle
+// Open-Closed Principle
+// Liskov-Substitution Principle
+// Dependency Inversion Principle
+// GRASP - High Cohesion
+// GRASP - Polymorphism
 public abstract class Insect {
     private int healthPoints;
     private Profile profile;
@@ -18,21 +24,21 @@ public abstract class Insect {
         healthPoints = profile.getMaxHealthPoints();
     }
 
-    public abstract String getFullName(); 
+    public abstract String getFullName();
 
     public void decreaseHealthPoints(int damage) {
         healthPoints -= damage;
     }
 
     public Pane getTileView() {
-		return tileView;
-	}
+        return tileView;
+    }
 
-	public void setTileView(Pane tileView) {
-		this.tileView = tileView;
-	}
+    public void setTileView(Pane tileView) {
+        this.tileView = tileView;
+    }
 
-	public void setTile(Tile tile) {
+    public void setTile(Tile tile) {
         this.tile = tile;
     }
 

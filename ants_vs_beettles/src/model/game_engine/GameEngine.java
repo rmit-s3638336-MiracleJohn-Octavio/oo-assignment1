@@ -1,6 +1,7 @@
 package model.game_engine;
 
 import com.google.java.contract.Ensures;
+import com.google.java.contract.Invariant;
 import console_view.BoardView;
 import console_view.ErrorMessage;
 import controller.DashboardVC;
@@ -13,6 +14,7 @@ import model.player.Player;
 import java.util.ArrayList;
 import java.util.List;
 
+@Invariant("turn >= 0 && turn <= 1")
 public class GameEngine {
     private Board board;
     private Player[] players;
@@ -45,10 +47,9 @@ public class GameEngine {
     private void initGUI(DashboardVC dashboardController) {
         this.dashboardController = dashboardController;
         dashboardController.setGameEngine(this);
-        boardView.drawBoard(board.getAllTiles(), currentValidTiles);
-
-        dashboardController.drawBoard(board.getAllTiles(), currentValidTiles, currentInsect);
         dashboardController.loadPanels();
+
+        updateViews();
     }
 
     public void selectNewInsect(String insectType) {
@@ -62,8 +63,7 @@ public class GameEngine {
         mode = Mode.PLACE;
         currentValidTiles = board.getValidPlaceTiles(turn);
 
-        boardView.drawBoard(board.getAllTiles(), currentValidTiles);
-        dashboardController.drawBoard(board.getAllTiles(), currentValidTiles, currentInsect);
+        updateViews();
     }
 
     public void setMode(String mode) {
@@ -80,8 +80,7 @@ public class GameEngine {
             dashboardController.setErrorMessage("No insect selected.");
         }
 
-        boardView.drawBoard(board.getAllTiles(), currentValidTiles);
-        dashboardController.drawBoard(board.getAllTiles(), currentValidTiles, currentInsect);
+        updateViews();
     }
 
     public void processSelectedTile(int x, int y) {
@@ -106,8 +105,8 @@ public class GameEngine {
 
         errorMessage.printError(msg);
         dashboardController.setErrorMessage(msg);
-        boardView.drawBoard(board.getAllTiles(), currentValidTiles);
-        dashboardController.drawBoard(board.getAllTiles(), currentValidTiles, currentInsect);
+
+        updateViews();
     }
 
     private void setCurrentInsect(Tile selectedTile) {
@@ -169,12 +168,17 @@ public class GameEngine {
         // Switch to the other player
         turn = (turn % 2 == 0) ? 1 : 0;
 
-        dashboardController.switchPanel(turn);
+        dashboardController.switchPlayer(turn);
     }
 
     private void reset() {
         currentInsect = null;
         currentValidTiles = new ArrayList<>();
         mode = Mode.UNDEFINED;
+    }
+
+    private void updateViews() {
+        dashboardController.drawBoard(board.getAllTiles(), currentValidTiles, currentInsect);
+        boardView.drawBoard(board.getAllTiles(), currentValidTiles);
     }
 }

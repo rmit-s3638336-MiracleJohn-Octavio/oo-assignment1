@@ -1,6 +1,7 @@
 package console_view;
 
 import model.board.Tile;
+
 import java.util.List;
 
 public class BoardView {

@@ -1,14 +1,11 @@
 package controller;
 
-import com.google.java.contract.Requires;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import model.game_engine.GameEngine;
 import javafx.application.Application;
 import javafx.stage.Stage;
-
-import java.util.regex.Pattern;
 
 public class Main extends Application {
 	

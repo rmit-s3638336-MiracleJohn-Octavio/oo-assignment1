@@ -11,6 +11,7 @@ public abstract class Beetle extends Insect {
     public Beetle(Profile profile) {
         super(profile);
     }
+
     public ArrayList<Tile> getValidMoveTiles(int x, int y, int xInc, int yInc, int range, Board board) {
         ArrayList<Tile> validTiles = new ArrayList<>();
         Tile tile;
@@ -20,6 +21,7 @@ public abstract class Beetle extends Insect {
             y += yInc;
             tile = board.getTile(x, y);
 
+            // Stop when reach the bound of the board
             if (tile == null) {
                 break;
             }
@@ -33,10 +35,6 @@ public abstract class Beetle extends Insect {
     }
 
     public abstract ArrayList<Tile> getValidAttackTiles();
-
-
-
-
 
 
 }

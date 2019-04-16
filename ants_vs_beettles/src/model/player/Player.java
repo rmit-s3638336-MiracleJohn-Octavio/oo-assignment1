@@ -11,7 +11,6 @@ public class Player {
     private Map<Integer, Insect> insects = new HashMap<>();
     private int insectId = 0;
 
-    // Disable the adding insect option
     public boolean reachedMaxInsects() {
         return insects.size() == MAX_INSECT;
     }

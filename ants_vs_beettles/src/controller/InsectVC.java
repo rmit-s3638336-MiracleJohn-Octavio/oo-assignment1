@@ -14,48 +14,45 @@ import model.insect.Insect;
 import java.util.regex.Pattern;
 
 public class InsectVC extends Pane {
-	@FXML
-	private Pane pneInsectPanel;
-	
-	@FXML
-	private Rectangle rectangle;
-	
-	@FXML
-	private ImageView imvInsect;
+    @FXML
+    private Pane pneInsectPanel;
 
-	// TODO
-	private GameEngine gameEngine;
+    @FXML
+    private Rectangle rectangle;
 
-	public void setImgInsect(Image img) {
-		imvInsect.setImage(img);
-	}
+    @FXML
+    private ImageView imvInsect;
 
-	public void setGameEngine(GameEngine gameEngine) {
-		this.gameEngine = gameEngine;
-	}
+    // TODO
+    private GameEngine gameEngine;
 
-	@FXML
-	public void rect_mouseClicked(MouseEvent event) {
-		String id = pneInsectPanel.getId();
-		System.out.println("Insect id: " + id);
+    public void setImgInsect(Image img) {
+        imvInsect.setImage(img);
+    }
 
-		if (!pneInsectPanel.getId().equals("pneInsectPanel")) {
-			gameEngine.selectNewInsect(pneInsectPanel.getId());
-		}
-	}
-	
-	@FXML
-	public void rect_mouseEntered(MouseEvent event) {
-		rectangle.setStroke(Color.RED);
-		rectangle.setFill(Color.AZURE);
-		rectangle.setOpacity(.8);
-		rectangle.setStrokeWidth(2);
-	}
-	
-	@FXML
-	public void rect_mouseExited(MouseEvent event) {
-		rectangle.setStroke(Color.WHITE);
-		rectangle.setFill(Color.LIGHTGRAY);
-		rectangle.setOpacity(.8);
-	}
+    public void setGameEngine(GameEngine gameEngine) {
+        this.gameEngine = gameEngine;
+    }
+
+    @FXML
+    public void rect_mouseClicked() {
+        if (!pneInsectPanel.getId().equals("pneInsectPanel")) {
+            gameEngine.selectNewInsect(pneInsectPanel.getId());
+        }
+    }
+
+    @FXML
+    public void rect_mouseEntered() {
+        rectangle.setStroke(Color.RED);
+        rectangle.setFill(Color.AZURE);
+        rectangle.setOpacity(.8);
+        rectangle.setStrokeWidth(2);
+    }
+
+    @FXML
+    public void rect_mouseExited() {
+        rectangle.setStroke(Color.WHITE);
+        rectangle.setFill(Color.LIGHTGRAY);
+        rectangle.setOpacity(.8);
+    }
 }

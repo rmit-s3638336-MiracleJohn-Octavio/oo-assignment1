@@ -1,5 +1,7 @@
 package model.insect;
 
+// Single Responsibility Principle
+// GRASP - High Cohesion
 public class Profile {
     private int maxHealthPoints;
     private int damage;

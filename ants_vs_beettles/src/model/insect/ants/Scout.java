@@ -6,7 +6,7 @@ import model.insect.Profile;
 import java.util.ArrayList;
 
 public class Scout extends Ant {
-    private static Profile profile = new Profile(0, 0, 0, 0);
+    private static Profile profile = new Profile(0, 0, 4, 0);
 
     public Scout() {
         super(profile);

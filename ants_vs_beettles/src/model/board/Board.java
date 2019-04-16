@@ -1,27 +1,19 @@
 package model.board;
 
 import model.insect.Insect;
-import console_view.BoardView;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Board {
-	private static final int BOARD_SIZE = 10;
+	public static final int BOARD_SIZE = 12;
 	private static final int PLAYER_0_VALID_PLACING_COL = 0;
 	private static final int PLAYER_1_VALID_PLACING_COL = BOARD_SIZE - 1;
 
 	private Tile[][] tiles = new Tile[BOARD_SIZE][BOARD_SIZE];
-	private BoardView boardView;
 
 	public Board() {
-		boardView = new BoardView();
 		initBoard();
-	}
-
-	public void updateBoard() {
-		boardView.drawBoard(tiles);
-		
 	}
 	
 	public Tile[][] getAllTiles() {
@@ -58,9 +50,6 @@ public class Board {
 			}
 		}
 
-		// TODO: Call VIEW method
-		boardView.drawBoardWithValidTiles(tiles, validTiles);
-
 		return validTiles;
 	}
 
@@ -71,7 +60,7 @@ public class Board {
 		Tile insectLoc = insect.getTile();
 		int x = insectLoc.getX();
 		int y = insectLoc.getY();
-		int range = insect.getProfile().getSpeed();
+		int range = insect.getProfile().getMoveRange();
 
 		// Get valid tiles
 		validTiles.addAll(insect.getValidMoveTiles(x, y, 1, 0, range, this));
@@ -80,9 +69,6 @@ public class Board {
 		validTiles.addAll(insect.getValidMoveTiles(x, y, 0, -1, range, this));
 
 		Collections.sort(validTiles);
-
-		// TODO: VIEW
-		boardView.drawBoardWithValidTiles(tiles, validTiles);
 
 		return validTiles;
 	}

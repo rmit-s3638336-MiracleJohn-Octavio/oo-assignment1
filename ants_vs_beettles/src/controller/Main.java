@@ -1,6 +1,9 @@
 package controller;
 
 import com.google.java.contract.Requires;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import model.game_engine.GameEngine;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -17,58 +20,24 @@ public class Main extends Application {
     
     @Override
 	public void start(Stage primaryStage) throws Exception {
-    	
-    	// Start the engine
-    	gameEngine = new GameEngine(primaryStage);
-    	
-    	// Console 
-//        System.out.println("\n\nSelect a Scout: ");
-//        mockSelectNewInsect("scout");
-//
-//        System.out.println("\n\nSelect a Heavy: ");
-//        mockSelectNewInsect("heavy");
-//
-//        System.out.println("\n\nPut the insect onto the board: ");
-//        mockSelectTile("5_0");
-//
-//        System.out.println("\n\nNew Finder: ");
-//        mockSelectNewInsect("finder");
-//
-//        System.out.println("\n\nPut the insect onto the board: ");
-//        mockSelectTile("0_9");
-//
-//        System.out.println("\n\nSelect an invalid tile: ");
-//        mockSelectTile("0_11");
-//
-//        System.out.println("\n\nSelect an existing insect: ");
-//        mockSelectTile("5_0");
-//
-//        System.out.println("\n\nSelect MOVE: ");
-//        mockSelectOption("move");
-//
-//        System.out.println("\n\nMove to a new position: ");
-//        mockSelectTile("4_0");
-    }
+    	// Load dashboard
+        FXMLLoader dashboardLoader = new FXMLLoader(getClass().getResource("/view/DashboardView.fxml"));
+        Parent dashboardUI = dashboardLoader.load();
+        DashboardVC dashboardController = dashboardLoader.getController();
 
-    // TODO: some event handlers
+        // Setup stage
+        primaryStage.setTitle("Ants VS Beetle");
+        primaryStage.setScene(new Scene(dashboardUI, Helper.WINDOW_W, Helper.WINDOW_H));
+        primaryStage.setResizable(false);
+        primaryStage.show();
+        primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
+            primaryStage.setTitle(newVal.toString());
+        });
+        primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
+            primaryStage.setTitle(newVal.toString());
+        });
 
-    // Mock handler
-    public static void mockSelectNewInsect(String insectType) {
-        gameEngine.selectNewInsect(insectType);
-    }
-
-    // Mock handler
-    @Requires("Pattern.compile(\"^[0-9]+[_][0-9]+$\").matcher(tileCoord).matches()")
-    public static void mockSelectTile(String tileCoord) {
-        String[] coord = tileCoord.split("_");
-        int x = Integer.parseInt(coord[0]);
-        int y = Integer.parseInt(coord[1]);
-
-        gameEngine.processSelectedTile(x, y);
-    }
-
-    // Mock handler
-    public static void mockSelectOption(String option) {
-        gameEngine.setMode(option);
+        // Start the engine
+    	gameEngine = new GameEngine(dashboardController);
     }
 }

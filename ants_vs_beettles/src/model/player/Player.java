@@ -9,7 +9,7 @@ import java.util.Map;
 public class Player {
     private final int MAX_INSECT = 10;
     private Map<Integer, Insect> insects = new HashMap<>();
-    private int counter = 0;
+    private int insectId = 0;
 
     // Disable the adding insect option
     public boolean reachedMaxInsects() {
@@ -18,12 +18,15 @@ public class Player {
 
     @Ensures("old(insects.size() + 1) == insects.size()")
     public void placeInsect(Insect insect) {
-        insects.put(counter++, insect);
+        insects.put(insectId++, insect);
+    }
+
+    public boolean containsInsect(Insect insect) {
+        return insects.containsValue(insect);
     }
 
     @Ensures("old(insects.size() - 1) == insects.size()")
     public void removeInsect(int id) {
-        // TODO
         insects.remove(id);
     }
 }

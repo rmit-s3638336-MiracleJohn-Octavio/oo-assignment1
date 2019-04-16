@@ -10,8 +10,6 @@ import model.insect.beetles.Greedy;
 public class InsectGenerator {
     public Insect createInsect(String insectType) {
         Insect insect = null;
-        // Set current insect - this is such a bad way of implementing this but I can't think of any other way
-        // NOTE: something to do with toString()?
         switch (insectType) {
             case "scout":
                 insect = new Scout();

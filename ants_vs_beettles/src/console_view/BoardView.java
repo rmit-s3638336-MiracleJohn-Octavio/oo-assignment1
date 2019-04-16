@@ -1,25 +1,10 @@
 package console_view;
 
 import model.board.Tile;
-
-import java.util.ArrayList;
+import java.util.List;
 
 public class BoardView {
-    public void drawBoard(Tile[][] tiles) {
-        System.out.println("\nBoard: ");
-
-        printIndices(tiles.length);
-
-        for (int row = 0; row < tiles.length; row++) {
-            System.out.print(row + "\t|");
-            for (int col = 0; col < tiles[row].length; col++) {
-                System.out.print(tiles[row][col] + "\t|");
-            }
-            System.out.println();
-        }
-    }
-
-    public void drawBoardWithValidTiles(Tile[][] tiles, ArrayList<Tile> validTiles) {
+    public void drawBoard(Tile[][] tiles, List<Tile> validTiles) {
         System.out.println("\nValid tiles (*): ");
 
         printIndices(tiles.length);

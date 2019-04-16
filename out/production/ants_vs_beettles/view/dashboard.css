@@ -1,0 +1,27 @@
+Button {
+    -fx-font-family: Calibri;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+
+    -fx-background-color: rgb(139,69,19);
+    -fx-padding: 8 15;
+
+    -fx-translate-y: 10;
+}
+
+#errorMessage {
+    -fx-font-family: Calibri;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill: 	rgb(139,69,19);
+
+    -fx-translate-x: 15;
+    -fx-translate-y: 18;
+}
+
+#errorMessageContainer, #buttonsContainer {
+    -fx-padding: 20 20 20 20;
+}
+

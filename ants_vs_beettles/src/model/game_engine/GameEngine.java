@@ -1,21 +1,16 @@
 package model.game_engine;
 
 import com.google.java.contract.Ensures;
+import console_view.BoardView;
 import console_view.ErrorMessage;
 import controller.DashboardVC;
-import controller.Helper;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 import model.board.Board;
 import model.board.Tile;
 import model.insect.Insect;
 import model.insect.InsectGenerator;
 import model.player.Player;
 
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameEngine {
@@ -26,52 +21,40 @@ public class GameEngine {
     private Insect currentInsect;
     private List<Tile> currentValidTiles;
     private Mode mode;
+
+    private BoardView boardView;
     private ErrorMessage errorMessage;
-    private DashboardVC controller;
+    private DashboardVC dashboardController;
 
-    public GameEngine(Stage primaryStage) {
-    	// UI Version
-    	FXMLLoader dashboardLoader = new FXMLLoader(getClass().getResource("/view/DashboardView.fxml"));
-        Parent dashboardUI = null;
-        try {
-            dashboardUI = dashboardLoader.load();
-            controller = dashboardLoader.getController();
-            controller.setGameEngine(this);
+    public GameEngine(DashboardVC dashboardController) {
+        initGameParams();
+        initGUI(dashboardController);
+    }
 
-            board = new Board();
-
-            // View
-            controller.drawTiles(board.getAllTiles());
-            controller.loadPanels();
-            board.updateBoard();
-
-//    	Parent dashboardUI = FXMLLoader.load(getClass().getResource("/view/DashboardView.fxml"));
-            primaryStage.setTitle("Ants VS Beetle");
-            primaryStage.setScene(new Scene(dashboardUI, Helper.WINDOW_W, Helper.WINDOW_H));
-            primaryStage.setResizable(false);
-            primaryStage.show();
-            primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
-                primaryStage.setTitle(newVal.toString());
-            });
-            primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
-                primaryStage.setTitle(newVal.toString());
-            });
-        } catch (IOException e) {
-            System.out.println("File not found");
-            // TODO: Exit? Popup?
-        }
-
+    private void initGameParams() {
+        board = new Board();
         players = new Player[]{new Player(), new Player()};
         turn = 0;
         insectGenerator = new InsectGenerator();
+        currentValidTiles = new ArrayList<>();
         mode = Mode.UNDEFINED;
+        boardView = new BoardView();
         errorMessage = new ErrorMessage();
+    }
+
+    private void initGUI(DashboardVC dashboardController) {
+        this.dashboardController = dashboardController;
+        dashboardController.setGameEngine(this);
+        boardView.drawBoard(board.getAllTiles(), currentValidTiles);
+
+        dashboardController.drawBoard(board.getAllTiles(), currentValidTiles, currentInsect);
+        dashboardController.loadPanels();
     }
 
     public void selectNewInsect(String insectType) {
         if (players[turn].reachedMaxInsects()) {
-            // TODO: VIEW - display error (exception?)
             errorMessage.printError("Cannot add more insects.");
+            dashboardController.setErrorMessage("Cannot add more insects.");
             return;
         }
 
@@ -79,86 +62,98 @@ public class GameEngine {
         mode = Mode.PLACE;
         currentValidTiles = board.getValidPlaceTiles(turn);
 
-        System.out.println("CurrentInsect (after selecting a new one): " + currentInsect);
-        controller.drawTiles(board.getAllTiles());
+        boardView.drawBoard(board.getAllTiles(), currentValidTiles);
+        dashboardController.drawBoard(board.getAllTiles(), currentValidTiles, currentInsect);
     }
 
     public void setMode(String mode) {
-        if (mode.equals("move")) {
-            this.mode = Mode.MOVE;
-            currentValidTiles = board.getValidMoveTiles(currentInsect);
+        if (currentInsect != null && currentInsect.getTile() != null) {
+            if (mode.equals("move")) {
+                this.mode = Mode.MOVE;
+                currentValidTiles = board.getValidMoveTiles(currentInsect);
+            } else {
+                this.mode = Mode.ATTACK;
+                currentValidTiles = board.getValidAttackTiles(currentInsect);
+            }
         } else {
-            this.mode = Mode.ATTACK;
-            currentValidTiles = board.getValidAttackTiles(currentInsect);
+            errorMessage.printError("No insect selected.");
+            dashboardController.setErrorMessage("No insect selected.");
         }
+
+        boardView.drawBoard(board.getAllTiles(), currentValidTiles);
+        dashboardController.drawBoard(board.getAllTiles(), currentValidTiles, currentInsect);
     }
 
     public void processSelectedTile(int x, int y) {
-        System.out.println("CurrentInsect: " + currentInsect);
+        String msg = "";
         Tile selectedTile = board.getTile(x, y);
         switch (mode) {
             case PLACE:
-                placeInsectOnto(selectedTile);
+                msg = placeInsectOnto(selectedTile);
+                reset();
                 break;
             case MOVE:
-                moveInsectTo(selectedTile);
+                msg = moveInsectTo(selectedTile);
+                reset();
                 break;
             case ATTACK:
-                attack(selectedTile);
+                msg = attack(selectedTile);
+                reset();
                 break;
             case UNDEFINED:
                 setCurrentInsect(selectedTile);
         }
-        
-        controller.drawTiles(board.getAllTiles());
+
+        errorMessage.printError(msg);
+        dashboardController.setErrorMessage(msg);
+        boardView.drawBoard(board.getAllTiles(), currentValidTiles);
+        dashboardController.drawBoard(board.getAllTiles(), currentValidTiles, currentInsect);
     }
 
     private void setCurrentInsect(Tile selectedTile) {
         if (selectedTile != null) {
-            currentInsect = selectedTile.getInsect();
-            board.updateBoard();
+            Insect insect = selectedTile.getInsect();
+            if (players[turn].containsInsect(insect)) {
+                currentInsect = insect;
+            }
         }
     }
 
-    private void placeInsectOnto(Tile selectedTile) {
+    private String placeInsectOnto(Tile selectedTile) {
         if (validTileSelection(selectedTile)) {
             currentInsect.setTile(selectedTile);
             players[turn].placeInsect(currentInsect);
             selectedTile.setInsect(currentInsect);
             toggleTurn();
-        } else {
-            // TODO: VIEW - display error
-            errorMessage.printError("The insect cannot be placed on the selected tile.");
+
+            return "";
         }
 
-        board.updateBoard();
+        return "The insect cannot be placed on the selected tile.";
     }
 
-    private void moveInsectTo(Tile selectedTile) {
+    private String moveInsectTo(Tile selectedTile) {
         if (validTileSelection(selectedTile)) {
             currentInsect.getTile().resetInsect();
             currentInsect.setTile(selectedTile);
             selectedTile.setInsect(currentInsect);
             toggleTurn();
-        } else {
-            // TODO: VIEW - display error
-            errorMessage.printError("The insect cannot move to the selected tile.");
-        }
 
-        board.updateBoard();
+            return "";
+        }
+        return "The insect cannot move to the selected tile.";
     }
 
     // TODO
-    private void attack(Tile selectedTile) {
+    private String attack(Tile selectedTile) {
         if (validTileSelection(selectedTile)) {
             // TODO: some other stuff
             toggleTurn();
-        } else {
-            // TODO: VIEW - display error
-            errorMessage.printError("The insect cannot attack the selected tile.");
+
+            return "";
         }
 
-        board.updateBoard();
+        return "The insect cannot attack the selected tile.";
     }
 
     private boolean validTileSelection(Tile selectedTile) {
@@ -167,14 +162,19 @@ public class GameEngine {
 
     @Ensures("old(turn) != turn")
     private void toggleTurn() {
-        // Reset
-        currentInsect = null;
-        currentValidTiles = null;
-        mode = Mode.UNDEFINED;
+        reset();
 
         // TODO: checkWin() and enable/disable ants/beetles
 
         // Switch to the other player
         turn = (turn % 2 == 0) ? 1 : 0;
+
+        dashboardController.switchPanel(turn);
+    }
+
+    private void reset() {
+        currentInsect = null;
+        currentValidTiles = new ArrayList<>();
+        mode = Mode.UNDEFINED;
     }
 }

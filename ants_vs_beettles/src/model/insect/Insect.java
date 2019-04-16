@@ -17,7 +17,7 @@ public abstract class Insect {
         this.profile = profile;
         healthPoints = profile.getMaxHealthPoints();
     }
-     
+
     public abstract String getFullName(); 
 
     public void decreaseHealthPoints(int damage) {

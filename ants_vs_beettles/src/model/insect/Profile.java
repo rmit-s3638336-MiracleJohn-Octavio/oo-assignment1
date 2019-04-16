@@ -3,13 +3,13 @@ package model.insect;
 public class Profile {
     private int maxHealthPoints;
     private int damage;
-    private int speed;
+    private int moveRange;
     private int attackRange;
 
-    public Profile(int maxHealthPoints, int damage, int speed, int attackRange) {
+    public Profile(int maxHealthPoints, int damage, int moveRange, int attackRange) {
         this.maxHealthPoints = maxHealthPoints;
         this.damage = damage;
-        this.speed = speed;
+        this.moveRange = moveRange;
         this.attackRange = attackRange;
     }
 
@@ -17,31 +17,15 @@ public class Profile {
         return maxHealthPoints;
     }
 
-    public void setMaxHealthPoints(int maxHealthPoints) {
-        this.maxHealthPoints = maxHealthPoints;
-    }
-
     public int getDamage() {
         return damage;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
+    public int getMoveRange() {
+        return moveRange;
     }
 
     public int getAttackRange() {
         return attackRange;
-    }
-
-    public void setAttackRange(int attackRange) {
-        this.attackRange = attackRange;
     }
 }

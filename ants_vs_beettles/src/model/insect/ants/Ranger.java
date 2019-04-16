@@ -6,7 +6,7 @@ import model.insect.Profile;
 import java.util.ArrayList;
 
 public class Ranger extends Ant {
-    private static Profile profile = new Profile(0,0,0, 0);
+    private static Profile profile = new Profile(0,0,3, 0);
 
     public Ranger() {
         super(profile);

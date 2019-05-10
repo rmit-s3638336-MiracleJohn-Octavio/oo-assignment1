@@ -8,6 +8,7 @@ import controller.DashboardVC;
 import model.board.Board;
 import model.board.Tile;
 import model.insect.Insect;
+import model.insect.InsectFactory;
 import model.insect.InsectGenerator;
 import model.player.Player;
 
@@ -19,7 +20,8 @@ public class GameEngine {
     private Board board;
     private Player[] players;
     private int turn;
-    private InsectGenerator insectGenerator;
+//    private InsectGenerator insectGenerator;
+    private InsectFactory insectFactory;
     private Insect currentInsect;
     private List<Tile> currentValidTiles;
     private Mode mode;
@@ -37,7 +39,8 @@ public class GameEngine {
         board = new Board();
         players = new Player[]{new Player(), new Player()};
         turn = 0;
-        insectGenerator = new InsectGenerator();
+//        insectGenerator = new InsectGenerator();
+        insectFactory = new InsectFactory();
         currentValidTiles = new ArrayList<>();
         mode = Mode.UNDEFINED;
         boardView = new BoardView();
@@ -59,7 +62,8 @@ public class GameEngine {
             return;
         }
 
-        currentInsect = insectGenerator.createInsect(insectType);
+//        currentInsect = insectGenerator.createInsect(insectType);
+        currentInsect = insectFactory.createInsect(insectType);
         mode = Mode.PLACE;
         currentValidTiles = board.getValidPlaceTiles(turn);
 

@@ -1,6 +1,7 @@
 package model.insect.ants;
 
 import model.board.Tile;
+import model.insect.Insect;
 import model.insect.Profile;
 
 import java.util.ArrayList;
@@ -10,6 +11,10 @@ public class Scout extends Ant {
 
     public Scout() {
         super(profile);
+    }
+
+    public Scout (Scout scout){
+        super(scout.profile);
     }
 
     @Override
@@ -25,5 +30,10 @@ public class Scout extends Ant {
     @Override
     public ArrayList<Tile> getValidAttackTiles() {
         return null;
+    }
+
+    @Override
+    public Insect cloneInsect() {
+        return new Scout(this);
     }
 }

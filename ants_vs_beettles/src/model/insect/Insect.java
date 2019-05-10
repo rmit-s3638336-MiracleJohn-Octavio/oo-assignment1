@@ -24,6 +24,11 @@ public abstract class Insect {
         healthPoints = profile.getMaxHealthPoints();
     }
 
+    public Insect(Insect insect){
+        profile = insect.profile;
+        healthPoints = profile.getMaxHealthPoints();
+    }
+
     public abstract String getFullName();
 
     public void decreaseHealthPoints(int damage) {
@@ -57,4 +62,6 @@ public abstract class Insect {
     public abstract ArrayList<Tile> getValidMoveTiles(int x, int y, int xInc, int yInc, int range, Board board);
 
     public abstract ArrayList<Tile> getValidAttackTiles();
+
+    public abstract Insect cloneInsect();
 }

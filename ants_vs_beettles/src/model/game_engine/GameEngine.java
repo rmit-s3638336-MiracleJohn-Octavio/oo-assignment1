@@ -150,7 +150,7 @@ public class GameEngine {
     // TODO
     private String attack(Tile selectedTile) {
         if (validTileSelection(selectedTile)) {
-            // TODO: some other stuff
+            // TODO: some other stuff; check for negative health points and also at the end of the turn remember to un-paralyse the insect
             toggleTurn();
 
             return "";

@@ -17,7 +17,8 @@ public abstract class Insect {
     private int healthPoints;
     private Profile profile;
     private Tile tile;
-    private Pane tileView;
+//    private Pane tileView;
+    private boolean paralysed = false;
 
     public Insect(Profile profile) {
         this.profile = profile;
@@ -35,13 +36,13 @@ public abstract class Insect {
         healthPoints -= damage;
     }
 
-    public Pane getTileView() {
-        return tileView;
-    }
-
-    public void setTileView(Pane tileView) {
-        this.tileView = tileView;
-    }
+//    public Pane getTileView() {
+//        return tileView;
+//    }
+//
+//    public void setTileView(Pane tileView) {
+//        this.tileView = tileView;
+//    }
 
     public void setTile(Tile tile) {
         this.tile = tile;
@@ -59,9 +60,16 @@ public abstract class Insect {
         this.profile = profile;
     }
 
+    public void setParalysed(boolean paralysed){
+        this.paralysed = paralysed;
+    }
+
     public abstract ArrayList<Tile> getValidMoveTiles(int x, int y, int xInc, int yInc, int range, Board board);
 
     public abstract ArrayList<Tile> getValidAttackTiles();
 
     public abstract Insect cloneInsect();
 }
+
+// get validAttackTile method: getting the valid attack tiles
+//patterns: prototype, decorator,

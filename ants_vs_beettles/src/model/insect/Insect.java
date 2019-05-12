@@ -4,8 +4,9 @@ import model.board.Board;
 import model.board.Tile;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import javafx.scene.layout.Pane;
+import model.board.valid_tiles_gen.ValidPlaceTilesGenerator;
 
 // Single-Responsibility Principle
 // Open-Closed Principle
@@ -20,9 +21,12 @@ public abstract class Insect {
     private Tile tile;
     private boolean paralysed = false;
 
+    private ValidPlaceTilesGenerator validPlaceTilesGenerator;
+
     public Insect(Profile profile) {
         this.profile = profile;
         healthPoints = profile.getMaxHealthPoints();
+        validPlaceTilesGenerator = new ValidPlaceTilesGenerator();
     }
 
     public Insect(Insect insect){
@@ -72,6 +76,10 @@ public abstract class Insect {
     public void initInsect(int id, Tile tile) {
         this.id = id;
         this.tile = tile;
+    }
+
+    public List<Tile> getValidPlaceTiles(Board board) {
+        return validPlaceTilesGenerator.getValidTiles(this, board);
     }
 
     public abstract ArrayList<Tile> getValidMoveTiles(int x, int y, int xInc, int yInc, int range, Board board);

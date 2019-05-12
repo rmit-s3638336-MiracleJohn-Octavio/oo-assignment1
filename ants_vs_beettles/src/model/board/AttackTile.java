@@ -1,6 +1,6 @@
 package model.board;
 
-import model.insect.attacks.Attack;
+import model.board.attacks.Attack;
 
 public class AttackTile extends Tile{
     private Attack attack;

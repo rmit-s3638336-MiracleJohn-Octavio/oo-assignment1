@@ -5,9 +5,9 @@ import model.board.Board;
 import model.board.Tile;
 import model.insect.Insect;
 import model.insect.Profile;
-import model.insect.attacks.Attack;
-import model.insect.attacks.HPAttack;
-import model.insect.attacks.KickBackAttack;
+import model.board.attacks.Attack;
+import model.board.attacks.HPAttack;
+import model.board.attacks.KickBackAttack;
 
 import java.util.ArrayList;
 

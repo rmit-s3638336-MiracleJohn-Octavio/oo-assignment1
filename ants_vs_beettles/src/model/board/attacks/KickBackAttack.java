@@ -1,4 +1,4 @@
-package model.insect.attacks;
+package model.board.attacks;
 
 import model.board.Tile;
 import model.insect.Insect;

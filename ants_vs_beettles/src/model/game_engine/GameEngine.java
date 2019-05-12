@@ -66,7 +66,8 @@ public class GameEngine {
 //        currentInsect = insectGenerator.createInsect(insectType);
         currentInsect = insectFactory.createInsect(insectType);
         mode = Mode.PLACE;
-        currentValidTiles = board.getValidPlaceTiles(turn);
+//        currentValidTiles = board.getValidPlaceTiles(turn);
+        currentValidTiles = currentInsect.getValidPlaceTiles(board);
 
         updateViews();
     }
@@ -153,7 +154,6 @@ public class GameEngine {
         return "The insect cannot move to the selected tile.";
     }
 
-    // TODO
     private String attack(Tile selectedTile) {
         if (validTileSelection(selectedTile)) {
             // TODO: at the end of the turn remember to un-paralyse the insect

@@ -5,8 +5,8 @@ import model.board.Board;
 import model.board.Tile;
 import model.insect.Insect;
 import model.insect.Profile;
-import model.insect.attacks.Attack;
-import model.insect.attacks.PoisonAttack;
+import model.board.attacks.Attack;
+import model.board.attacks.PoisonAttack;
 
 
 import java.util.ArrayList;

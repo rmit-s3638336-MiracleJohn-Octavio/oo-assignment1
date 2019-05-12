@@ -2,6 +2,7 @@ package model.insect.ants;
 
 import model.board.Board;
 import model.board.Tile;
+import model.board.valid_tiles_gen.ValidPlaceTilesGenerator;
 import model.insect.Insect;
 import model.insect.Profile;
 

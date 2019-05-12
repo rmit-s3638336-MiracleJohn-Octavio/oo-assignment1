@@ -34,7 +34,7 @@ public abstract class Beetle extends Insect {
         return validTiles;
     }
 
-    public abstract ArrayList<Tile> getValidAttackTiles();
+//    public abstract ArrayList<Tile> getValidAttackTiles();
 
 
 }

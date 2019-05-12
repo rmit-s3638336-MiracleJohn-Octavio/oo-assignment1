@@ -16,8 +16,10 @@ public class Player {
     }
 
     @Ensures("old(insects.size() + 1) == insects.size()")
-    public void placeInsect(Insect insect) {
+    public int placeInsect(Insect insect) {
+        int id = insectId;
         insects.put(insectId++, insect);
+        return id;
     }
 
     public boolean containsInsect(Insect insect) {

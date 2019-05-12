@@ -13,9 +13,6 @@ public class HPAttack extends Attack{
 
     @Override
     public void attack(Insect insect) {
-
-        //decrease the insect passed in health point's with the health points
-        // in this class.
         insect.decreaseHealthPoints(damage);
     }
 }

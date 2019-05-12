@@ -32,6 +32,6 @@ public abstract class Ant extends Insect {
         return validTiles;
     }
 
-    public abstract ArrayList<Tile> getValidAttackTiles();
+//    public abstract ArrayList<Tile> getValidAttackTiles();
 }
 

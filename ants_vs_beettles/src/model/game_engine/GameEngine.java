@@ -5,11 +5,12 @@ import com.google.java.contract.Invariant;
 import console_view.BoardView;
 import console_view.ErrorMessage;
 import controller.DashboardVC;
+import model.board.AttackTile;
 import model.board.Board;
 import model.board.Tile;
 import model.insect.Insect;
 import model.insect.InsectFactory;
-import model.insect.InsectGenerator;
+//import model.insect.InsectGenerator;
 import model.player.Player;
 
 import java.util.ArrayList;
@@ -78,6 +79,11 @@ public class GameEngine {
             } else {
                 this.mode = Mode.ATTACK;
                 currentValidTiles = board.getValidAttackTiles(currentInsect);
+                System.out.println("In GameEngine: validAttackTiles: " + currentValidTiles);
+                if (currentValidTiles.isEmpty()) {
+                    errorMessage.printError("No attack available.");
+                    dashboardController.setErrorMessage("No attack available.");
+                }
             }
         } else {
             errorMessage.printError("No insect selected.");
@@ -124,8 +130,8 @@ public class GameEngine {
 
     private String placeInsectOnto(Tile selectedTile) {
         if (validTileSelection(selectedTile)) {
-            currentInsect.setTile(selectedTile);
-            players[turn].placeInsect(currentInsect);
+            int id = players[turn].placeInsect(currentInsect);
+            currentInsect.initInsect(id, selectedTile);
             selectedTile.setInsect(currentInsect);
             toggleTurn();
 
@@ -150,7 +156,26 @@ public class GameEngine {
     // TODO
     private String attack(Tile selectedTile) {
         if (validTileSelection(selectedTile)) {
-            // TODO: some other stuff; check for negative health points and also at the end of the turn remember to un-paralyse the insect
+            // TODO: at the end of the turn remember to un-paralyse the insect
+
+            // TODO: Should validTileSelection return a tile???
+            Tile attTile = null;
+            for (int i = 0; i < currentValidTiles.size(); i++) {
+                if (selectedTile.equals(currentValidTiles.get(i))) {
+                    attTile = currentValidTiles.get(i);
+                    break;
+                }
+            }
+
+            // TODO: get insect from the tile???
+            ((AttackTile) attTile).getAttack().attack(selectedTile.getInsect());
+
+            // Check for negative hp
+            if (selectedTile.getInsect().killed()) {
+                players[turn].removeInsect(selectedTile.getInsect().getId());
+                selectedTile.resetInsect();
+            }
+
             toggleTurn();
 
             return "";
@@ -167,7 +192,7 @@ public class GameEngine {
     private void toggleTurn() {
         reset();
 
-        // TODO: checkWin() and enable/disable ants/beetles
+        // TODO: checkWin()
 
         // Switch to the other player
         turn = (turn % 2 == 0) ? 1 : 0;

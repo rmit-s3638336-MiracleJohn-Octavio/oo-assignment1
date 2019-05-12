@@ -1,20 +1,22 @@
 package model.insect.attacks;
 
+import model.board.Tile;
 import model.insect.Insect;
 
 public class KickBackAttack extends HPAttack {
 
-    private int x,y;
+    private Tile newTile;
 
-    public KickBackAttack(int damage, int x, int y){
+    public KickBackAttack(int damage, Tile newTile){
         super(damage);
-        this.x = x;
-        this.y = y;
+        this.newTile = newTile;
     }
 
     @Override
     public void attack(Insect insect) {
         super.attack(insect);
-
+        insect.getTile().resetInsect();
+        insect.setTile(newTile);
+        newTile.setInsect(insect);
     }
 }

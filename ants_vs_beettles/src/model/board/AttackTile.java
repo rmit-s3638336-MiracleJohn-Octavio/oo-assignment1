@@ -10,5 +10,7 @@ public class AttackTile extends Tile{
         this.attack = attack;
     }
 
-
+    public Attack getAttack() {
+        return attack;
+    }
 }

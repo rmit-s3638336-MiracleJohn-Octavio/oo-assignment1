@@ -14,10 +14,10 @@ import javafx.scene.layout.Pane;
 // GRASP - High Cohesion
 // GRASP - Polymorphism
 public abstract class Insect {
+    private int id;
     private int healthPoints;
     private Profile profile;
     private Tile tile;
-//    private Pane tileView;
     private boolean paralysed = false;
 
     public Insect(Profile profile) {
@@ -30,19 +30,20 @@ public abstract class Insect {
         healthPoints = profile.getMaxHealthPoints();
     }
 
+    public int getId() {
+        return id;
+    }
+
     public abstract String getFullName();
+
+    public boolean killed() {
+        return healthPoints < 0;
+    }
 
     public void decreaseHealthPoints(int damage) {
         healthPoints -= damage;
+        System.out.println("HP after being attacked: " + healthPoints);
     }
-
-//    public Pane getTileView() {
-//        return tileView;
-//    }
-//
-//    public void setTileView(Pane tileView) {
-//        this.tileView = tileView;
-//    }
 
     public void setTile(Tile tile) {
         this.tile = tile;
@@ -64,9 +65,18 @@ public abstract class Insect {
         this.paralysed = paralysed;
     }
 
+    public boolean getParalysed() {
+        return paralysed;
+    }
+
+    public void initInsect(int id, Tile tile) {
+        this.id = id;
+        this.tile = tile;
+    }
+
     public abstract ArrayList<Tile> getValidMoveTiles(int x, int y, int xInc, int yInc, int range, Board board);
 
-    public abstract ArrayList<Tile> getValidAttackTiles();
+    public abstract ArrayList<Tile> getValidAttackTiles(int x, int y, int xInc, int yInc, int range, Board board);
 
     public abstract Insect cloneInsect();
 }

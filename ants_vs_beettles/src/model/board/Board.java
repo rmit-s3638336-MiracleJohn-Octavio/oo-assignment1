@@ -75,8 +75,23 @@ public class Board {
     }
 
     public ArrayList<Tile> getValidAttackTiles(Insect insect) {
-        // TODO
+        ArrayList<Tile> validTiles = new ArrayList<>();
 
-        return null;
+        // Get the insect's location and move range
+        Tile insectLoc = insect.getTile();
+        int x = insectLoc.getX();
+        int y = insectLoc.getY();
+        int range = insect.getProfile().getAttackRange();
+
+        // Get valid tiles
+        validTiles.addAll(insect.getValidAttackTiles(x, y, 1, 0, range, this));
+        validTiles.addAll(insect.getValidAttackTiles(x, y, -1, 0, range, this));
+        validTiles.addAll(insect.getValidAttackTiles(x, y, 0, 1, range, this));
+        validTiles.addAll(insect.getValidAttackTiles(x, y, 0, -1, range, this));
+
+        Collections.sort(validTiles);
+        System.out.println("In Board: validAttackTiles: " + validTiles);
+
+        return validTiles;
     }
 }

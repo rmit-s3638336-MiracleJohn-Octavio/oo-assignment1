@@ -7,5 +7,6 @@ import model.insect.Insect;
 import java.util.List;
 
 public interface ValidTilesGenerator {
-    public List<Tile> getValidTiles(Insect insect, Board board);
+    // TODO: const for xInc and yInc
+    public abstract List<Tile> getValidTiles(Insect insect, Board board, int xInc, int yInc, int range);
 }

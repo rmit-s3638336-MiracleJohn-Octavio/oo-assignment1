@@ -1,24 +1,23 @@
 package model.insect.ants;
 
-import model.board.AttackTile;
-import model.board.Board;
-import model.board.Tile;
+import model.board.valid_tiles_gen.ValidGroundAttackTilesGenerator;
 import model.insect.Insect;
 import model.insect.Profile;
-import model.board.attacks.Attack;
-import model.board.attacks.HPAttack;
-
-import java.util.ArrayList;
+import model.insect.attacks.HPAttack;
 
 public class Heavy extends Ant {
-    private static Profile profile = new Profile(15, 6, 2, 1);
+    private static final int MAX_HEALTH_POINTS = 15;
+    private static final int DAMAGE = 6;
+    private static final int MOVE_RANGE = 2;
+    private static final int ATTACK_RANGE = 1;
+    private static final Profile profile = new Profile(MAX_HEALTH_POINTS, DAMAGE, MOVE_RANGE, ATTACK_RANGE);
 
     public Heavy() {
-        super(profile);
+        super(profile, new ValidGroundAttackTilesGenerator(), new HPAttack());
     }
 
-    public Heavy (Heavy heavy){
-        super(heavy.profile);
+    private Heavy (Heavy heavy){
+        super(heavy.getProfile(), new ValidGroundAttackTilesGenerator(), new HPAttack());
     }
 
     @Override
@@ -29,32 +28,6 @@ public class Heavy extends Ant {
     @Override
     public String getFullName() {
     	return "heavy";
-    }
-
-    @Override
-    public ArrayList<Tile> getValidAttackTiles(int x, int y, int xInc, int yInc, int range, Board board) {
-        ArrayList<Tile> validTiles = new ArrayList<>();
-        Tile tile;
-
-        for (int i = 1; i <= range; i++) {
-            x += xInc;
-            y += yInc;
-            tile = board.getTile(x, y);
-
-            // Stop when reach the bound of the board
-            if (tile == null) {
-                break;
-            }
-
-            if (tile.getInsect() != null) {
-                Attack attack = new HPAttack(this.getProfile().getDamage());
-                Tile attTile = new AttackTile(x, y, attack);
-                validTiles.add(attTile);
-                break;
-            }
-        }
-
-        return validTiles;
     }
 
     @Override

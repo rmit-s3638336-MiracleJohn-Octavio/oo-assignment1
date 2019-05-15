@@ -1,10 +1,5 @@
 package model.board;
 
-import model.insect.Insect;
-
-import java.util.ArrayList;
-import java.util.Collections;
-
 public class Board {
     // TODO: public attributes???
     public static final int BOARD_SIZE = 10;
@@ -37,62 +32,5 @@ public class Board {
 
     private boolean containsTile(int x, int y) {
         return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
-    }
-
-//    public ArrayList<Tile> getValidPlaceTiles(int turn) {
-//        // Determine which player is playing
-//        int validCol = (turn == 0) ? PLAYER_0_VALID_PLACING_COL : PLAYER_1_VALID_PLACING_COL;
-//
-//        // Generate a list of valid tiles (side edge tiles with no insect in it) that
-//        // the insect can be placed on
-//        ArrayList<Tile> validTiles = new ArrayList<>();
-//        for (int row = 0; row < BOARD_SIZE; row++) {
-//            if (tiles[row][validCol].getInsect() == null) {
-//                validTiles.add(tiles[row][validCol]);
-//            }
-//        }
-//
-//        return validTiles;
-//    }
-
-    public ArrayList<Tile> getValidMoveTiles(Insect insect) {
-        ArrayList<Tile> validTiles = new ArrayList<>();
-
-        // Get the insect's location and move range
-        Tile insectLoc = insect.getTile();
-        int x = insectLoc.getX();
-        int y = insectLoc.getY();
-        int range = insect.getProfile().getMoveRange();
-
-        // Get valid tiles
-        validTiles.addAll(insect.getValidMoveTiles(x, y, 1, 0, range, this));
-        validTiles.addAll(insect.getValidMoveTiles(x, y, -1, 0, range, this));
-        validTiles.addAll(insect.getValidMoveTiles(x, y, 0, 1, range, this));
-        validTiles.addAll(insect.getValidMoveTiles(x, y, 0, -1, range, this));
-
-        Collections.sort(validTiles);
-
-        return validTiles;
-    }
-
-    public ArrayList<Tile> getValidAttackTiles(Insect insect) {
-        ArrayList<Tile> validTiles = new ArrayList<>();
-
-        // Get the insect's location and move range
-        Tile insectLoc = insect.getTile();
-        int x = insectLoc.getX();
-        int y = insectLoc.getY();
-        int range = insect.getProfile().getAttackRange();
-
-        // Get valid tiles
-        validTiles.addAll(insect.getValidAttackTiles(x, y, 1, 0, range, this));
-        validTiles.addAll(insect.getValidAttackTiles(x, y, -1, 0, range, this));
-        validTiles.addAll(insect.getValidAttackTiles(x, y, 0, 1, range, this));
-        validTiles.addAll(insect.getValidAttackTiles(x, y, 0, -1, range, this));
-
-        Collections.sort(validTiles);
-        System.out.println("In Board: validAttackTiles: " + validTiles);
-
-        return validTiles;
     }
 }

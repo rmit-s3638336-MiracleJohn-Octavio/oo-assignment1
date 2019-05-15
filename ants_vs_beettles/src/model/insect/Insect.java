@@ -2,11 +2,14 @@ package model.insect;
 
 import model.board.Board;
 import model.board.Tile;
+import model.insect.attacks.Attack;
+import model.board.valid_tiles_gen.ValidPlaceTilesGenerator;
+import model.board.valid_tiles_gen.ValidTilesGenerator;
+import model.player.Player;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
-import model.board.valid_tiles_gen.ValidPlaceTilesGenerator;
 
 // Single-Responsibility Principle
 // Open-Closed Principle
@@ -19,19 +22,34 @@ public abstract class Insect {
     private int healthPoints;
     private Profile profile;
     private Tile tile;
-    private boolean paralysed = false;
+    private int paralysed;
 
     private ValidPlaceTilesGenerator validPlaceTilesGenerator;
+    private ValidTilesGenerator validMoveTilesGenerator;
+    private ValidTilesGenerator validAttackTilesGenerator;
+    private Attack attack;
 
-    public Insect(Profile profile) {
+    public Insect(Profile profile, ValidTilesGenerator validMoveTilesGenerator,
+                  ValidTilesGenerator validAttackTilesGenerator, Attack attack) {
         this.profile = profile;
         healthPoints = profile.getMaxHealthPoints();
+        paralysed = 0;
+
         validPlaceTilesGenerator = new ValidPlaceTilesGenerator();
+        this.validMoveTilesGenerator = validMoveTilesGenerator;
+        this.validAttackTilesGenerator = validAttackTilesGenerator;
+        this.attack = attack;
     }
 
     public Insect(Insect insect){
         profile = insect.profile;
         healthPoints = profile.getMaxHealthPoints();
+        paralysed = 0;
+
+        validPlaceTilesGenerator = new ValidPlaceTilesGenerator();
+        validMoveTilesGenerator = insect.validMoveTilesGenerator;
+        validAttackTilesGenerator = insect.validAttackTilesGenerator;
+        attack = insect.attack;
     }
 
     public int getId() {
@@ -61,16 +79,18 @@ public abstract class Insect {
         return profile;
     }
 
-    public void setProfile(Profile profile) {
-        this.profile = profile;
+    public void paralyse() {
+        paralysed = 2;
     }
 
-    public void setParalysed(boolean paralysed){
-        this.paralysed = paralysed;
+    public boolean isParalysed() {
+        return paralysed > 0;
     }
 
-    public boolean getParalysed() {
-        return paralysed;
+    public void deParalyse() {
+        if (paralysed > 0) {
+            paralysed--;
+        }
     }
 
     public void initInsect(int id, Tile tile) {
@@ -78,16 +98,36 @@ public abstract class Insect {
         this.tile = tile;
     }
 
-    public List<Tile> getValidPlaceTiles(Board board) {
-        return validPlaceTilesGenerator.getValidTiles(this, board);
+    public ValidPlaceTilesGenerator getValidPlaceTilesGenerator() {
+        return validPlaceTilesGenerator;
     }
 
-    public abstract ArrayList<Tile> getValidMoveTiles(int x, int y, int xInc, int yInc, int range, Board board);
+    public abstract List<Tile> getValidPlaceTiles(Board board);
 
-    public abstract ArrayList<Tile> getValidAttackTiles(int x, int y, int xInc, int yInc, int range, Board board);
+    public List<Tile> getValidMoveTiles(Board board) {
+        return getValidTiles(board, validMoveTilesGenerator, this.getProfile().getMoveRange());
+    }
+
+    public List<Tile> getValidAttackTiles(Board board) {
+        return getValidTiles(board, validAttackTilesGenerator, this.getProfile().getAttackRange());
+    }
+
+    private List<Tile> getValidTiles(Board board, ValidTilesGenerator generator, int range) {
+        List<Tile> validTiles = new ArrayList<>();
+
+        validTiles.addAll(generator.getValidTiles(this, board, 1, 0, range));
+        validTiles.addAll(generator.getValidTiles(this, board, -1, 0, range));
+        validTiles.addAll(generator.getValidTiles(this, board, 0, 1, range));
+        validTiles.addAll(generator.getValidTiles(this, board, 0, -1, range));
+
+        Collections.sort(validTiles);
+
+        return validTiles;
+    }
+
+    public void attack(Board board, Player player, Insect attackee) {
+        attack.attack(this, board, player, attackee);
+    }
 
     public abstract Insect cloneInsect();
 }
-
-// get validAttackTile method: getting the valid attack tiles
-//patterns: prototype, decorator,

@@ -2,39 +2,21 @@ package model.insect.beetles;
 
 import model.board.Board;
 import model.board.Tile;
+import model.insect.attacks.Attack;
+import model.board.valid_tiles_gen.ValidAirMoveTilesGenerator;
+import model.board.valid_tiles_gen.ValidTilesGenerator;
 import model.insect.Insect;
 import model.insect.Profile;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Beetle extends Insect {
-    public Beetle(Profile profile) {
-        super(profile);
+    public Beetle(Profile profile, ValidTilesGenerator validAttackTilesGenerator, Attack attack) {
+        super(profile, new ValidAirMoveTilesGenerator(), validAttackTilesGenerator, attack);
     }
 
-    public ArrayList<Tile> getValidMoveTiles(int x, int y, int xInc, int yInc, int range, Board board) {
-        ArrayList<Tile> validTiles = new ArrayList<>();
-        Tile tile;
-
-        for (int i = 1; i <= range; i++) {
-            x += xInc;
-            y += yInc;
-            tile = board.getTile(x, y);
-
-            // Stop when reach the bound of the board
-            if (tile == null) {
-                break;
-            }
-
-            if (tile.getInsect() == null) {
-                validTiles.add(tile);
-            }
-        }
-
-        return validTiles;
+    @Override
+    public List<Tile> getValidPlaceTiles(Board board) {
+        return super.getValidPlaceTilesGenerator().getValidTiles(this, board, -1, 1, 2);
     }
-
-//    public abstract ArrayList<Tile> getValidAttackTiles();
-
-
 }

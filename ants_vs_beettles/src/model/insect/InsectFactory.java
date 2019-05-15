@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InsectFactory {
-
     Map<String, Insect> insects = new HashMap<>();
 
     public InsectFactory() {
@@ -19,19 +18,15 @@ public class InsectFactory {
     }
 
     private void loadInsects(){
-
         insects.put("scout", new Scout());
         insects.put("heavy", new Heavy());
         insects.put("ranger", new Ranger());
         insects.put("finder", new Finder());
         insects.put("greedy", new Greedy());
         insects.put("bogus", new Bogus());
-
     }
 
     public Insect createInsect(String insectType){
-
-        return insects.get(insectType);
-
+        return insects.get(insectType).cloneInsect();
     }
 }

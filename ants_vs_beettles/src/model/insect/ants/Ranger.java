@@ -1,24 +1,23 @@
 package model.insect.ants;
 
-import model.board.AttackTile;
-import model.board.Board;
-import model.board.Tile;
+import model.board.valid_tiles_gen.ValidAirAttackTilesGenerator;
 import model.insect.Insect;
 import model.insect.Profile;
-import model.board.attacks.Attack;
-import model.board.attacks.HPAttack;
-
-import java.util.ArrayList;
+import model.insect.attacks.HPAttack;
 
 public class Ranger extends Ant {
-    private static Profile profile = new Profile(9,4,3, 3);
+    private static final int MAX_HEALTH_POINTS = 9;
+    private static final int DAMAGE = 4;
+    private static final int MOVE_RANGE = 3;
+    private static final int ATTACK_RANGE = 3;
+    private static final Profile profile = new Profile(MAX_HEALTH_POINTS, DAMAGE, MOVE_RANGE, ATTACK_RANGE);
 
     public Ranger() {
-        super(profile);
+        super(profile, new ValidAirAttackTilesGenerator(), new HPAttack());
     }
 
-    public Ranger (Ranger ranger){
-        super(ranger.profile);
+    private Ranger (Ranger ranger){
+        super(ranger.getProfile(), new ValidAirAttackTilesGenerator(), new HPAttack());
     }
 
     @Override
@@ -29,31 +28,6 @@ public class Ranger extends Ant {
     @Override
     public String getFullName() {
     	return "ranger";
-    }
-
-    @Override
-    public ArrayList<Tile> getValidAttackTiles(int x, int y, int xInc, int yInc, int range, Board board) {
-        ArrayList<Tile> validTiles = new ArrayList<>();
-        Tile tile;
-
-        for (int i = 1; i <= range; i++) {
-            x += xInc;
-            y += yInc;
-            tile = board.getTile(x, y);
-
-            // Stop when reach the bound of the board
-            if (tile == null) {
-                break;
-            }
-
-            if (tile.getInsect() != null) {
-                Attack attack = new HPAttack(this.getProfile().getDamage());
-                Tile attTile = new AttackTile(x, y, attack);
-                validTiles.add(attTile);
-            }
-        }
-
-        return validTiles;
     }
 
     @Override

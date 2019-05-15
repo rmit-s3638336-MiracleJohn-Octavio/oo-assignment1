@@ -5,12 +5,10 @@ import com.google.java.contract.Invariant;
 import console_view.BoardView;
 import console_view.ErrorMessage;
 import controller.DashboardVC;
-import model.board.AttackTile;
 import model.board.Board;
 import model.board.Tile;
 import model.insect.Insect;
 import model.insect.InsectFactory;
-//import model.insect.InsectGenerator;
 import model.player.Player;
 
 import java.util.ArrayList;
@@ -21,7 +19,6 @@ public class GameEngine {
     private Board board;
     private Player[] players;
     private int turn;
-//    private InsectGenerator insectGenerator;
     private InsectFactory insectFactory;
     private Insect currentInsect;
     private List<Tile> currentValidTiles;
@@ -40,7 +37,6 @@ public class GameEngine {
         board = new Board();
         players = new Player[]{new Player(), new Player()};
         turn = 0;
-//        insectGenerator = new InsectGenerator();
         insectFactory = new InsectFactory();
         currentValidTiles = new ArrayList<>();
         mode = Mode.UNDEFINED;
@@ -63,10 +59,8 @@ public class GameEngine {
             return;
         }
 
-//        currentInsect = insectGenerator.createInsect(insectType);
         currentInsect = insectFactory.createInsect(insectType);
         mode = Mode.PLACE;
-//        currentValidTiles = board.getValidPlaceTiles(turn);
         currentValidTiles = currentInsect.getValidPlaceTiles(board);
 
         updateViews();
@@ -76,10 +70,10 @@ public class GameEngine {
         if (currentInsect != null && currentInsect.getTile() != null) {
             if (mode.equals("move")) {
                 this.mode = Mode.MOVE;
-                currentValidTiles = board.getValidMoveTiles(currentInsect);
+                currentValidTiles = currentInsect.getValidMoveTiles(board);
             } else {
                 this.mode = Mode.ATTACK;
-                currentValidTiles = board.getValidAttackTiles(currentInsect);
+                currentValidTiles = currentInsect.getValidAttackTiles(board);
                 System.out.println("In GameEngine: validAttackTiles: " + currentValidTiles);
                 if (currentValidTiles.isEmpty()) {
                     errorMessage.printError("No attack available.");
@@ -121,7 +115,7 @@ public class GameEngine {
     }
 
     private void setCurrentInsect(Tile selectedTile) {
-        if (selectedTile != null) {
+        if (selectedTile.getInsect() != null && !selectedTile.getInsect().isParalysed()) {
             Insect insect = selectedTile.getInsect();
             if (players[turn].containsInsect(insect)) {
                 currentInsect = insect;
@@ -156,26 +150,7 @@ public class GameEngine {
 
     private String attack(Tile selectedTile) {
         if (validTileSelection(selectedTile)) {
-            // TODO: at the end of the turn remember to un-paralyse the insect
-
-            // TODO: Should validTileSelection return a tile???
-            Tile attTile = null;
-            for (int i = 0; i < currentValidTiles.size(); i++) {
-                if (selectedTile.equals(currentValidTiles.get(i))) {
-                    attTile = currentValidTiles.get(i);
-                    break;
-                }
-            }
-
-            // TODO: get insect from the tile???
-            ((AttackTile) attTile).getAttack().attack(selectedTile.getInsect());
-
-            // Check for negative hp
-            if (selectedTile.getInsect().killed()) {
-                players[turn].removeInsect(selectedTile.getInsect().getId());
-                selectedTile.resetInsect();
-            }
-
+            currentInsect.attack(board, players[turn], selectedTile.getInsect());
             toggleTurn();
 
             return "";
@@ -194,9 +169,10 @@ public class GameEngine {
 
         // TODO: checkWin()
 
-        // Switch to the other player
-        turn = (turn % 2 == 0) ? 1 : 0;
+        players[turn].deParalyseInsects();
 
+        // Switch to the other player
+        turn = ++turn % 2;
         dashboardController.switchPlayer(turn);
     }
 

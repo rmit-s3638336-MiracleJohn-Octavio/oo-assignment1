@@ -2,74 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cad0eaf8-b822-4e19-85e8-773aeffe7fa9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidActionTilesGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidAirAttackTilesGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidAirMoveTilesGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundAttackTilesGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundMoveTilesGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/Attack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/HPAttack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/KickBackAttack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/PoisonAttack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidAirAttackTilesGenerator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidAirMoveTilesGenerator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidGroundAttackTilesGenerator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidGroundMoveTilesGenerator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/game_engine/GameEngine.contracts" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/game_engine/GameEngine.contracts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/player/Player.contracts" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/out/production/oo-assignment1/model/player/Player.contracts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/AttackTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/controller/DashboardVC.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/controller/DashboardVC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/controller/InsectVC.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/controller/InsectVC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/attack_tile_gen/AttackTileGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/attack_tile_gen/HPAttackTileGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/attack_tile_gen/KickBackAttackTileGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/attack_tile_gen/PoisonAttackTileGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/attacks/Attack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/attacks/HPAttack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/attacks/KickBackAttack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/attacks/PoisonAttack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidAirTilesGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundTilesGenerator.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidPlaceTilesGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidPlaceTilesGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidTilesGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidTilesGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/GameEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/Mode.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/Mode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Insect.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Insect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/InsectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/InsectFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Ant.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Ant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Heavy.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Heavy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Ranger.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Ranger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Scout.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Scout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Beetle.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Beetle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Bogus.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Bogus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Finder.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Finder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Greedy.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Greedy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/HPAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/HPAttack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/KickBackAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/KickBackAttack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/PoisonAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/PoisonAttack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/model/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/model/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/view/DashboardView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/view/DashboardView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/controller/DashboardVC.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/controller/DashboardVC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/controller/Helper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/controller/Helper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/controller/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/AttackTile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/attacks/Attack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/attacks/HPAttack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/attacks/KickBackAttack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/attacks/PoisonAttack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidAirTilesGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidGroundTilesGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidActionTilesGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidActionTilesGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidAirAttackTilesGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidAirAttackTilesGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidAirMoveTilesGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidAirMoveTilesGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidGroundAttackTilesGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidGroundAttackTilesGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidGroundMoveTilesGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidGroundMoveTilesGenerator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidPlaceTilesGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidPlaceTilesGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidTilesGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/board/valid_tiles_gen/ValidTilesGenerator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/game_engine/GameEngine$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/game_engine/GameEngine$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/game_engine/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/game_engine/GameEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/game_engine/Mode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/game_engine/Mode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/Insect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/Insect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/InsectFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/InsectFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/ants/Ant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/ants/Ant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/ants/Heavy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/ants/Heavy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/ants/Ranger.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/ants/Ranger.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/ants/Scout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/ants/Scout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/beetles/Beetle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/beetles/Beetle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/beetles/Bogus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/beetles/Bogus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/beetles/Finder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/beetles/Finder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/beetles/Greedy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/beetles/Greedy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/attacks/HPAttack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/attacks/HPAttack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/attacks/KickBackAttack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/attacks/KickBackAttack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/attacks/PoisonAttack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/insect/attacks/PoisonAttack.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/player/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/model/player/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/view/DashboardView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/view/DashboardView.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,83 +56,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/ants/Ranger.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#657#658#0" expanded="true" />
-                <element signature="e#751#752#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/Board.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
-              <folding>
-                <element signature="e#403#404#0" expanded="true" />
-                <element signature="e#431#432#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidAirAttackTilesGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidAirMoveTilesGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundAttackTilesGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundMoveTilesGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -201,13 +88,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/KickBackAttack.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/AttackTile.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/view/DashboardView.fxml" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/Tile.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/controller/TileFactory.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/controller/BoardVC.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidAirTilesGenerator.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundTilesGenerator.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/InsectFactory.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/attack_tiles_gen/HPAttackTilesGenerator.java" />
@@ -233,14 +113,9 @@
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/beetles/Greedy.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/attacks/Attack.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/attacks/HPAttack.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidPlaceTilesGenerator.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/attacks/KickBackAttack.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidTilesGenerator.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/attacks/PoisonAttack.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/GameEngine.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/player/Player.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Insect.java" />
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidActionTilesGenerator.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/NEWalidGroundAttackTilesGenerator.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/OLDValidAirAttackTilesGenerator.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/NEWValidAirAttackTilesGenerator.java" />
@@ -251,7 +126,19 @@
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/NEWValidGroundMoveTilesGenerator.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundMoveTilesGenerator.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundAttackTilesGenerator.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidActionTilesGenerator.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/controller/DashboardVC.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/view/DashboardView.fxml" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/Mode.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/KickBackAttack.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidPlaceTilesGenerator.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/HPAttack.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/controller/InsectVC.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/board/Board.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/player/Player.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Insect.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/PoisonAttack.java" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/GameEngine.java" />
       </list>
     </option>
   </component>
@@ -316,27 +203,18 @@
               <item name="model" type="462c0819:PsiDirectoryNode" />
               <item name="insect" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="oo-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oo-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="ants_vs_beettles" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="insect" type="462c0819:PsiDirectoryNode" />
-              <item name="ants" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557901739091" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557901877401" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -405,18 +283,29 @@
       <workItem from="1557815978427" duration="718000" />
       <workItem from="1557818848783" duration="5441000" />
       <workItem from="1557894292096" duration="1982000" />
-      <workItem from="1557899172222" duration="2546000" />
+      <workItem from="1557899172222" duration="3281000" />
+      <workItem from="1557993396468" duration="651000" />
+      <workItem from="1558026855914" duration="6720000" />
+      <workItem from="1558054750636" duration="1410000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117159000" />
+    <option name="totallyTimeSpent" value="126675000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.625192" visible="true" weight="0.2322239" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.625192" visible="true" weight="0.24205749" />
       <window_info id="Structure" order="1" sideWeight="0.37480798" side_tool="true" weight="0.2708018" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -425,11 +314,11 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.25192013" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21505377" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26728112" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39784947" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32872504" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
@@ -449,7 +338,7 @@
       <window_info anchor="right" id="Maven" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.625192" visible="true" weight="0.2322239" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.625192" visible="true" weight="0.23827533" />
       <window_info id="Structure" order="1" sideWeight="0.37480798" side_tool="true" weight="0.2708018" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -458,7 +347,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.25192013" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.21505377" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21351767" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39784947" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -491,13 +380,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/controller/InsectVC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -565,28 +447,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/view/DashboardView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/controller/TileFactory.java" />
     <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/controller/BoardVC.java" />
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/controller/DashboardVC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-394">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3662#3663#0" expanded="true" />
-            <element signature="e#3739#3740#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/InsectFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -666,40 +528,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidPlaceTilesGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/KickBackAttack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="54" lean-forward="true" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidTilesGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/PoisonAttack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -726,147 +558,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/Mode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="48" column="52" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/HPAttack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="15" column="50" lean-forward="true" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="55" column="22" lean-forward="true" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/GameEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="139" column="37" lean-forward="true" selection-start-line="139" selection-start-column="37" selection-end-line="139" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Insect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="114" column="37" selection-start-line="114" selection-start-column="37" selection-end-line="114" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundAttackTilesGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundMoveTilesGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="27" column="33" lean-forward="true" selection-start-line="22" selection-start-column="12" selection-end-line="27" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidAirMoveTilesGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidActionTilesGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="18" column="42" lean-forward="true" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidAirAttackTilesGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundMoveTilesGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundAttackTilesGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidAirMoveTilesGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidAirAttackTilesGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -882,14 +577,170 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/view/DashboardView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="39" column="11" lean-forward="true" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/controller/DashboardVC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3662#3663#0" expanded="true" />
+            <element signature="e#3739#3740#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundMoveTilesGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidAirMoveTilesGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidActionTilesGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidAirAttackTilesGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/KickBackAttack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="23" column="20" lean-forward="true" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidGroundAttackTilesGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="62" lean-forward="true" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/Mode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/Insect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="87" column="29" lean-forward="true" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2332#2333#0" expanded="true" />
+            <element signature="e#2364#2365#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/board/valid_tiles_gen/ValidPlaceTilesGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
           <folding>
-            <element signature="e#403#404#0" expanded="true" />
-            <element signature="e#431#432#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/HPAttack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/insect/attacks/PoisonAttack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/GameEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="82" column="44" lean-forward="true" selection-start-line="82" selection-start-column="44" selection-end-line="82" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4605#4606#0" expanded="true" />
+            <element signature="e#4668#4669#0" expanded="true" />
+            <element signature="e#4801#4802#0" expanded="true" />
+            <element signature="e#4837#4838#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/controller/InsectVC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
         </state>
       </provider>
     </entry>

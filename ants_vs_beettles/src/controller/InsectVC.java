@@ -23,7 +23,7 @@ public class InsectVC extends Pane {
     @FXML
     private ImageView imvInsect;
 
-    // TODO
+    // TODO: move this to BoardVC
     private GameEngine gameEngine;
 
     public void setImgInsect(Image img) {

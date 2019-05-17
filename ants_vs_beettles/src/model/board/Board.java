@@ -1,7 +1,7 @@
 package model.board;
 
 public class Board {
-    // TODO: public attributes???
+    // TODO: change these to private attributes, create getters
     public static final int BOARD_SIZE = 10;
     public static final int PLAYER_0_VALID_PLACING_COL = 0;
     public static final int PLAYER_1_VALID_PLACING_COL = BOARD_SIZE - 1;

@@ -11,7 +11,6 @@ public class HPAttack implements Attack{
         attackee.decreaseHealthPoints(damage);
 
         if (attackee.killed()) {
-            // TODO: create a setter for tile???
             board.getTile(attackee.getTile().getX(), attackee.getTile().getY()).resetInsect();
             player.removeInsect(attackee.getId());
         }

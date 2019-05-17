@@ -90,7 +90,7 @@ public class DashboardVC extends BorderPane {
 
         vbxPanelRight.setDisable(true);
 
-        loadButtons();
+//        loadButtons();
     }
 
     // DRY

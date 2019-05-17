@@ -22,7 +22,7 @@ public abstract class Insect {
     private int healthPoints;
     private Profile profile;
     private Tile tile;
-    private int paralysed;
+    private int paralysis;
 
     private ValidPlaceTilesGenerator validPlaceTilesGenerator;
     private ValidTilesGenerator validMoveTilesGenerator;
@@ -33,7 +33,7 @@ public abstract class Insect {
                   ValidTilesGenerator validAttackTilesGenerator, Attack attack) {
         this.profile = profile;
         healthPoints = profile.getMaxHealthPoints();
-        paralysed = 0;
+        paralysis = 0;
 
         validPlaceTilesGenerator = new ValidPlaceTilesGenerator();
         this.validMoveTilesGenerator = validMoveTilesGenerator;
@@ -44,7 +44,7 @@ public abstract class Insect {
     public Insect(Insect insect){
         profile = insect.profile;
         healthPoints = profile.getMaxHealthPoints();
-        paralysed = 0;
+        paralysis = 0;
 
         validPlaceTilesGenerator = new ValidPlaceTilesGenerator();
         validMoveTilesGenerator = insect.validMoveTilesGenerator;
@@ -79,17 +79,18 @@ public abstract class Insect {
         return profile;
     }
 
-    public void paralyse() {
-        paralysed = 2;
+    public void setParalysis(int paralysis) {
+        this.paralysis = paralysis;
     }
 
     public boolean isParalysed() {
-        return paralysed > 0;
+        System.out.println("Paralysed: " + paralysis);
+        return paralysis > 0;
     }
 
     public void deParalyse() {
-        if (paralysed > 0) {
-            paralysed--;
+        if (paralysis > 0) {
+            paralysis--;
         }
     }
 
@@ -98,17 +99,28 @@ public abstract class Insect {
         this.tile = tile;
     }
 
-    public ValidPlaceTilesGenerator getValidPlaceTilesGenerator() {
+    protected ValidPlaceTilesGenerator getValidPlaceTilesGenerator() {
         return validPlaceTilesGenerator;
     }
 
     public abstract List<Tile> getValidPlaceTiles(Board board);
 
-    public List<Tile> getValidMoveTiles(Board board) {
+    public List<Tile> getValidActionTiles(Board board) {
+        List<Tile> validTiles = new ArrayList<>();
+
+        validTiles.addAll(getValidMoveTiles(board));
+        validTiles.addAll(getValidAttackTiles(board));
+
+        Collections.sort(validTiles);
+
+        return validTiles;
+    }
+
+    private List<Tile> getValidMoveTiles(Board board) {
         return getValidTiles(board, validMoveTilesGenerator, this.getProfile().getMoveRange());
     }
 
-    public List<Tile> getValidAttackTiles(Board board) {
+    private List<Tile> getValidAttackTiles(Board board) {
         return getValidTiles(board, validAttackTilesGenerator, this.getProfile().getAttackRange());
     }
 

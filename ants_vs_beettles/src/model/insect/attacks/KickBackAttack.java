@@ -27,7 +27,8 @@ public class KickBackAttack extends HPAttack {
             }
 
             Tile newAttackeeTile = board.getTile(newAttackeeX, newAttackeeY);
-            if (newAttackeeTile != null) {
+            // Push the attackee to this tile if the tile is in the board and there's no insect on the tile
+            if (newAttackeeTile != null && newAttackeeTile.getInsect() == null) {
                 attackee.getTile().resetInsect();
                 attackee.setTile(newAttackeeTile);
                 newAttackeeTile.setInsect(attackee);

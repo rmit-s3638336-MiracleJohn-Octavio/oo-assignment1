@@ -6,14 +6,15 @@ import model.insect.Insect;
 import java.util.*;
 
 public class Player {
+    // TODO: tobe specified by the user
     private final int MAX_INSECT = 10;
     private Map<Integer, Insect> insects;
-    private List<Insect> paralysedInsects;
+    private Set<Insect> paralysedInsects;
     private int insectId;
 
     public Player() {
         insects = new HashMap<>();
-        paralysedInsects = new ArrayList<>();
+        paralysedInsects = new HashSet<>();
         insectId = 0;
     }
 
@@ -37,19 +38,16 @@ public class Player {
         insects.remove(id);
     }
 
+    @Ensures("old(paralysedInsects.size() + 1) == paralysedInsects.size()")
     public void addParalysedInsect(Insect insect) {
-        // TODO; duplicates???
         paralysedInsects.add(insect);
     }
 
     public void deParalyseInsects() {
-        for (int i = 0; i < paralysedInsects.size(); i++) {
-            Insect currInsect = paralysedInsects.get(i);
-            currInsect.deParalyse();
-            // TODO: another way of removing insect?
-            if (!currInsect.isParalysed()) {
-                paralysedInsects.remove(i);
-                i--;
+        for (Insect insect : paralysedInsects){
+            insect.deParalyse();
+            if (!insect.isParalysed()) {
+                paralysedInsects.remove(insect);
             }
         }
 

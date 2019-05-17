@@ -19,10 +19,11 @@ public class GameEngine {
     private Board board;
     private Player[] players;
     private int turn;
-    private InsectFactory insectFactory;
     private Insect currentInsect;
     private List<Tile> currentValidTiles;
     private Mode mode;
+
+    private InsectFactory insectFactory;
 
     private BoardView boardView;
     private ErrorMessage errorMessage;
@@ -37,9 +38,11 @@ public class GameEngine {
         board = new Board();
         players = new Player[]{new Player(), new Player()};
         turn = 0;
-        insectFactory = new InsectFactory();
         currentValidTiles = new ArrayList<>();
         mode = Mode.UNDEFINED;
+
+        insectFactory = new InsectFactory();
+
         boardView = new BoardView();
         errorMessage = new ErrorMessage();
     }
@@ -54,8 +57,7 @@ public class GameEngine {
 
     public void selectNewInsect(String insectType) {
         if (players[turn].reachedMaxInsects()) {
-            errorMessage.printError("Cannot add more insects.");
-            dashboardController.setErrorMessage("Cannot add more insects.");
+            updateError("Cannot add more insects.");
             return;
         }
 
@@ -67,25 +69,7 @@ public class GameEngine {
     }
 
     public void setMode(String mode) {
-        if (currentInsect != null && currentInsect.getTile() != null) {
-            if (mode.equals("move")) {
-                this.mode = Mode.MOVE;
-                currentValidTiles = currentInsect.getValidMoveTiles(board);
-            } else {
-                this.mode = Mode.ATTACK;
-                currentValidTiles = currentInsect.getValidAttackTiles(board);
-                System.out.println("In GameEngine: validAttackTiles: " + currentValidTiles);
-                if (currentValidTiles.isEmpty()) {
-                    errorMessage.printError("No attack available.");
-                    dashboardController.setErrorMessage("No attack available.");
-                }
-            }
-        } else {
-            errorMessage.printError("No insect selected.");
-            dashboardController.setErrorMessage("No insect selected.");
-        }
-
-        updateViews();
+        // TODO: healing goes here
     }
 
     public void processSelectedTile(int x, int y) {
@@ -94,23 +78,16 @@ public class GameEngine {
         switch (mode) {
             case PLACE:
                 msg = placeInsectOnto(selectedTile);
-                reset();
                 break;
-            case MOVE:
-                msg = moveInsectTo(selectedTile);
-                reset();
-                break;
-            case ATTACK:
-                msg = attack(selectedTile);
-                reset();
+            case ACTIVE:
+                msg = actUpon(selectedTile);
                 break;
             case UNDEFINED:
                 setCurrentInsect(selectedTile);
+                break;
         }
 
-        errorMessage.printError(msg);
-        dashboardController.setErrorMessage(msg);
-
+        updateError(msg);
         updateViews();
     }
 
@@ -119,6 +96,8 @@ public class GameEngine {
             Insect insect = selectedTile.getInsect();
             if (players[turn].containsInsect(insect)) {
                 currentInsect = insect;
+                currentValidTiles = insect.getValidActionTiles(board);
+                mode= Mode.ACTIVE;
             }
         }
     }
@@ -133,30 +112,39 @@ public class GameEngine {
             return "";
         }
 
+        reset();
         return "The insect cannot be placed on the selected tile.";
     }
 
-    private String moveInsectTo(Tile selectedTile) {
+    private String actUpon(Tile selectedTile) {
+        if (validTileSelection(selectedTile)) {
+            if (selectedTile.getInsect() != null) {
+                attack(selectedTile);
+            } else {
+                moveInsectTo(selectedTile);
+            }
+
+            return "";
+        }
+
+        reset();
+        return "Invalid move";
+    }
+
+    private void moveInsectTo(Tile selectedTile) {
         if (validTileSelection(selectedTile)) {
             currentInsect.getTile().resetInsect();
             currentInsect.setTile(selectedTile);
             selectedTile.setInsect(currentInsect);
             toggleTurn();
-
-            return "";
         }
-        return "The insect cannot move to the selected tile.";
     }
 
-    private String attack(Tile selectedTile) {
+    private void attack(Tile selectedTile) {
         if (validTileSelection(selectedTile)) {
-            currentInsect.attack(board, players[turn], selectedTile.getInsect());
+            currentInsect.attack(board, players[getOpponentTurn()], selectedTile.getInsect());
             toggleTurn();
-
-            return "";
         }
-
-        return "The insect cannot attack the selected tile.";
     }
 
     private boolean validTileSelection(Tile selectedTile) {
@@ -172,7 +160,7 @@ public class GameEngine {
         players[turn].deParalyseInsects();
 
         // Switch to the other player
-        turn = ++turn % 2;
+        turn = getOpponentTurn();
         dashboardController.switchPlayer(turn);
     }
 
@@ -182,8 +170,17 @@ public class GameEngine {
         mode = Mode.UNDEFINED;
     }
 
+    private int getOpponentTurn() {
+        return (turn + 1) % 2;
+    }
+
     private void updateViews() {
         dashboardController.drawBoard(board.getAllTiles(), currentValidTiles, currentInsect);
         boardView.drawBoard(board.getAllTiles(), currentValidTiles);
+    }
+
+    private void updateError(String msg) {
+        errorMessage.printError(msg);
+        dashboardController.setErrorMessage(msg);
     }
 }

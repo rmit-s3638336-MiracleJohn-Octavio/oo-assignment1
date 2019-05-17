@@ -20,7 +20,10 @@ public class ValidPlaceTilesGenerator implements ValidTilesGenerator {
             int col = startingCol;
             int counter = range;
             while (counter > 0) {
-                validTiles.add(tiles[row][col]);
+                if (tiles[row][col].getInsect() == null) {
+                    validTiles.add(tiles[row][col]);
+                }
+
                 col += xInc;
                 counter--;
             }

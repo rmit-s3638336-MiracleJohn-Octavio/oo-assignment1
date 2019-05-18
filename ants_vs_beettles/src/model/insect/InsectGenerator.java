@@ -8,6 +8,7 @@ import model.insect.beetles.Finder;
 import model.insect.beetles.Greedy;
 
 public class InsectGenerator {
+
     public Insect createInsect(String insectType) {
         Insect insect = null;
         switch (insectType) {

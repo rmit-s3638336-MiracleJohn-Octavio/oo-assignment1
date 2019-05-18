@@ -1,9 +1,9 @@
 package model.target;
 
-public class Sugar extends Target {
+public class Donut extends Target {
 
     @Override
     public String getFullName() {
-        return "Sugar";
+        return "donut";
     }
 }

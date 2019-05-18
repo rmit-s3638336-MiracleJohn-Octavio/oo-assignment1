@@ -10,6 +10,8 @@ import model.board.Tile;
 import model.insect.Insect;
 import model.insect.InsectGenerator;
 import model.player.Player;
+import model.target.Donut;
+import model.target.Leaf;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +37,7 @@ public class GameEngine {
 
     private void initGameParams() {
         board = new Board();
-        players = new Player[]{new Player("ant"), new Player("beetle")};
+        players = new Player[]{new Player(new Donut()), new Player(new Leaf())};
         turn = 0;
         insectGenerator = new InsectGenerator();
         currentValidTiles = new ArrayList<>();
@@ -187,7 +189,14 @@ public class GameEngine {
     private void generateTarget() {
         for (Player player : players) {
             System.out.println(player.getTarget().getFullName());
+
+            // Generate a random row and col for Target
+            // This is done only once
+            player.getTarget().generateCoordinate();
         }
     }
 
+    public Player[] getPlayers() {
+        return players;
+    }
 }

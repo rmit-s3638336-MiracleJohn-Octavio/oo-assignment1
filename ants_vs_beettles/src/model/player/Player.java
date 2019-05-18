@@ -2,8 +2,6 @@ package model.player;
 
 import com.google.java.contract.Ensures;
 import model.insect.Insect;
-import model.target.Roots;
-import model.target.Sugar;
 import model.target.Target;
 
 import java.util.HashMap;
@@ -16,16 +14,8 @@ public class Player {
     private int insectId = 0;
     private String insectType;
 
-    public Player(String insectType) {
-        this.insectType = insectType;
-
-        switch (this.insectType) {
-            case "ant":
-                target = new Sugar();
-                break;
-            case "beetle":
-                target = new Roots();
-        }
+    public Player(Target target) {
+        this.target = target;
     }
 
     public boolean reachedMaxInsects() {
@@ -49,4 +39,5 @@ public class Player {
     public Target getTarget() {
         return target;
     }
+
 }

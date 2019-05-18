@@ -1,10 +1,10 @@
 package model.target;
 
-public class Roots  extends Target {
+public class Leaf extends Target {
 
     @Override
     public String getFullName() {
-        return "Roots";
+        return "leaf";
     }
 
 }

@@ -35,13 +35,15 @@ public class GameEngine {
 
     private void initGameParams() {
         board = new Board();
-        players = new Player[]{new Player(), new Player()};
+        players = new Player[]{new Player("ant"), new Player("beetle")};
         turn = 0;
         insectGenerator = new InsectGenerator();
         currentValidTiles = new ArrayList<>();
         mode = Mode.UNDEFINED;
         boardView = new BoardView();
         errorMessage = new ErrorMessage();
+
+        generateTarget();
     }
 
     private void initGUI(DashboardVC dashboardController) {
@@ -180,6 +182,12 @@ public class GameEngine {
     private void updateViews() {
         dashboardController.drawBoard(board.getAllTiles(), currentValidTiles, currentInsect);
         boardView.drawBoard(board.getAllTiles(), currentValidTiles);
+    }
+
+    private void generateTarget() {
+        for (Player player : players) {
+            System.out.println(player.getTarget().getFullName());
+        }
     }
 
 }

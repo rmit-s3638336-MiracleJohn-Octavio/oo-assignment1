@@ -7,6 +7,8 @@ import console_view.ErrorMessage;
 import controller.DashboardVC;
 import model.board.Board;
 import model.board.Tile;
+import model.game_engine.states.State;
+import model.game_engine.states.UndefinedState;
 import model.insect.Insect;
 import model.insect.InsectFactory;
 import model.player.Player;
@@ -16,171 +18,184 @@ import java.util.List;
 
 @Invariant("turn >= 0 && turn <= 1")
 public class GameEngine {
-    private Board board;
-    private Player[] players;
-    private int turn;
-    private Insect currentInsect;
-    private List<Tile> currentValidTiles;
-    private Mode mode;
+	private Board board;
+	private Player[] players;
+	private int turn;
+	private Insect currentInsect;
+	private List<Tile> currentValidTiles;
+	private State state;
 
-    private InsectFactory insectFactory;
+	private InsectFactory insectFactory;
 
-    private BoardView boardView;
-    private ErrorMessage errorMessage;
-    private DashboardVC dashboardController;
+	private BoardView boardView;
+	private ErrorMessage errorMessage;
+	private DashboardVC dashboardController;
 
-    public GameEngine(DashboardVC dashboardController) {
-        initGameParams();
-        initGUI(dashboardController);
-    }
+	public GameEngine(DashboardVC dashboardController) {
+		initGameParams();
+		initGUI(dashboardController);
+	}
 
-    private void initGameParams() {
-        board = new Board();
-        players = new Player[]{new Player(), new Player()};
-        turn = 0;
-        currentValidTiles = new ArrayList<>();
-        mode = Mode.UNDEFINED;
+	private void initGameParams() {
+		board = new Board();
+		players = new Player[] { new Player(), new Player() };
+		turn = 0;
+		currentValidTiles = new ArrayList<>();
+		state = UndefinedState.getInstance();
 
-        insectFactory = new InsectFactory();
+		insectFactory = new InsectFactory();
 
-        boardView = new BoardView();
-        errorMessage = new ErrorMessage();
-    }
+		boardView = new BoardView();
+		errorMessage = new ErrorMessage();
+	}
 
-    private void initGUI(DashboardVC dashboardController) {
-        this.dashboardController = dashboardController;
-        dashboardController.setGameEngine(this);
-        dashboardController.loadPanels();
+	private void initGUI(DashboardVC dashboardController) {
+		this.dashboardController = dashboardController;
+		dashboardController.setGameEngine(this);
+		dashboardController.loadPanels();
 
-        updateViews();
-    }
+		updateViews();
+	}
 
-    public void selectNewInsect(String insectType) {
-        if (players[turn].reachedMaxInsects()) {
-            updateError("Cannot add more insects.");
-            return;
-        }
+	public void selectNewInsect(String insectType) {
 
-        currentInsect = insectFactory.createInsect(insectType);
-        mode = Mode.PLACE;
-        currentValidTiles = currentInsect.getValidPlaceTiles(board);
+		state.selectNewInsect(this, insectType);
+	}
 
-        updateViews();
-    }
+	public void setMode(String mode) {
+		// TODO: healing goes here
+	}
 
-    public void setMode(String mode) {
-        // TODO: healing goes here
-    }
+	public void processSelectedTile(int x, int y) {
+		String msg = "";
+		Tile selectedTile = board.getTile(x, y);
+		state.processSelectedTile(this, selectedTile);
+		updateViews();
+	}
 
-    public void processSelectedTile(int x, int y) {
-        String msg = "";
-        Tile selectedTile = board.getTile(x, y);
-        switch (mode) {
-            case PLACE:
-                msg = placeInsectOnto(selectedTile);
-                break;
-            case ACTIVE:
-                msg = actUpon(selectedTile);
-                break;
-            case UNDEFINED:
-                setCurrentInsect(selectedTile);
-                break;
-        }
+	public boolean setCurrentInsect(Tile selectedTile) {
+		if (selectedTile.getInsect() != null && !selectedTile.getInsect().isParalysed()) {
+			Insect insect = selectedTile.getInsect();
+			if (players[turn].containsInsect(insect)) {
+				currentInsect = insect;
+				currentValidTiles = insect.getValidActionTiles(board);
+				return true;
+			}
+		}
+		return false;
+	}
 
-        updateError(msg);
-        updateViews();
-    }
+	public String placeInsectOnto(Tile selectedTile) {
+		if (validTileSelection(selectedTile)) {
+			int id = players[turn].placeInsect(currentInsect);
+			currentInsect.initInsect(id, selectedTile);
+			selectedTile.setInsect(currentInsect);
+			toggleTurn();
 
-    private void setCurrentInsect(Tile selectedTile) {
-        if (selectedTile.getInsect() != null && !selectedTile.getInsect().isParalysed()) {
-            Insect insect = selectedTile.getInsect();
-            if (players[turn].containsInsect(insect)) {
-                currentInsect = insect;
-                currentValidTiles = insect.getValidActionTiles(board);
-                mode= Mode.ACTIVE;
-            }
-        }
-    }
+			return "";
+		}
 
-    private String placeInsectOnto(Tile selectedTile) {
-        if (validTileSelection(selectedTile)) {
-            int id = players[turn].placeInsect(currentInsect);
-            currentInsect.initInsect(id, selectedTile);
-            selectedTile.setInsect(currentInsect);
-            toggleTurn();
+		reset();
+		return "The insect cannot be placed on the selected tile.";
+	}
 
-            return "";
-        }
+	public String actUpon(Tile selectedTile) {
+		if (validTileSelection(selectedTile)) {
+			if (selectedTile.getInsect() != null) {
+				attack(selectedTile);
+			} else {
+				moveInsectTo(selectedTile);
+			}
 
-        reset();
-        return "The insect cannot be placed on the selected tile.";
-    }
+			return "";
+		}
 
-    private String actUpon(Tile selectedTile) {
-        if (validTileSelection(selectedTile)) {
-            if (selectedTile.getInsect() != null) {
-                attack(selectedTile);
-            } else {
-                moveInsectTo(selectedTile);
-            }
+		reset();
+		return "Invalid move";
+	}
 
-            return "";
-        }
+	private void moveInsectTo(Tile selectedTile) {
+		if (validTileSelection(selectedTile)) {
+			currentInsect.getTile().resetInsect();
+			currentInsect.setTile(selectedTile);
+			selectedTile.setInsect(currentInsect);
+			toggleTurn();
+		}
+	}
 
-        reset();
-        return "Invalid move";
-    }
+	private void attack(Tile selectedTile) {
+		if (validTileSelection(selectedTile)) {
+			currentInsect.attack(board, players[getOpponentTurn()], selectedTile.getInsect());
+			toggleTurn();
+		}
+	}
 
-    private void moveInsectTo(Tile selectedTile) {
-        if (validTileSelection(selectedTile)) {
-            currentInsect.getTile().resetInsect();
-            currentInsect.setTile(selectedTile);
-            selectedTile.setInsect(currentInsect);
-            toggleTurn();
-        }
-    }
+	public boolean validTileSelection(Tile selectedTile) {
+		return currentValidTiles.contains(selectedTile);
+	}
 
-    private void attack(Tile selectedTile) {
-        if (validTileSelection(selectedTile)) {
-            currentInsect.attack(board, players[getOpponentTurn()], selectedTile.getInsect());
-            toggleTurn();
-        }
-    }
+	@Ensures("old(turn) != turn")
+	public void toggleTurn() {
+		reset();
 
-    private boolean validTileSelection(Tile selectedTile) {
-        return currentValidTiles.contains(selectedTile);
-    }
+		// TODO: checkWin()
 
-    @Ensures("old(turn) != turn")
-    private void toggleTurn() {
-        reset();
+		players[turn].deParalyseInsects();
 
-        // TODO: checkWin()
+		// Switch to the other player
+		turn = getOpponentTurn();
+		dashboardController.switchPlayer(turn);
+	}
 
-        players[turn].deParalyseInsects();
+	public void reset() {
+		currentInsect = null;
+		currentValidTiles = new ArrayList<>();
+	}
 
-        // Switch to the other player
-        turn = getOpponentTurn();
-        dashboardController.switchPlayer(turn);
-    }
+	private int getOpponentTurn() {
+		return (turn + 1) % 2;
+	}
 
-    private void reset() {
-        currentInsect = null;
-        currentValidTiles = new ArrayList<>();
-        mode = Mode.UNDEFINED;
-    }
+	public void updateViews() {
+		dashboardController.drawBoard(board.getAllTiles(), currentValidTiles, currentInsect);
+		boardView.drawBoard(board.getAllTiles(), currentValidTiles);
+	}
 
-    private int getOpponentTurn() {
-        return (turn + 1) % 2;
-    }
+	public void updateError(String msg) {
+		errorMessage.printError(msg);
+		dashboardController.setErrorMessage(msg);
+	}
 
-    private void updateViews() {
-        dashboardController.drawBoard(board.getAllTiles(), currentValidTiles, currentInsect);
-        boardView.drawBoard(board.getAllTiles(), currentValidTiles);
-    }
+//    public Player getCurrentPlayer() {
+//    	return players[turn];
+//    }
+//    public void setCurrentInsectToNewInsect(String insectType) {
+//    	currentInsect = insectFactory.createInsect(insectType);
+//    }
+//    
+//    public void setCurrentValidTiles() {
+//    	currentValidTiles = currentInsect.getValidPlaceTiles(board);
+//    }
+//    
+	public void setState(State state) {
+		this.state = state;
+	}
 
-    private void updateError(String msg) {
-        errorMessage.printError(msg);
-        dashboardController.setErrorMessage(msg);
-    }
+//    public void setcurrentInsect(Insect insect) {
+//    currentInsect=insect;
+//    }
+//    public Insect getCurrentInsect() {
+//    	return  currentInsect;
+//    }
+	public void setNewInsect(String insectType) {
+		if (players[turn].reachedMaxInsects()) {
+			updateError("Cannot add more insects.");
+			return;
+		}
+
+		currentInsect = insectFactory.createInsect(insectType);
+		currentValidTiles = currentInsect.getValidPlaceTiles(board);
+
+		updateViews();
+	}
 }

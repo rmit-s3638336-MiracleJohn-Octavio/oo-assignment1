@@ -1,0 +1,49 @@
+/*#playerTurn, #errorMessage {*/
+    /*-fx-font-family: Calibri;*/
+    /*-fx-font-size: 24px;*/
+    /*-fx-font-weight: bold;*/
+
+    /*-fx-text-fill: 	rgb(139,69,19);*/
+
+    /*-fx-translate-x: 15;*/
+    /*-fx-translate-y: 18;*/
+/*}*/
+
+#playerTurn {
+    -fx-font-family: Rockwell;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill: rgb(77,24,24);
+
+    -fx-translate-x: 15;
+    -fx-translate-y: 8;
+}
+
+#errorMessage {
+    -fx-font-family: Rockwell;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill: 	rgb(165,42,42);
+
+    -fx-translate-x: 15;
+    -fx-translate-y: 32;
+}
+
+
+#errorMessageContainer, #buttonsContainer {
+    -fx-padding: 20 20 20 20;
+}
+
+Button {
+    -fx-font-family: Rockwell;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+
+    -fx-background-color: rgb(77,24,24);
+    -fx-padding: 10 20;
+
+    -fx-translate-y: 10;
+}

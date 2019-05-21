@@ -12,6 +12,15 @@ public class Board {
         initBoard();
     }
 
+    public Board(Board board) {
+        for (int row = 0; row < BOARD_SIZE; row++) {
+            for (int col = 0; col < BOARD_SIZE; col++) {
+                Tile tile = new Tile(board.getTile(row, col));
+                tiles[row][col] = tile;
+            }
+        }
+    }
+
     public Tile[][] getAllTiles() {
         return tiles;
     }

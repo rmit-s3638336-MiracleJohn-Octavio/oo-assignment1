@@ -14,6 +14,12 @@ public class Tile implements Comparable<Tile> {
         this.y = y;
     }
 
+    public Tile(Tile tile) {
+        x = tile.x;
+        y = tile.y;
+//        insect = tile.insect;
+    }
+
     public int getX() {
         return x;
     }

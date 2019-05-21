@@ -29,7 +29,5 @@ public class ActiveState extends State {
 		String msg = gameEngine.actUpon(selectedTile);
 		gameEngine.updateError(msg);
 		gameEngine.setState(UndefinedState.getInstance());
-
 	}
-
 }

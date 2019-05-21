@@ -17,22 +17,6 @@ public class PlaceState extends State {
 		
 		return instance;
 	}
-//	@Override
-//	public void processSelectedTile(GameEngine gameEngine,Tile selectedTile) {
-//		 if (gameEngine.validTileSelection(selectedTile)) {
-//	            int id = gameEngine.getCurrentPlayer().placeInsect(gameEngine.getCurrentInsect());
-//	            gameEngine.getCurrentInsect().initInsect(id, selectedTile);
-//	            selectedTile.setInsect(gameEngine.getCurrentInsect());
-//	            gameEngine.toggleTurn();
-//
-//	            gameEngine.updateError("");
-//	        }
-//
-//		 gameEngine.reset();
-//	        
-//	        gameEngine.updateError("The insect cannot be placed on the selected tile.");
-//	        gameEngine.setState(UndefinedState.getInstance());
-//	}
 
 	@Override
 	public void processSelectedTile(GameEngine gameEngine, Tile selectedTile) {
@@ -40,5 +24,4 @@ public class PlaceState extends State {
 		gameEngine.updateError(msg);
 		gameEngine.setState(UndefinedState.getInstance());
 	}
-
 }

@@ -11,15 +11,52 @@ public class Player {
     private Map<Integer, Insect> insects;
     private Set<Insect> paralysedInsects;
     private int insectId;
+    private int undoLimit = 3;
 
     public Player() {
         insects = new HashMap<>();
+        System.out.println("Insects: " + insects);
         paralysedInsects = new HashSet<>();
         insectId = 0;
     }
 
+    public Player(Player player) {
+        insects = new HashMap<>();
+//        insects = player.cloneInsects();
+        paralysedInsects = new HashSet<>(player.paralysedInsects);
+        insectId = player.insectId;
+        undoLimit = player.undoLimit - 1;
+    }
+
+//    private HashMap<Integer, Insect> cloneInsects() {
+//        HashMap<Integer, Insect> clones = new HashMap<>();
+//
+//        Iterator iterator = insects.keySet().iterator();
+//        while (iterator.hasNext()) {
+//            int id = (int) iterator.next();
+//            Insect currInsect = insects.get(id);
+//            Insect insect = currInsect.cloneInsect();
+//            insect.setTile(currInsect.getTile());
+//            clones.put(id, insect);
+//        }
+//
+//        return clones;
+//    }
+
     public boolean reachedMaxInsects() {
         return insects.size() == MAX_INSECT;
+    }
+
+    public boolean reachedUndoLimit() {
+        return undoLimit == 0;
+    }
+
+    public Map<Integer, Insect> getInsects() {
+        return insects;
+    }
+
+    public void addInsectWithId(int id, Insect insect) {
+        insects.put(id, insect);
     }
 
     @Ensures("old(insects.size() + 1) == insects.size()")

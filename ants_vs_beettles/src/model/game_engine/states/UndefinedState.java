@@ -24,21 +24,6 @@ public class UndefinedState extends State {
 		gameEngine.setState(PlaceState.getInstance());
 	}
 
-//	@Override
-//	public void processSelectedTile(GameEngine gameEngine,Tile selectedTile) {
-//		   if (selectedTile.getInsect() != null && !selectedTile.getInsect().isParalysed()) {
-//	            Insect insect = selectedTile.getInsect();
-//	            if (gameEngine.getCurrentPlayer().containsInsect(insect)) {
-//	            	gameEngine.setcurrentInsect(insect);
-//	                
-//	            	gameEngine.setCurrentValidTiles();
-//	            	gameEngine.setState(ActiveState.getInstance());
-//	            }
-//	            
-//	        }
-//		
-//	}
-
 	@Override
 	public void processSelectedTile(GameEngine gameEngine, Tile selectedTile) {
 		if (gameEngine.setCurrentInsect(selectedTile)) {

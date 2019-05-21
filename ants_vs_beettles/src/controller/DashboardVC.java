@@ -33,7 +33,7 @@ public class DashboardVC extends BorderPane {
     private VBox vbxPanelRight;
 
     @FXML
-    private Button move;
+    private Button undo;
 
     private GameEngine gameEngine;
 
@@ -90,7 +90,7 @@ public class DashboardVC extends BorderPane {
 
         vbxPanelRight.setDisable(true);
 
-//        loadButtons();
+        loadButtons();
     }
 
     // DRY
@@ -117,7 +117,7 @@ public class DashboardVC extends BorderPane {
     }
 
     private void loadButtons() {
-        move.setTranslateX(Helper.WINDOW_W / 2 - move.getWidth() / 2);
+        undo.setTranslateX(Helper.WINDOW_W / 2 - undo.getWidth() / 2);
     }
 
     public void setErrorMessage(String msg) {
@@ -132,6 +132,10 @@ public class DashboardVC extends BorderPane {
         String mode = ((Button) event.getSource()).getId();
 
         gameEngine.setMode(mode);
+    }
+
+    public void clickedUndo() {
+        gameEngine.clickedUndo();
     }
 
     public void switchPlayer(int turn) {

@@ -39,10 +39,11 @@
       </Pane>
    </right>
 
-   <!--<bottom>-->
-      <!--<Pane fx:id="buttonsContainer">-->
+   <bottom>
+      <Pane fx:id="buttonsContainer">
          <!--<Button fx:id="move" text="MOVE" onMouseClicked="#setMode"/>-->
          <!--<Button fx:id="attack" text="ATTACK" onMouseClicked="#setMode"/>-->
-      <!--</Pane>-->
-   <!--</bottom>-->
+         <Button fx:id="undo" text="UNDO" onMouseClicked="#clickedUndo"/>
+      </Pane>
+   </bottom>
 </BorderPane>

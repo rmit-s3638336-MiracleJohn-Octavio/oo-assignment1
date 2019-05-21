@@ -4,10 +4,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TransferMode;
+import javafx.scene.input.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -100,10 +97,23 @@ public class TileVC extends Pane {
     }
 
     @FXML
-    public void dragDetected(MouseEvent me){
+    public void dragDetected(MouseEvent me) {
         tile.startFullDrag();
+        Dragboard db = tile.startDragAndDrop(TransferMode.ANY);
+        db.setDragView(imvInsect.getImage());
+        ClipboardContent content = new ClipboardContent();
+        db.setContent(content);
 
         mouseClicked(me);
+        me.consume();
+    }
+
+    @FXML
+    public void mouseDragOver(MouseEvent me) {
+        //change the coordinate of the image
+        System.out.println(me.getX() + " " + me.getY());
+
+//        System.out.println();
     }
 }
 

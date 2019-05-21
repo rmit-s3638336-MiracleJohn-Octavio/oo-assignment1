@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43f63441-70a8-4662-9ba8-4c66e5a310aa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ants_vs_beettles/ants_vs_beettles.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/ants_vs_beettles.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/controller/TileVC.java" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/controller/TileVC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ants_vs_beettles/src/view/TileView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ants_vs_beettles/src/view/TileView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/META-INF/ants_vs_beettles.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/controller/TileVC.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/controller/TileVC.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ants_vs_beettles/view/TileView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ants_vs_beettles/view/TileView.fxml" afterDir="false" />
     </list>
@@ -35,26 +30,26 @@
         <counts>
           <entry key="class" value="1" />
           <entry key="fxml" value="2" />
-          <entry key="java" value="2" />
+          <entry key="java" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="2" />
+          <entry key="JAVA" value="3" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="fxml" value="310" />
-          <entry key="java" value="624" />
+          <entry key="fxml" value="392" />
+          <entry key="java" value="1089" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="624" />
-          <entry key="XML" value="310" />
+          <entry key="JAVA" value="1089" />
+          <entry key="XML" value="392" />
         </counts>
       </usages-collector>
     </session>
@@ -73,8 +68,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/controller/TileVC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+            <state relative-caret-position="357">
+              <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2623#2624#0" expanded="true" />
@@ -87,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/view/TileView.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+            <state relative-caret-position="170">
+              <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -102,8 +97,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ants_vs_beettles/src/controller/TileVC.java" />
         <option value="$PROJECT_DIR$/ants_vs_beettles/src/view/TileView.fxml" />
+        <option value="$PROJECT_DIR$/ants_vs_beettles/src/controller/TileVC.java" />
       </list>
     </option>
   </component>
@@ -160,7 +155,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558413532992" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558420841645" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -209,28 +204,28 @@
       <updated>1558400939937</updated>
       <workItem from="1558400944216" duration="186000" />
       <workItem from="1558401174633" duration="141000" />
-      <workItem from="1558403702879" duration="7239000" />
+      <workItem from="1558403702879" duration="12580000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7566000" />
+    <option name="totallyTimeSpent" value="12907000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1455" height="935" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25663084" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18637992" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Messages" weight="0.32917705" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33541146" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31296757" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -294,6 +289,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/com/sun/javafx/event/EventDispatchChainImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/model/game_engine/GameEngine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2459">
@@ -303,16 +305,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/view/TileView.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state relative-caret-position="170">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/ants_vs_beettles/src/controller/TileVC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="357">
+          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2623#2624#0" expanded="true" />

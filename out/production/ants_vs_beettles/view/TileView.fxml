@@ -7,7 +7,8 @@
 <Pane fx:id="tile" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TileVC"
       onMouseClicked="#mouseClicked"
       onMouseEntered="#rect_mouseEntered" onMouseExited="#rect_mouseExited"
-      onDragDetected="#dragDetected" onMouseDragReleased="#mouseClicked">
+      onMouseDragEntered="#rect_mouseEntered" onMouseDragExited="#rect_mouseExited"
+      onDragDetected="#dragDetected" onMouseDragReleased="#mouseClicked" onMouseDragOver="#mouseDragOver">
    <children>
        <ImageView fx:id="imvTile" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
        <Pane fx:id="highlighter"></Pane>

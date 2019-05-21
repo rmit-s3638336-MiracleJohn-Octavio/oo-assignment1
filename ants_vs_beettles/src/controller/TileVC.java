@@ -4,7 +4,10 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -76,12 +79,13 @@ public class TileVC extends Pane {
 
     // GRASP - Controller + Indirection
     @FXML
-    public void mouseClicked() {
+    public void mouseClicked(MouseEvent me) {
         String[] coord = tile.getId().split("_");
         int x = Integer.parseInt(coord[0]);
         int y = Integer.parseInt(coord[1]);
 
         gameEngine.processSelectedTile(x, y);
+//        System.out.println("Event: " + me.toString());
     }
 
     @FXML
@@ -94,4 +98,12 @@ public class TileVC extends Pane {
     public void rect_mouseExited() {
         rectangle.setStroke(Color.TRANSPARENT);
     }
+
+    @FXML
+    public void dragDetected(MouseEvent me){
+        tile.startFullDrag();
+
+        mouseClicked(me);
+    }
 }
+

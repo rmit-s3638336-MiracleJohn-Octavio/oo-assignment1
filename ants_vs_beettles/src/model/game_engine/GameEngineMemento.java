@@ -1,22 +1,23 @@
 package model.game_engine;
 
 import model.board.Board;
-import model.player.Player;
 
 public class GameEngineMemento {
+    public static int GLOBAL_COUNTER = 0;
+    private int counter;
     private Board board;
-    private Player[] players;
 
-    public GameEngineMemento(Board board, Player[] players) {
-        this.board = board;
-        this.players = players;
+    public GameEngineMemento(Board board) {
+        this.board = new Board(board);
+        counter = GLOBAL_COUNTER++;
+        System.out.println("Saved board number " + counter);
     }
 
     public Board getBoard() {
         return board;
     }
 
-    public Player[] getPlayers() {
-        return players;
+    public int getCounter() {
+        return counter;
     }
 }

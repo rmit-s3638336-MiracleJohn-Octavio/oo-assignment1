@@ -9,8 +9,7 @@ public class PoisonAttack extends HPAttack {
     public void attack(Insect attacker, Board board, Player player, Insect attackee) {
         super.attack(attacker, board, player, attackee);
         if (!attackee.killed()) {
-            attackee.setParalysis(2);
-            player.addParalysedInsect(attackee);
+            attackee.setParalysis(3);
         }
     }
 }

@@ -15,6 +15,10 @@ public abstract class Ant extends Insect {
         super(profile, new ValidGroundMoveTilesGenerator(), validAttackTilesGenerator, attack);
     }
 
+    public Ant(Ant ant) {
+        super(ant);
+    }
+
     @Override
     public List<Tile> getValidPlaceTiles(Board board) {
         return super.getValidPlaceTilesGenerator().getValidTiles(this, board, 1, 1, 2);

@@ -1,5 +1,7 @@
 package model.board;
 
+import model.insect.Insect;
+
 public class Board {
     // TODO: change these to private attributes, create getters
     public static final int BOARD_SIZE = 10;
@@ -13,12 +15,7 @@ public class Board {
     }
 
     public Board(Board board) {
-        for (int row = 0; row < BOARD_SIZE; row++) {
-            for (int col = 0; col < BOARD_SIZE; col++) {
-                Tile tile = new Tile(board.getTile(row, col));
-                tiles[row][col] = tile;
-            }
-        }
+        initClone(board);
     }
 
     public Tile[][] getAllTiles() {
@@ -30,6 +27,15 @@ public class Board {
         for (int row = 0; row < BOARD_SIZE; row++) {
             for (int col = 0; col < BOARD_SIZE; col++) {
                 Tile tile = new Tile(row, col);
+                tiles[row][col] = tile;
+            }
+        }
+    }
+
+    private void initClone(Board board) {
+        for (int row = 0; row < BOARD_SIZE; row++) {
+            for (int col = 0; col < BOARD_SIZE; col++) {
+                Tile tile = new Tile(board.getTile(row, col));
                 tiles[row][col] = tile;
             }
         }

@@ -17,7 +17,7 @@ public class Ranger extends Ant {
     }
 
     private Ranger (Ranger ranger){
-        super(ranger.getProfile(), new ValidAirAttackTilesGenerator(), new HPAttack());
+        super(ranger);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Ranger extends Ant {
     }
 
     @Override
-    public Insect cloneInsect() {
+    public Insect mementoClone() {
         return new Ranger(this);
     }
 }

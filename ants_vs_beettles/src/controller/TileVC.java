@@ -76,13 +76,12 @@ public class TileVC extends Pane {
 
     // GRASP - Controller + Indirection
     @FXML
-    public void mouseClicked(MouseEvent me) {
+    public void mouseClicked() {
         String[] coord = tile.getId().split("_");
         int x = Integer.parseInt(coord[0]);
         int y = Integer.parseInt(coord[1]);
 
         gameEngine.processSelectedTile(x, y);
-//        System.out.println("Event: " + me.toString());
     }
 
     @FXML
@@ -100,20 +99,25 @@ public class TileVC extends Pane {
     public void dragDetected(MouseEvent me) {
         tile.startFullDrag();
         Dragboard db = tile.startDragAndDrop(TransferMode.ANY);
-        db.setDragView(imvInsect.getImage());
+        db.setDragView(imvInsect.getImage(), 10, 10);
         ClipboardContent content = new ClipboardContent();
+        content.putString("Apparently putting something in the content is all it takes for this to work .-.");
         db.setContent(content);
 
-        mouseClicked(me);
+        mouseClicked();
         me.consume();
     }
 
     @FXML
-    public void mouseDragOver(MouseEvent me) {
-        //change the coordinate of the image
-        System.out.println(me.getX() + " " + me.getY());
+    public void dragDropped(DragEvent event) {
+        mouseClicked();
+        event.consume();
+    }
 
-//        System.out.println();
+    @FXML
+    public void dragOver(DragEvent event) {
+        event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+        event.consume();
     }
 }
 

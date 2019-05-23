@@ -17,7 +17,11 @@ public class Tile implements Comparable<Tile> {
     public Tile(Tile tile) {
         x = tile.x;
         y = tile.y;
-//        insect = tile.insect;
+        if (tile.insect != null) {
+            insect = tile.insect.mementoClone();
+            insect.setTile(this);
+            tile.insect.deParalyse();
+        }
     }
 
     public int getX() {
@@ -34,6 +38,7 @@ public class Tile implements Comparable<Tile> {
 
     public void setInsect(Insect insect) {
         this.insect = insect;
+        insect.setTile(this);
     }
 
     public void resetInsect() {

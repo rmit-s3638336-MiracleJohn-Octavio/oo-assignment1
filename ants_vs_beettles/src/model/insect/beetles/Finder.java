@@ -17,7 +17,7 @@ public class Finder extends Beetle {
     }
 
     public Finder(Finder finder) {
-        super(finder.getProfile(), new ValidAirAttackTilesGenerator(), new KickBackAttack());
+        super(finder);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Finder extends Beetle {
     }
 
     @Override
-    public Insect cloneInsect() {
+    public Insect mementoClone() {
         return new Finder(this);
     }
 }

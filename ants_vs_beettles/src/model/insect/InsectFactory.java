@@ -27,6 +27,6 @@ public class InsectFactory {
     }
 
     public Insect createInsect(String insectType){
-        return insects.get(insectType).cloneInsect();
+        return insects.get(insectType).prototypeClone();
     }
 }

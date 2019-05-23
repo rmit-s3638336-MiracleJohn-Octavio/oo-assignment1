@@ -12,7 +12,8 @@ public class HPAttack implements Attack{
 
         if (attackee.killed()) {
             board.getTile(attackee.getTile().getX(), attackee.getTile().getY()).resetInsect();
-            player.removeInsect(attackee.getId());
+//            player.removeInsect(attackee.getId());
+            player.removeInsect();
         }
     }
 }

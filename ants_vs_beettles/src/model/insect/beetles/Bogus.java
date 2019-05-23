@@ -17,7 +17,7 @@ public class Bogus extends Beetle {
     }
 
     public Bogus(Bogus bogus) {
-        super(bogus.getProfile(), new ValidAirAttackTilesGenerator(), new PoisonAttack());
+        super(bogus);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Bogus extends Beetle {
     }
 
     @Override
-    public Insect cloneInsect() {
+    public Insect mementoClone() {
         return new Bogus(this);
     }
 }

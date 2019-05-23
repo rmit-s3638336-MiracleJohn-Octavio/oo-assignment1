@@ -14,12 +14,18 @@ import model.game_engine.states.State;
 import model.game_engine.states.UndefinedState;
 import model.insect.Insect;
 import model.insect.InsectFactory;
+import model.insect.ants.Ant;
+import model.insect.beetles.Beetle;
 import model.player.Player;
 
 import java.util.*;
 
 @Invariant("turn >= 0 && turn <= 1")
 public class GameEngine {
+	private final int ANT = 0;
+	private final int BEETLE = 1;
+	public static final int NUMBER_OF_PLAYERS = 2;
+
 	private Board board;
 	private Player[] players;
 	private int turn;
@@ -38,11 +44,12 @@ public class GameEngine {
 	public GameEngine(DashboardVC dashboardController) {
 		initGameParams();
 		initGUI(dashboardController);
+		saveGame();
 	}
 
 	private void initGameParams() {
 		board = new Board();
-		players = new Player[] { new Player(), new Player() };
+		players = new Player[] {new Player(), new Player()};
 		turn = 0;
 		currentValidTiles = new ArrayList<>();
 		state = UndefinedState.getInstance();
@@ -81,11 +88,10 @@ public class GameEngine {
 	}
 
 	public void clickedUndo() {
-		// TODO: check undo limit
 		if (!players[turn].reachedUndoLimit()) {
 			undoCommand.execute(this);
 		} else {
-			updateError("Meh");
+			updateError("Reached undo limit.");
 		}
 
 	}
@@ -103,7 +109,7 @@ public class GameEngine {
 	public boolean setCurrentInsect(Tile selectedTile) {
 		if (selectedTile.getInsect() != null && !selectedTile.getInsect().isParalysed()) {
 			Insect insect = selectedTile.getInsect();
-			if (players[turn].containsInsect(insect)) {
+			if (correctType(insect)) {
 				currentInsect = insect;
 				currentValidTiles = insect.getValidActionTiles(board);
 				return true;
@@ -112,10 +118,13 @@ public class GameEngine {
 		return false;
 	}
 
+	private boolean correctType(Insect insect) {
+		return turn == ANT && insect instanceof Ant || turn == BEETLE && insect instanceof Beetle;
+	}
+
 	public String placeInsectOnto(Tile selectedTile) {
 		if (validTileSelection(selectedTile)) {
-			int id = players[turn].placeInsect(currentInsect);
-			currentInsect.initInsect(id, selectedTile);
+			players[turn].addInsect();
 			selectedTile.setInsect(currentInsect);
 			toggleTurn();
 
@@ -144,7 +153,6 @@ public class GameEngine {
 	private void moveInsectTo(Tile selectedTile) {
 		if (validTileSelection(selectedTile)) {
 			currentInsect.getTile().resetInsect();
-			currentInsect.setTile(selectedTile);
 			selectedTile.setInsect(currentInsect);
 			toggleTurn();
 		}
@@ -163,17 +171,14 @@ public class GameEngine {
 
 	@Ensures("old(turn) != turn")
 	private void toggleTurn() {
-		// TODO
-//		saveGame();
 		reset();
 
 		// TODO: checkWin()
 
-		players[turn].deParalyseInsects();
-
 		// Switch to the other player
 		turn = getOpponentTurn();
 		dashboardController.switchPlayer(turn);
+		saveGame();
 	}
 
 	private void reset() {
@@ -182,7 +187,7 @@ public class GameEngine {
 	}
 
 	private int getOpponentTurn() {
-		return (turn + 1) % 2;
+		return (turn + 1) % NUMBER_OF_PLAYERS;
 	}
 
 	public void setState(State state) {
@@ -198,46 +203,17 @@ public class GameEngine {
 	}
 
 	public GameEngineMemento save() {
-		// Clone board
-		Board currBoard = new Board(board);
-		// Clone players
-		Player[] currPlayers = new Player[2];
-
-		for (int i = 0; i < players.length; i++) {
-			Map<Integer, Insect> currInsects = players[i].getInsects();
-			Player currPlayer = new Player(players[i]);
-
-			// Clone insects and add them to the board
-			Iterator iterator = currInsects.keySet().iterator();
-			while (iterator.hasNext()) {
-				int id = (int) iterator.next();
-				Insect oldInsect = currInsects.get(id);
-
-				// TODO: 2 clone methods
-				Insect insect = oldInsect.cloneInsect();
-
-				insect.initInsect(id, currentInsect.getTile());
-				currPlayer.addInsectWithId(id, insect);
-				currBoard.getTile(insect.getTile().getX(), insect.getTile().getY()).setInsect(insect);
-				insect.setTile(currBoard.getTile(insect.getTile().getX(), insect.getTile().getY()));
-			}
-
-			currPlayers[i] = currPlayer;
-		}
-
-		GameEngineMemento gem = new GameEngineMemento(board, players);
-		board = currBoard;
-		players = currPlayers;
-
-		return gem;
+		System.out.println("\n\n-------------------SAVING---------------------");
+		boardView.drawBoard(board.getAllTiles(), currentValidTiles);
+		System.out.println("----------------------------------------------");
+		return new GameEngineMemento(board);
 	}
 
 	public void undo(GameEngineMemento gameEngineMemento) {
+		System.out.println("Loading board number " + gameEngineMemento.getCounter());
 		this.board = gameEngineMemento.getBoard();
-		this.players = gameEngineMemento.getPlayers();
 		reset();
 		resetState();
-		updateViews();
 	}
 
 	public void updateViews() {

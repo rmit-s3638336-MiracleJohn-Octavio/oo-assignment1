@@ -18,7 +18,6 @@ import java.util.List;
 // GRASP - High Cohesion
 // GRASP - Polymorphism
 public abstract class Insect {
-    private int id;
     private int healthPoints;
     private Profile profile;
     private Tile tile;
@@ -43,17 +42,13 @@ public abstract class Insect {
 
     public Insect(Insect insect){
         profile = insect.profile;
-        healthPoints = profile.getMaxHealthPoints();
-        paralysis = 0;
+        healthPoints = insect.healthPoints;
+        paralysis = insect.paralysis;
 
         validPlaceTilesGenerator = new ValidPlaceTilesGenerator();
         validMoveTilesGenerator = insect.validMoveTilesGenerator;
         validAttackTilesGenerator = insect.validAttackTilesGenerator;
         attack = insect.attack;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public abstract String getFullName();
@@ -84,7 +79,6 @@ public abstract class Insect {
     }
 
     public boolean isParalysed() {
-        System.out.println("Paralysed: " + paralysis);
         return paralysis > 0;
     }
 
@@ -92,11 +86,6 @@ public abstract class Insect {
         if (paralysis > 0) {
             paralysis--;
         }
-    }
-
-    public void initInsect(int id, Tile tile) {
-        this.id = id;
-        this.tile = tile;
     }
 
     protected ValidPlaceTilesGenerator getValidPlaceTilesGenerator() {
@@ -141,5 +130,13 @@ public abstract class Insect {
         attack.attack(this, board, player, attackee);
     }
 
-    public abstract Insect cloneInsect();
+    public abstract Insect mementoClone();
+
+    public Insect prototypeClone() {
+        Insect insect = mementoClone();
+        insect.healthPoints = insect.getProfile().getMaxHealthPoints();
+        insect.paralysis = 0;
+
+        return insect;
+    }
 }

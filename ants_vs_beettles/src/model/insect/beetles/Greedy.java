@@ -17,7 +17,7 @@ public class Greedy extends Beetle {
     }
 
     public Greedy(Greedy greedy) {
-        super(greedy.getProfile(), new ValidAirAttackTilesGenerator(), new HPAttack());
+        super(greedy);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Greedy extends Beetle {
     }
 
     @Override
-    public Insect cloneInsect() {
+    public Insect mementoClone() {
         return new Greedy(this);
     }
 }

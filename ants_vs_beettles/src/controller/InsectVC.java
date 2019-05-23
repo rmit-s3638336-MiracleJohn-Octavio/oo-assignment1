@@ -1,15 +1,16 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import model.game_engine.GameEngine;
-import model.insect.Insect;
 
 import java.util.regex.Pattern;
 
@@ -54,5 +55,18 @@ public class InsectVC extends Pane {
         rectangle.setStroke(Color.WHITE);
         rectangle.setFill(Color.LIGHTGRAY);
         rectangle.setOpacity(.8);
+    }
+
+    @FXML
+    public void dragDetected(MouseEvent event) {
+        imvInsect.startFullDrag();
+        Dragboard db = imvInsect.startDragAndDrop(TransferMode.ANY);
+        db.setDragView(imvInsect.getImage(), 20, 20);
+        ClipboardContent content = new ClipboardContent();
+        content.putString("Meh");
+        db.setContent(content);
+
+        rect_mouseClicked();
+        event.consume();
     }
 }

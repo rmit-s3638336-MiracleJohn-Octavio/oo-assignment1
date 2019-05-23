@@ -106,7 +106,7 @@ public class DashboardVC extends BorderPane {
             InsectVC insectController = loader.getController();
             insectController.setGameEngine(gameEngine);
 
-            insectController.setImgInsect(new Image("/assets/" + insectName + ".png", 200, 200, false, true));
+            insectController.setImgInsect(new Image("/assets/" + insectName + ".png", 65, 65, false, true));
 
             // Default color is RED for visibility during edit in SceneBuilder
             // Then change to TRANSPARENT to hide

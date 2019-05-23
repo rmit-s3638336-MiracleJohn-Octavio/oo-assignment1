@@ -17,7 +17,7 @@ public class Heavy extends Ant {
     }
 
     private Heavy (Heavy heavy){
-        super(heavy.getProfile(), new ValidGroundAttackTilesGenerator(), new HPAttack());
+        super(heavy);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Heavy extends Ant {
     }
 
     @Override
-    public Insect cloneInsect() {
+    public Insect mementoClone() {
         return new Heavy(this);
     }
 }

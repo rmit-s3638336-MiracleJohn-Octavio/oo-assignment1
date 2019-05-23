@@ -18,7 +18,7 @@ public class Scout extends Ant {
     }
 
     private Scout (Scout scout){
-        super(scout.getProfile(), new ValidGroundAttackTilesGenerator(), new HPAttack());
+        super(scout);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Scout extends Ant {
     }
 
     @Override
-    public Insect cloneInsect() {
+    public Insect mementoClone() {
         return new Scout(this);
     }
 }

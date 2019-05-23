@@ -15,6 +15,10 @@ public abstract class Beetle extends Insect {
         super(profile, new ValidAirMoveTilesGenerator(), validAttackTilesGenerator, attack);
     }
 
+    public Beetle(Beetle beetle) {
+        super(beetle);
+    }
+
     @Override
     public List<Tile> getValidPlaceTiles(Board board) {
         return super.getValidPlaceTilesGenerator().getValidTiles(this, board, -1, 1, 2);

@@ -1,37 +1,54 @@
 package model.player;
 
 import com.google.java.contract.Invariant;
-import model.game_engine.commands.UndoCommand;
 
-@Invariant("insectLimit >= 0 && undoLimit >= 0")
+@Invariant("insectCount >= 0 && undoCount >= 0")
 public class Player {
     // TODO: tobe specified by the user
-    private int insectLimit = 10;
-    private boolean undo = true;
-    private int undoLimit = UndoCommand.UNDO_LIMIT;
+    private final int INSECT_LIMIT;
+    private int insectCount;
+    private boolean undoable;
+    private final int UNDO_LIMIT;
+    private int undoCount;
 
     public Player() {
-
+        INSECT_LIMIT = 10;
+        insectCount = 0;
+        undoable = true;
+        UNDO_LIMIT = 3;
+        undoCount = 0;
     }
 
     public boolean reachedMaxInsects() {
-        return insectLimit == 0;
+        return insectCount == INSECT_LIMIT;
     }
 
-    public boolean reachedUndoLimit() {
-        if (undoLimit > 0) {
-            undoLimit--;
-            return false;
+    public boolean undoable() {
+        if (undoable && undoCount <  UNDO_LIMIT) {
+            undoCount++;
+            return true;
         }
 
-        return true;
+        return false;
+    }
+
+    public boolean usedUndo() {
+        return undoCount > 0;
+    }
+
+    public boolean firstUndo() {
+        return undoCount == 1;
+    }
+
+    public void switchOffUndo() {
+        undoable = false;
     }
 
     public void addInsect() {
-        insectLimit--;
+        insectCount++;
     }
 
     public void removeInsect() {
-        insectLimit++;
+        insectCount--;
     }
 }

@@ -8,6 +8,7 @@ import controller.DashboardVC;
 import model.board.Board;
 import model.board.Tile;
 import model.game_engine.commands.Command;
+import model.game_engine.commands.FirstUndoCommand;
 import model.game_engine.commands.SaveCommand;
 import model.game_engine.commands.UndoCommand;
 import model.game_engine.states.State;
@@ -33,6 +34,7 @@ public class GameEngine {
 	private List<Tile> currentValidTiles;
 	private State state;
 
+	private Command firstUndoCommand;
 	private Command undoCommand;
 	private Command saveCommand;
 	private InsectFactory insectFactory;
@@ -55,6 +57,7 @@ public class GameEngine {
 		state = UndefinedState.getInstance();
 
 		Caretaker caretaker = new Caretaker();
+		firstUndoCommand = new FirstUndoCommand(caretaker);
 		undoCommand = new UndoCommand(caretaker);
 		saveCommand = new SaveCommand(caretaker);
 		insectFactory = new InsectFactory();
@@ -88,10 +91,17 @@ public class GameEngine {
 	}
 
 	public void clickedUndo() {
-		if (!players[turn].reachedUndoLimit()) {
-			undoCommand.execute(this);
+		if (players[turn].undoable()) {
+		    // TODO
+			if (players[turn].firstUndo()) {
+				firstUndoCommand.execute(this);
+			} else {
+				undoCommand.execute(this);
+			}
+
+			updateViews();
 		} else {
-			updateError("Reached undo limit.");
+			updateError("Undo is not available.");
 		}
 
 	}
@@ -172,6 +182,9 @@ public class GameEngine {
 	@Ensures("old(turn) != turn")
 	private void toggleTurn() {
 		reset();
+        if (players[turn].usedUndo()) {
+            players[turn].switchOffUndo();
+        }
 
 		// TODO: checkWin()
 
@@ -205,7 +218,7 @@ public class GameEngine {
 	public GameEngineMemento save() {
 		System.out.println("\n\n-------------------SAVING---------------------");
 		boardView.drawBoard(board.getAllTiles(), currentValidTiles);
-		System.out.println("----------------------------------------------");
+		System.out.println("\n----------------------------------------------");
 		return new GameEngineMemento(board);
 	}
 

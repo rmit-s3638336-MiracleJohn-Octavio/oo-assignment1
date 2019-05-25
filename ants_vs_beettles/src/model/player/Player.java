@@ -1,6 +1,7 @@
 package model.player;
 
 import com.google.java.contract.Invariant;
+import model.target.Target;
 
 @Invariant("insectCount >= 0 && undoCount >= 0")
 public class Player {
@@ -11,12 +12,14 @@ public class Player {
     private final int UNDO_LIMIT;
     private int undoCount;
 
-    public Player() {
+    public Player(Target target) {
         INSECT_LIMIT = 10;
         insectCount = 0;
         undoable = true;
         UNDO_LIMIT = 3;
         undoCount = 0;
+
+        this.target = target;
     }
 
     public boolean reachedMaxInsects() {
@@ -50,5 +53,9 @@ public class Player {
 
     public void removeInsect() {
         insectCount--;
+    }
+
+    public Target getTarget() {
+        return target;
     }
 }

@@ -149,4 +149,5 @@ public class DashboardVC extends BorderPane {
             playerTurn.setText("Current player: Team Beetles");
         }
     }
+
 }

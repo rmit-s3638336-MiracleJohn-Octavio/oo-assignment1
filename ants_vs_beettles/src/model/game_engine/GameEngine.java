@@ -18,6 +18,8 @@ import model.insect.InsectFactory;
 import model.insect.ants.Ant;
 import model.insect.beetles.Beetle;
 import model.player.Player;
+import model.target.Donut;
+import model.target.Leaf;
 
 import java.util.*;
 
@@ -238,4 +240,18 @@ public class GameEngine {
 		errorMessage.printError(msg);
 		dashboardController.setErrorMessage(msg);
 	}
+
+    private void generateTarget() {
+        for (Player player : players) {
+            System.out.println(player.getTarget().getFullName());
+
+            // Generate a random row and col for Target
+            // This is done only once
+            player.getTarget().generateCoordinate();
+        }
+    }
+
+    public Player[] getPlayers() {
+        return players;
+    }
 }

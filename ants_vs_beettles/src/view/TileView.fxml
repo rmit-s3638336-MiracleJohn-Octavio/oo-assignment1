@@ -14,5 +14,6 @@
        <Pane fx:id="highlighter"></Pane>
        <Rectangle fx:id="rectangle" arcHeight="5.0" fill="TRANSPARENT" height="40.0" stroke="TRANSPARENT" strokeType="INSIDE" width="40.0" />
        <ImageView fx:id="imvInsect" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+       <ImageView fx:id="imvTarget" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>

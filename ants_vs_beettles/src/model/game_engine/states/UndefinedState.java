@@ -27,6 +27,7 @@ public class UndefinedState extends State {
 	@Override
 	public void processSelectedTile(GameEngine gameEngine, Tile selectedTile) {
 		if (gameEngine.setCurrentInsect(selectedTile)) {
+			gameEngine.toggleHeal(true);
 			gameEngine.setState(ActiveState.getInstance());
 		}
 	}

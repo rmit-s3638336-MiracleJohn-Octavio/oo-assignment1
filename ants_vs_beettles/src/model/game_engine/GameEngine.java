@@ -111,6 +111,20 @@ public class GameEngine {
 
 	}
 
+	public void heal(){
+		System.out.println("GameEngine.heal()");
+		currentInsect.heal();
+		toggleHeal(false);
+		state = UndefinedState.getInstance();
+		toggleTurn();
+		updateViews();
+	}
+
+	public void toggleHeal(boolean displayHeal){
+		System.out.println("HEALLLLL: "+ displayHeal);
+		dashboardController.toggleHeal(displayHeal);
+	}
+
 	public void setMode(String mode) {
 		// TODO: healing goes here
 	}
@@ -161,6 +175,7 @@ public class GameEngine {
 			return "";
 		}
 
+		toggleHeal(false);
 		reset();
 		return "Invalid move";
 	}

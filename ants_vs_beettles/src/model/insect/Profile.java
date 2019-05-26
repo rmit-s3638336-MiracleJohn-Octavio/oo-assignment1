@@ -7,12 +7,14 @@ public class Profile {
     private int damage;
     private int moveRange;
     private int attackRange;
+    private int healPoints;
 
-    public Profile(int maxHealthPoints, int damage, int moveRange, int attackRange) {
+    public Profile(int maxHealthPoints, int damage, int moveRange, int attackRange, int healPoints) {
         this.maxHealthPoints = maxHealthPoints;
         this.damage = damage;
         this.moveRange = moveRange;
         this.attackRange = attackRange;
+        this.healPoints = healPoints;
     }
 
     public int getMaxHealthPoints() {
@@ -29,5 +31,9 @@ public class Profile {
 
     public int getAttackRange() {
         return attackRange;
+    }
+
+    public int getHealPoints() {
+        return healPoints;
     }
 }

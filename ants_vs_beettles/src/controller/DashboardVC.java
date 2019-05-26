@@ -35,6 +35,9 @@ public class DashboardVC extends BorderPane {
     @FXML
     private Button undo;
 
+    @FXML
+    private Button heal;
+
     private SidePaneVC leftPaneVC;
     private SidePaneVC rightPaneVC;
 
@@ -88,6 +91,8 @@ public class DashboardVC extends BorderPane {
 
     private void loadButtons() {
         undo.setTranslateX(Helper.WINDOW_W / 2 - undo.getWidth() / 2);
+        heal.setTranslateX(150);
+        heal.setVisible(false);
     }
 
     public void setErrorMessage(String msg) {
@@ -106,6 +111,15 @@ public class DashboardVC extends BorderPane {
 
     public void clickedUndo() {
         gameEngine.clickedUndo();
+    }
+
+    public void clickedHeal() {
+        System.out.println("DashboardVC.clickedHeal()");
+        gameEngine.heal();
+    }
+
+    public void toggleHeal(boolean displayHeal){
+        heal.setVisible(displayHeal);
     }
 
     public void switchPlayer(int turn) {

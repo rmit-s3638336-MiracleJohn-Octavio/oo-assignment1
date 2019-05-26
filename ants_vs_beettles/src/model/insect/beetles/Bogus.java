@@ -10,7 +10,9 @@ public class Bogus extends Beetle {
     private static final int DAMAGE = 3;
     private static final int MOVE_RANGE = 3;
     private static final int ATTACK_RANGE = 2;
-    private static final Profile profile = new Profile(MAX_HEALTH_POINTS, DAMAGE, MOVE_RANGE, ATTACK_RANGE);
+    private static final int HEAL_POINTS = 2;
+
+    private static final Profile profile = new Profile(MAX_HEALTH_POINTS, DAMAGE, MOVE_RANGE, ATTACK_RANGE, HEAL_POINTS);
 
     public Bogus() {
         super(profile, new ValidAirAttackTilesGenerator(), new PoisonAttack());

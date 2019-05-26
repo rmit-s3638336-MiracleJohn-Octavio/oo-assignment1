@@ -10,7 +10,9 @@ public class Ranger extends Ant {
     private static final int DAMAGE = 4;
     private static final int MOVE_RANGE = 3;
     private static final int ATTACK_RANGE = 3;
-    private static final Profile profile = new Profile(MAX_HEALTH_POINTS, DAMAGE, MOVE_RANGE, ATTACK_RANGE);
+    private static final int HEAL_POINTS = 3;
+
+    private static final Profile profile = new Profile(MAX_HEALTH_POINTS, DAMAGE, MOVE_RANGE, ATTACK_RANGE, HEAL_POINTS);
 
     public Ranger() {
         super(profile, new ValidAirAttackTilesGenerator(), new HPAttack());

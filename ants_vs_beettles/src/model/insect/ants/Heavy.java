@@ -10,7 +10,9 @@ public class Heavy extends Ant {
     private static final int DAMAGE = 6;
     private static final int MOVE_RANGE = 2;
     private static final int ATTACK_RANGE = 1;
-    private static final Profile profile = new Profile(MAX_HEALTH_POINTS, DAMAGE, MOVE_RANGE, ATTACK_RANGE);
+    private static final int HEAL_POINTS = 1;
+
+    private static final Profile profile = new Profile(MAX_HEALTH_POINTS, DAMAGE, MOVE_RANGE, ATTACK_RANGE, HEAL_POINTS);
 
     public Heavy() {
         super(profile, new ValidGroundAttackTilesGenerator(), new HPAttack());

@@ -10,7 +10,9 @@ public class Greedy extends Beetle {
     private static final int DAMAGE = 5;
     private static final int MOVE_RANGE = 2;
     private static final int ATTACK_RANGE = 2;
-    private static final Profile profile = new Profile(MAX_HEALTH_POINTS, DAMAGE, MOVE_RANGE, ATTACK_RANGE);
+    private static final int HEAL_POINTS = 1;
+
+    private static final Profile profile = new Profile(MAX_HEALTH_POINTS, DAMAGE, MOVE_RANGE, ATTACK_RANGE, HEAL_POINTS);
 
     public Greedy() {
         super(profile, new ValidAirAttackTilesGenerator(), new HPAttack());

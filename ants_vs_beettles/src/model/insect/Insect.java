@@ -40,7 +40,7 @@ public abstract class Insect {
         this.attack = attack;
     }
 
-    public Insect(Insect insect){
+    public Insect(Insect insect) {
         profile = insect.profile;
         healthPoints = insect.healthPoints;
         paralysis = insect.paralysis;
@@ -138,5 +138,14 @@ public abstract class Insect {
         insect.paralysis = 0;
 
         return insect;
+    }
+
+    public void heal() {
+        healthPoints += profile.getHealPoints();
+        paralysis = 3;
+
+        if (healthPoints > profile.getMaxHealthPoints()) {
+            healthPoints = profile.getMaxHealthPoints();
+        }
     }
 }

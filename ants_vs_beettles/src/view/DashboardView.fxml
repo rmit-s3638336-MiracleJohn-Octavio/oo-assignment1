@@ -28,7 +28,8 @@
       <Pane fx:id="buttonsContainer">
          <!--<Button fx:id="move" text="MOVE" onMouseClicked="#setMode"/>-->
          <!--<Button fx:id="attack" text="ATTACK" onMouseClicked="#setMode"/>-->
-         <Button fx:id="undo" text="UNDO" onMouseClicked="#clickedUndo"/>
+         <Button fx:id="undo" text="UNDO" onMouseClicked="#clickedUndo" />
+         <Button fx:id="heal" text="HEAL" onMouseClicked="#clickedHeal" />
       </Pane>
    </bottom>
 </BorderPane>

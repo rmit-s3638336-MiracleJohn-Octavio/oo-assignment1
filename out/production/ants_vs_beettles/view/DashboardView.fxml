@@ -14,29 +14,33 @@
    </top>
 
    <left>
-      <Pane style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="480.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/left.jpg" />
-               </image>
-            </ImageView>
-            <VBox fx:id="vbxPanelLeft" layoutX="50.0" layoutY="15.0" prefHeight="301.0" prefWidth="50.0" spacing="5.0" style="-fx-background-color: red;" />
-         </children>
-      </Pane>
+      <!--<Pane style="-fx-background-color: gray;" BorderPane.alignment="CENTER">-->
+         <!--<children>-->
+            <!--<ImageView fitHeight="480.0" pickOnBounds="true" preserveRatio="true">-->
+               <!--<image>-->
+                  <!--<Image url="@../assets/left.jpg" />-->
+               <!--</image>-->
+            <!--</ImageView>-->
+            <!--<VBox fx:id="vbxPanelLeft" layoutX="50.0" layoutY="15.0" prefHeight="301.0" prefWidth="50.0" spacing="5.0" style="-fx-background-color: red;" />-->
+         <!--</children>-->
+      <!--</Pane>-->
    </left>
 
+   <center>
+      <!--<fx:include source="BoardView.fxml"/>-->
+   </center>
+
    <right>
-      <Pane style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="480.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/right.jpg" />
-               </image>
-            </ImageView>
-            <VBox fx:id="vbxPanelRight" layoutX="50.0" layoutY="15.0" prefHeight="301.0" prefWidth="50.0" spacing="5.0" style="-fx-background-color: red;" />
-         </children>
-      </Pane>
+      <!--<Pane style="-fx-background-color: gray;" BorderPane.alignment="CENTER">-->
+         <!--<children>-->
+            <!--<ImageView fitHeight="480.0" pickOnBounds="true" preserveRatio="true">-->
+               <!--<image>-->
+                  <!--<Image url="@../assets/right.jpg" />-->
+               <!--</image>-->
+            <!--</ImageView>-->
+            <!--<VBox fx:id="vbxPanelRight" layoutX="50.0" layoutY="15.0" prefHeight="301.0" prefWidth="50.0" spacing="5.0" style="-fx-background-color: red;" />-->
+         <!--</children>-->
+      <!--</Pane>-->
    </right>
 
    <bottom>

@@ -26,94 +26,64 @@ public class DashboardVC extends BorderPane {
     @FXML
     private BorderPane dashboard;
 
-    @FXML
-    private VBox vbxPanelLeft;
-
-    @FXML
-    private VBox vbxPanelRight;
+//    @FXML
+//    private VBox vbxPanelLeft;
+//
+//    @FXML
+//    private VBox vbxPanelRight;
 
     @FXML
     private Button undo;
 
+    private SidePaneVC leftPaneVC;
+    private SidePaneVC rightPaneVC;
+
+
+    private BoardVC boardVC;
+
     private GameEngine gameEngine;
 
-    public void drawBoard(Tile[][] tiles, List<Tile> validTiles, Insect currentInsect) {
-        Pane board = new Pane();
-        boolean switchValue = false;
-        boolean highlight;
-        int validTileIndex = 0;
+    public void initComponents() {
+        FXMLLoader loader;
+        try {
+            loader = new FXMLLoader(getClass().getResource("/view/BoardView.fxml"));
+            dashboard.setCenter(loader.load());
+            boardVC = loader.getController();
+            boardVC.setGameEngine(gameEngine);
 
-        for (int row = 0; row < tiles.length; row++) {
-            for (int col = 0; col < tiles.length; col++) {
-                highlight = false;
-                // Highlight current insect
-                if (currentInsect != null && currentInsect.getTile() != null && currentInsect.getTile().equals(tiles[row][col])) {
-                    highlight = true;
-                }
+            loader = new FXMLLoader(getClass().getResource("/view/SidePaneView.fxml"));
+            dashboard.setLeft(loader.load());
+            leftPaneVC = loader.getController();
+            leftPaneVC.setGameEngine(gameEngine);
 
-                // Highlight valid tiles
-                if (validTileIndex < validTiles.size() && tiles[row][col].equals(validTiles.get(validTileIndex))) {
-                    highlight = true;
-                    validTileIndex++;
-                }
-
-                // Load the tile
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TileView.fxml"));
-                Pane tileView;
-                try {
-                    tileView = loader.load();
-                    TileVC tileController = loader.getController();
-                    tileController.initTile(gameEngine, row, col, switchValue, highlight, tiles[row][col].getInsect());
-                    board.getChildren().add(tileView);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            switchValue = !switchValue;
+            loader = new FXMLLoader(getClass().getResource("/view/SidePaneView.fxml"));
+            dashboard.setRight(loader.load());
+            rightPaneVC = loader.getController();
+            rightPaneVC.setGameEngine(gameEngine);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        dashboard.setCenter(board);
+    }
+
+    public void initBoard(Tile[][] tiles) {
+        boardVC.initComponents(tiles);
+    }
+
+    public void drawBoard(Tile[][] tiles, List<Tile> validTiles, Insect currentInsect) {
+        boardVC.drawBoard(tiles, validTiles, currentInsect);
     }
 
     public void loadPanels() {
         String[] ants = new String[]{"scout", "ranger", "heavy"};
         String[] beetles = new String[]{"finder", "bogus", "greedy"};
 
-        for (int i = 0; i < Helper.NO_OF_INSECTS_PER_PANEL; i++) {
-            // Left Panel
-            loadPanel(vbxPanelLeft, ants[i]);
+        leftPaneVC.initComponents("left", ants);
+        rightPaneVC.initComponents("right", beetles);
 
-            // Right Panel
-            loadPanel(vbxPanelRight, beetles[i]);
-        }
-
-        vbxPanelRight.setDisable(true);
+        rightPaneVC.setDisable(true);
 
         loadButtons();
-    }
-
-    // DRY
-    private void loadPanel(VBox vBox, String insectName) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/InsectView.fxml"));
-            Pane insectView = loader.load();
-
-            insectView.setId(insectName);
-
-            vBox.getChildren().add(insectView);
-
-            InsectVC insectController = loader.getController();
-            insectController.setGameEngine(gameEngine);
-
-            insectController.setImgInsect(new Image("/assets/" + insectName + ".png", 65, 65, false, true));
-
-            // Default color is RED for visibility during edit in SceneBuilder
-            // Then change to TRANSPARENT to hide
-            vBox.setStyle("-fx-background-color: TRANSPARENT");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private void loadButtons() {
@@ -140,14 +110,13 @@ public class DashboardVC extends BorderPane {
 
     public void switchPlayer(int turn) {
         if (turn == 0) {
-            vbxPanelLeft.setDisable(false);
-            vbxPanelRight.setDisable(true);
+            leftPaneVC.setDisable(false);
+            rightPaneVC.setDisable(true);
             playerTurn.setText("Current player: Team Ants");
         } else {
-            vbxPanelLeft.setDisable(true);
-            vbxPanelRight.setDisable(false);
+            leftPaneVC.setDisable(true);
+            rightPaneVC.setDisable(false);
             playerTurn.setText("Current player: Team Beetles");
         }
     }
-
 }

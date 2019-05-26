@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SidePaneVC">
+    <children>
+        <ImageView fx:id="background" fitHeight="480.0" pickOnBounds="true" preserveRatio="true">
+        </ImageView>
+        <VBox fx:id="vBox" layoutX="50.0" layoutY="15.0" prefHeight="301.0" prefWidth="50.0" spacing="5.0" style="-fx-background-color: red;" />
+    </children>
+</Pane>

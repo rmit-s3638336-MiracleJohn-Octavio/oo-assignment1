@@ -53,10 +53,11 @@ public class GameEngine {
 
 	private void initGameParams() {
 		board = new Board();
-		players = new Player[] {new Player(), new Player()};
+		players = new Player[] {new Player(new Donut()), new Player(new Leaf())};
 		turn = 0;
 		currentValidTiles = new ArrayList<>();
 		state = UndefinedState.getInstance();
+		generateTarget();
 
 		Caretaker caretaker = new Caretaker();
 		firstUndoCommand = new FirstUndoCommand(caretaker);
@@ -71,9 +72,11 @@ public class GameEngine {
 	private void initGUI(DashboardVC dashboardController) {
 		this.dashboardController = dashboardController;
 		dashboardController.setGameEngine(this);
+		dashboardController.initComponents();
 		dashboardController.loadPanels();
 
-		updateViews();
+		dashboardController.initBoard(board.getAllTiles());
+//		updateViews();
 	}
 
 	public void selectNewInsect(String insectType) {

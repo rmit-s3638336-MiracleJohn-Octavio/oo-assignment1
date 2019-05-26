@@ -7,8 +7,8 @@ import java.util.Random;
 
 public abstract class Target {
 
-    String coordinate = null;
-    Boolean isAddedToTile = false;
+    private String coordinate = null;
+    private Boolean isAddedToTile = false;
 
     public abstract String getFullName();
 

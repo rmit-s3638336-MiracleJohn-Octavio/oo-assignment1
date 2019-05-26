@@ -8,13 +8,17 @@ public class Player {
     // TODO: tobe specified by the user
     private final int INSECT_LIMIT;
     private int insectCount;
+
     private boolean undoable;
     private final int UNDO_LIMIT;
     private int undoCount;
 
+    private Target target;
+
     public Player(Target target) {
         INSECT_LIMIT = 10;
         insectCount = 0;
+
         undoable = true;
         UNDO_LIMIT = 3;
         undoCount = 0;

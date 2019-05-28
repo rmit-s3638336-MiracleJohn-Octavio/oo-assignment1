@@ -5,7 +5,6 @@ import model.target.Target;
 
 @Invariant("insectCount >= 0 && undoCount >= 0")
 public class Player {
-    // TODO: tobe specified by the user
     private final int INSECT_LIMIT;
     private int insectCount;
 
@@ -15,8 +14,8 @@ public class Player {
 
     private Target target;
 
-    public Player(Target target) {
-        INSECT_LIMIT = 10;
+    public Player(Target target, int numOfInsects) {
+        INSECT_LIMIT = numOfInsects;
         insectCount = 0;
 
         undoable = true;

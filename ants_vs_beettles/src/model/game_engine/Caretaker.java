@@ -21,7 +21,6 @@ public class Caretaker {
     public void undo(GameEngine gameEngine) {
         if (history.size() > 0) {
             gameEngine.undo(history.pollLast());
-            GameEngineMemento.GLOBAL_COUNTER--;
         } else {
             gameEngine.updateError("Undo is not available.");
         }

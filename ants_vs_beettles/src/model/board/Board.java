@@ -1,16 +1,10 @@
 package model.board;
 
-import model.insect.Insect;
-
 public class Board {
-    // TODO: change these to private attributes, create getters
-    public static final int BOARD_SIZE = 10;
-    public static final int PLAYER_0_VALID_PLACING_COL = 0;
-    public static final int PLAYER_1_VALID_PLACING_COL = BOARD_SIZE - 1;
+    private Tile[][] tiles;
 
-    private Tile[][] tiles = new Tile[BOARD_SIZE][BOARD_SIZE];
-
-    public Board() {
+    public Board(int boardSize) {
+        tiles = new Tile[boardSize][boardSize];
         initBoard();
     }
 
@@ -24,8 +18,8 @@ public class Board {
 
     // GRASP - Creator + Info Expert
     private void initBoard() {
-        for (int row = 0; row < BOARD_SIZE; row++) {
-            for (int col = 0; col < BOARD_SIZE; col++) {
+        for (int row = 0; row < tiles.length; row++) {
+            for (int col = 0; col < tiles[row].length; col++) {
                 Tile tile = new Tile(row, col);
                 tiles[row][col] = tile;
             }
@@ -33,8 +27,9 @@ public class Board {
     }
 
     private void initClone(Board board) {
-        for (int row = 0; row < BOARD_SIZE; row++) {
-            for (int col = 0; col < BOARD_SIZE; col++) {
+        tiles = new Tile[board.getBoardSize()][board.getBoardSize()];
+        for (int row = 0; row < tiles.length; row++) {
+            for (int col = 0; col < tiles[row].length; col++) {
                 Tile tile = new Tile(board.getTile(row, col));
                 tiles[row][col] = tile;
             }
@@ -46,6 +41,18 @@ public class Board {
     }
 
     private boolean containsTile(int x, int y) {
-        return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
+        return x >= 0 && x < tiles.length && y >= 0 && y < tiles.length;
+    }
+
+    public int getBoardSize() {
+        return tiles.length;
+    }
+
+    public int getAntsValidPlacingCol() {
+        return 0;
+    }
+
+    public int getBeetlesValidPlacingCol() {
+        return tiles.length - 1;
     }
 }

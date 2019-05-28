@@ -11,8 +11,8 @@ import model.game_engine.GameEngine;
 import java.io.IOException;
 
 public class SidePaneVC {
-    @FXML
-    ImageView background;
+//    @FXML
+//    ImageView background;
 
     @FXML
     private VBox vBox;
@@ -20,7 +20,7 @@ public class SidePaneVC {
     private GameEngine gameEngine;
 
     public void initComponents(String id, String[] insects) {
-        background.setImage(new Image("/assets/" + id + ".jpg"));
+//        background.setImage(new Image("/assets/" + id + ".jpg"));
 
         for (int i = 0; i < Helper.NO_OF_INSECTS_PER_PANEL; i++) {
             try {
@@ -34,7 +34,7 @@ public class SidePaneVC {
                 InsectVC insectController = loader.getController();
                 insectController.setGameEngine(gameEngine);
 
-                insectController.setImgInsect(new Image("/assets/" + insects[i] + ".png", 65, 65, false, true));
+                insectController.setImgInsect(new Image("/assets/" + insects[i] + ".png", 75, 75, false, true));
 
                 // Default color is RED for visibility during edit in SceneBuilder
                 // Then change to TRANSPARENT to hide

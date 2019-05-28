@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap');
+
+#dashboard {
+    -fx-background-color: #1e1b1c;
+}
+
+{
+    /*-fx-font-family: "Itim";*/
+}
+
+#boardContainer {
+    -fx-font-size: 50;
+    -fx-text-fill: #F7CE86;
+}
+
+#playerTurn {
+    -fx-font-family: "Gochi Hand";
+    -fx-font-size: 20px;
+    -fx-text-fill: #432A31;
+
+    /*-fx-translate-x: 20;*/
+    /*-fx-translate-y: 15;*/
+}
+
+#errorMessage {
+    -fx-font-family: "Itim";
+    -fx-font-size: 17px;
+    -fx-text-fill: 	#632621;
+
+    /*-fx-translate-x: 20;*/
+    /*-fx-translate-y: 37;*/
+}
+
+
+#errorMessageContainer, #buttonsContainer {
+        -fx-padding: 15 20;
+}
+
+#errorMessageContainer {
+    -fx-background-color: #F7CE86;
+    -fx-background-insets: 10;
+    -fx-background-radius: 7;
+}
+
+Button {
+    -fx-font-family: "Gochi Hand";
+    -fx-font-size: 22px;
+    -fx-text-fill: #382F33;
+
+    -fx-background-color: #DE9C46;
+    -fx-padding: 10 20;
+
+    -fx-translate-y: 10;
+}

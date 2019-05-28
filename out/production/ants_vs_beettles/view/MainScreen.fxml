@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.Button?>
+
+<?import javafx.scene.layout.Region?>
+<VBox fx:id="body" alignment="CENTER" stylesheets="/view/css/mainScreen.css"
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.MainScreenVC">
+    <HBox fx:id="container" alignment="CENTER">
+        <Button styleClass="boardOption" onMouseClicked="#mouseClicked">
+            <text>SMALL BOARD</text>
+            <properties boardSize="10" insects="10"/>
+        </Button>
+
+        <Region prefWidth="20"></Region>
+
+        <Button styleClass="boardOption" onMouseClicked="#mouseClicked">
+            <text>MEDIUM BOARD</text>
+            <properties boardSize="12" insects="12"/>
+        </Button>
+
+        <Region prefWidth="20"></Region>
+
+        <Button styleClass="boardOption" onMouseClicked="#mouseClicked">
+            <text>LARGE BOARD</text>
+            <properties boardSize="16" insects="16"/>
+        </Button>
+    </HBox>
+
+    <Region prefHeight="40"></Region>
+
+    <Button fx:id="submitButton" onAction="#startGame">START</Button>
+</VBox>

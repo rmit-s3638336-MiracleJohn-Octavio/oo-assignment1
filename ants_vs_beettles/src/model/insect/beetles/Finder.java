@@ -3,9 +3,10 @@ package model.insect.beetles;
 import model.board.valid_tiles_gen.ValidAirAttackTilesGenerator;
 import model.insect.Insect;
 import model.insect.Profile;
+import model.insect.TargetSearcher;
 import model.insect.attacks.KickBackAttack;
 
-public class Finder extends Beetle {
+public class Finder extends Beetle implements TargetSearcher {
     private static final int MAX_HEALTH_POINTS = 7;
     private static final int DAMAGE = 1;
     private static final int MOVE_RANGE = 4;

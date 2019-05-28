@@ -1,35 +1,33 @@
 package model.target;
 
-import controller.Helper;
-import model.board.Board;
+import model.board.Tile;
 
 import java.util.Random;
 
-public abstract class Target {
+public class Target {
 
-    private String coordinate = null;
-    private Boolean isAddedToTile = false;
+    private String name;
+    private Tile tile;
 
-    public abstract String getFullName();
-
-    public void generateCoordinate() {
-        if (this.coordinate == null) {
-            int row = new Random().nextInt(Board.BOARD_SIZE);
-            int col = new Random().nextInt(Board.BOARD_SIZE);
-
-            this.coordinate = Integer.toString(row) + "-" + Integer.toString(col);
-        }
+    public Target(String name, int numOfRows, int startCol, int endCol) {
+        this.name = name;
+        generateCoordinate(numOfRows, startCol, endCol);
     }
 
-    public String getCoordinate() {
-        return coordinate;
+    private void generateCoordinate(int numOfRow, int startCol, int endCol) {
+        Random random = new Random();
+        int row = random.nextInt(numOfRow);
+        System.out.println("Bound: " + (endCol - startCol));
+        int col = random.nextInt(endCol - startCol) + startCol;
+
+        tile = new Tile(row, col);
     }
 
-    public Boolean getAddedToTile() {
-        return isAddedToTile;
+    public String getFullName() {
+        return name;
     }
 
-    public void setAddedToTile(Boolean addedToTile) {
-        isAddedToTile = addedToTile;
+    public Tile getTile() {
+        return tile;
     }
 }

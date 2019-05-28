@@ -39,39 +39,6 @@ public class TileVC extends Pane {
         // Background
         imvTile.setImage(background);
 
-
-        // TODO: ------------------TARGET-----------------------
-        // Get current Player
-//        Target target1 = gameEngine.getPlayers()[0].getTarget();
-//        Target target2 = gameEngine.getPlayers()[1].getTarget();
-//        String coordinate1 = target1.getCoordinate();
-//        String coordinate2 = target2.getCoordinate();
-//
-//        if ( coordinate1 != null ) {
-//            // Ants
-//            coordinate1 = target1.getCoordinate();
-//            int target1_row =  Integer.parseInt(coordinate1.split("-")[0]);
-//            int target1_col =  Integer.parseInt(coordinate1.split("-")[1]);
-//
-//            if ( target1_row == row && target1_row == col && !target1.getAddedToTile() ) {
-//                target1.setAddedToTile(true);
-//                imvTarget.setImage(new Image("/assets/donut.png", Helper.TILE_W, 0, true, false));
-//            }
-//        }
-//
-//        if ( coordinate2 != null ) {
-//            // Beetles
-//            coordinate2 = target2.getCoordinate();
-//            int target2_row =  Integer.parseInt(coordinate2.split("-")[0]);
-//            int target2_col =  Integer.parseInt(coordinate2.split("-")[1]);
-//
-//            if ( target2_row == row && target2_row == col && !target2.getAddedToTile() ) {
-//                target2.setAddedToTile(true);
-//                imvTarget.setImage(new Image("/assets/leaf.png", Helper.TILE_W, 0, true, false));
-//            }
-//        }
-        // TODO: -----------------------------------------------
-
         // Id
         tile.setId(row + "_" + col);
 
@@ -91,10 +58,14 @@ public class TileVC extends Pane {
 
     public void setImvInsect(Insect insect) {
         if (insect != null) {
-            imvInsect.setImage(new Image("/assets/" + insect.getFullName() + ".png", Helper.TILE_W, 0, true, false));
+            imvInsect.setImage(new Image("/assets/" + insect.getFullName() + ".png", Helper.TILE_W, 0, true, true));
         } else {
             imvInsect.setImage(null);
         }
+    }
+
+    public void setImvTarget(String targetName) {
+        imvTarget.setImage(new Image("/assets/" + targetName + ".png", Helper.TILE_W, 0, true, true));
     }
 
     // GRASP - Controller + Indirection
@@ -109,7 +80,7 @@ public class TileVC extends Pane {
 
     @FXML
     public void rect_mouseEntered() {
-        rectangle.setStroke(Color.RED);
+        rectangle.setStroke(Color.web("#F7CE86"));
         rectangle.setStrokeWidth(2);
     }
 

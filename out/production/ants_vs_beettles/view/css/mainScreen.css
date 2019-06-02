@@ -1,21 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap');
 
 #body {
-    -fx-background-color: #1e1b1c;
+    -fx-background-color: #F7CE86;
+}
+
+#title {
+    -fx-font-size: 70px;
+    -fx-text-fill: #1e1b1c;
 }
 
 {
     -fx-font-family: "Gochi Hand";
-    -fx-font-size: 35px;
-    -fx-text-fill: #382F33;
 }
 
 .boardOption {
-    -fx-background-color: #F7CE86;
+    -fx-background-color: #1e1b1c;
+    -fx-font-size: 35px;
     -fx-padding: 50;
+    -fx-text-fill: #F7CE86;
 }
 
 #submitButton {
     -fx-background-color: #DE9C46;
+    -fx-font-size: 35px;
     -fx-padding: 15 25;
+    -fx-text-fill: #1e1b1c;
 }

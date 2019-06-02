@@ -10,8 +10,9 @@ import model.insect.beetles.Greedy;
 import java.util.HashMap;
 import java.util.Map;
 
+// Prototype pattern
 public class InsectFactory {
-    Map<String, Insect> insects = new HashMap<>();
+    private Map<String, Insect> insects = new HashMap<>();
 
     public InsectFactory() {
         loadInsects();

@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ValidActionTilesGenerator implements ValidTilesGenerator {
-    // Template (Behavioural pattern)
+    // Template pattern
     @Override
-    public List<Tile> getValidTiles(Insect insect, Board board, int xInc, int yInc, int range) {
+    public List<Tile> getValidTiles(Insect insect, Board board, int hDir, int vDir, int range) {
         List<Tile> validTiles = new ArrayList<>();
         int x = insect.getTile().getX();
         int y = insect.getTile().getY();
         Tile tile;
 
         for (int i = 1; i <= range; i++) {
-            x += xInc;
-            y += yInc;
+            x += hDir;
+            y += vDir;
             tile = board.getTile(x, y);
 
             if (!addValidTile(validTiles, tile)) {

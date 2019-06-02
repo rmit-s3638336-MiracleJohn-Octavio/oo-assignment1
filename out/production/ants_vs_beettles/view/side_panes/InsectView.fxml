@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="pneInsectPanel" prefHeight="75.0" prefWidth="75.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.side_panes.InsectVC">
+   <children>
+      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#F7CE86" height="75.0" opacity="0.7" stroke="#877044" strokeType="OUTSIDE" strokeWidth="2.0" width="75.0" />
+      <ImageView fx:id="imvInsect" fitHeight="75.0" fitWidth="75.0"
+                 onMouseClicked="#rect_mouseClicked" onMouseEntered="#rect_mouseEntered" onMouseExited="#rect_mouseExited"
+                 onDragDetected="#dragDetected"
+                 pickOnBounds="true" preserveRatio="true">
+      </ImageView>
+   </children>
+</Pane>

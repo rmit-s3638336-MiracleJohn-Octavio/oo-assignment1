@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<Pane fx:id="tile" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.board.TileVC"
+      onMouseClicked="#mouseClicked"
+      onMouseEntered="#rect_mouseEntered" onMouseExited="#rect_mouseExited"
+      onDragEntered="#rect_mouseEntered" onDragExited="#rect_mouseExited"
+      onDragDetected="#dragDetected" onDragDropped="#dragDropped" onDragOver="#dragOver">
+   <children>
+       <ImageView fx:id="imvTile" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+       <Pane fx:id="highlighter"></Pane>
+       <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="40.0" width="40.0" stroke="TRANSPARENT" strokeType="INSIDE"  />
+       <ImageView fx:id="imvTarget" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+       <ImageView fx:id="imvInsect" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</Pane>

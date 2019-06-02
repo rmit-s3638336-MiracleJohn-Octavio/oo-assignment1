@@ -1,15 +1,22 @@
 package model.insect.attacks;
 
-import model.board.Board;
+import model.game_engine.GameEngine;
 import model.insect.Insect;
-import model.player.Player;
 
-public class PoisonAttack extends HPAttack {
+// Decorator pattern
+public class PoisonAttack extends Attack {
+    public PoisonAttack() {
+        super();
+    }
+
+    public PoisonAttack(Attack additionalAttack) {
+        super(additionalAttack);
+    }
+
     @Override
-    public void attack(Insect attacker, Board board, Player player, Insect attackee) {
-        super.attack(attacker, board, player, attackee);
-        if (!attackee.killed()) {
-            attackee.setParalysis(3);
-        }
+    public void attack(GameEngine gameEngine, Insect attacker, Insect attackee) {
+        super.attack(gameEngine, attacker, attackee);
+
+        attackee.setParalysis(3);
     }
 }

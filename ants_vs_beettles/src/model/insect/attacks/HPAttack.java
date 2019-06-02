@@ -1,19 +1,28 @@
 package model.insect.attacks;
 
-import model.board.Board;
+import model.game_engine.GameEngine;
 import model.insect.Insect;
-import model.player.Player;
 
-public class HPAttack implements Attack{
+// Decorator pattern
+public class HPAttack extends Attack {
+    public HPAttack() {
+        super();
+    }
+
+    public HPAttack(Attack additionalAttack) {
+        super(additionalAttack);
+    }
+
     @Override
-    public void attack(Insect attacker, Board board, Player player, Insect attackee) {
+    public void attack(GameEngine gameEngine, Insect attacker, Insect attackee) {
+        super.attack(gameEngine, attacker, attackee);
+
         int damage = attacker.getProfile().getDamage();
         attackee.decreaseHealthPoints(damage);
 
         if (attackee.killed()) {
-            board.getTile(attackee.getTile().getX(), attackee.getTile().getY()).resetInsect();
-//            player.removeInsect(attackee.getId());
-            player.removeInsect();
+            gameEngine.getBoard().getTile(attackee.getTile().getX(), attackee.getTile().getY()).resetInsect();
+            gameEngine.getCurrentPlayer().removeInsect();
         }
     }
 }

@@ -4,7 +4,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="pneInsectPanel" prefHeight="50.0" prefWidth="50.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InsectVC">
+<Pane fx:id="pneInsectPanel" prefHeight="50.0" prefWidth="50.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.side_panes.InsectVC">
    <children>
       <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#aaaaaa" height="50.0" opacity="0.8" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="50.0" />
       <ImageView fx:id="imvInsect" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#rect_mouseClicked" onMouseEntered="#rect_mouseEntered" onMouseExited="#rect_mouseExited" pickOnBounds="true" preserveRatio="true">

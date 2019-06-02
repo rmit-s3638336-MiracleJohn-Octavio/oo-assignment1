@@ -7,6 +7,11 @@ import model.insect.Insect;
 import java.util.List;
 
 public interface ValidTilesGenerator {
-    // TODO: const for xInc and yInc
-    public abstract List<Tile> getValidTiles(Insect insect, Board board, int xInc, int yInc, int range);
+    public static int WEST = -1;
+    public static int EAST = 1;
+    public static int NORTH = -1;
+    public static int SOUTH = 1;
+    public static int NULL = 0;
+
+    public abstract List<Tile> getValidTiles(Insect insect, Board board, int hDir, int vDir, int range);
 }

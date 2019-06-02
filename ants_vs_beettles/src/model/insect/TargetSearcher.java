@@ -1,6 +1,6 @@
 package model.insect;
 
-import model.target.Target;
+import model.player.Target;
 
 public interface TargetSearcher {
     public default boolean foundTarget(Insect insect, Target target) {

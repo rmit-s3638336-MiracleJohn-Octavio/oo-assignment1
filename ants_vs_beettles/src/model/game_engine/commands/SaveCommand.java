@@ -3,15 +3,14 @@ package model.game_engine.commands;
 import model.game_engine.Caretaker;
 import model.game_engine.GameEngine;
 
-public class SaveCommand implements Command {
-    private Caretaker caretaker;
-
+// Command pattern - Concrete Command
+public class SaveCommand extends Command {
     public SaveCommand(Caretaker caretaker) {
-        this.caretaker = caretaker;
+        super(caretaker);
     }
 
     @Override
     public void execute(GameEngine gameEngine) {
-        caretaker.save(gameEngine);
+        getCaretaker().save(gameEngine);
     }
 }

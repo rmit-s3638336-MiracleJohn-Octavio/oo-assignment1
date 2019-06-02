@@ -32,7 +32,7 @@
 }
 
 
-#errorMessageContainer, #buttonsContainer {
+#infoPane, #buttonsContainer {
     -fx-padding: 20 20 20 20;
 }
 

@@ -3,6 +3,8 @@ package model.game_engine.states;
 import model.board.Tile;
 import model.game_engine.GameEngine;
 
+// State pattern - Concrete State
+// Singleton pattern
 public class ActiveState extends State {
 	private static ActiveState instance;
 

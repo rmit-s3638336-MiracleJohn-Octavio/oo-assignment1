@@ -8,40 +8,39 @@
             xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controller.DashboardVC">
    <top>
-      <VBox>
-         <VBox fx:id="errorMessageContainer" prefHeight="80">
+      <HBox fx:id="infoPane" prefHeight="100">
+         <VBox fx:id="info">
             <Label fx:id="playerTurn" text="Current player: Team Ants"/>
             <Label fx:id="errorMessage"/>
          </VBox>
-         <!--<Pane>-->
-            <!--<Button fx:id="heal" text="HEAL" onMouseClicked="#clickedHeal" />-->
-         <!--</Pane>-->
-      </VBox>
+         <Pane>
+            <Button fx:id="heal" text="HEAL" onMouseClicked="#clickedHeal" />
+         </Pane>
+      </HBox>
    </top>
 
    <left>
       <Region prefHeight="20"></Region>
-      <fx:include fx:id="leftPane" source="SidePaneView.fxml"/>
+      <fx:include fx:id="leftPane" source="side_panes/SidePaneView.fxml"/>
    </left>
 
    <center>
       <HBox fx:id="boardContainer" alignment="CENTER">
-         <fx:include fx:id="board" source="BoardView.fxml"/>
+         <VBox alignment="CENTER">
+            <fx:include fx:id="board" source="board/BoardView.fxml"/>
+         </VBox>
       </HBox>
    </center>
 
    <right>
-      <fx:include fx:id="rightPane" source="SidePaneView.fxml"/>
+      <fx:include fx:id="rightPane" source="side_panes/SidePaneView.fxml"/>
    </right>
 
    <bottom>
-      <HBox alignment="CENTER" fx:id="buttonsContainer">
+      <HBox alignment="CENTER" fx:id="buttonsContainer" prefHeight="100">
          <VBox alignment="CENTER">
             <Button fx:id="undo" text="UNDO" onMouseClicked="#clickedUndo" />
-            <Region prefHeight="10"></Region>
-            <Button fx:id="heal" text="HEAL" onMouseClicked="#clickedHeal" />
          </VBox>
-
       </HBox>
    </bottom>
 </BorderPane>

@@ -3,6 +3,7 @@ package model.insect.beetles;
 import model.board.valid_tiles_gen.ValidAirAttackTilesGenerator;
 import model.insect.Insect;
 import model.insect.Profile;
+import model.insect.attacks.HPAttack;
 import model.insect.attacks.PoisonAttack;
 
 public class Bogus extends Beetle {
@@ -15,7 +16,7 @@ public class Bogus extends Beetle {
     private static final Profile profile = new Profile(MAX_HEALTH_POINTS, DAMAGE, MOVE_RANGE, ATTACK_RANGE, HEAL_POINTS);
 
     public Bogus() {
-        super(profile, new ValidAirAttackTilesGenerator(), new PoisonAttack());
+        super(profile, new ValidAirAttackTilesGenerator(), new HPAttack(new PoisonAttack()));
     }
 
     public Bogus(Bogus bogus) {

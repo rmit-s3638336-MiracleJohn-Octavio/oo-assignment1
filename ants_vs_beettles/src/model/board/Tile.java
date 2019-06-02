@@ -1,6 +1,5 @@
 package model.board;
 
-import javafx.scene.layout.StackPane;
 import model.insect.Insect;
 
 // GRASP - High Cohesion

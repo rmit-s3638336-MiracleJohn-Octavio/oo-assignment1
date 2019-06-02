@@ -11,12 +11,12 @@ import java.util.List;
 
 public class ValidPlaceTilesGenerator implements ValidTilesGenerator {
     @Override
-    public List<Tile> getValidTiles(Insect insect, Board board, int xInc, int yInc, int range) {
+    public List<Tile> getValidTiles(Insect insect, Board board, int hDir, int vDir, int range) {
         int startingCol = (insect instanceof Ant) ? board.getAntsValidPlacingCol() : board.getBeetlesValidPlacingCol();
         Tile[][] tiles = board.getAllTiles();
 
         ArrayList<Tile> validTiles = new ArrayList<>();
-        for (int row = 0; row < board.getBoardSize(); row += yInc) {
+        for (int row = 0; row < board.getBoardSize(); row += vDir) {
             int col = startingCol;
             int counter = range;
             while (counter > 0) {
@@ -24,7 +24,7 @@ public class ValidPlaceTilesGenerator implements ValidTilesGenerator {
                     validTiles.add(tiles[row][col]);
                 }
 
-                col += xInc;
+                col += hDir;
                 counter--;
             }
         }

@@ -3,6 +3,7 @@ package model.game_engine.states;
 import model.board.Tile;
 import model.game_engine.GameEngine;
 
+// State pattern - Abstract State
 public abstract class State {
 
 	public void selectNewInsect(GameEngine gameEngine, String insectType) {

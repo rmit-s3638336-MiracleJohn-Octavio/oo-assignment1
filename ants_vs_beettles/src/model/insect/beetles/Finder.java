@@ -4,6 +4,7 @@ import model.board.valid_tiles_gen.ValidAirAttackTilesGenerator;
 import model.insect.Insect;
 import model.insect.Profile;
 import model.insect.TargetSearcher;
+import model.insect.attacks.HPAttack;
 import model.insect.attacks.KickBackAttack;
 
 public class Finder extends Beetle implements TargetSearcher {
@@ -16,7 +17,7 @@ public class Finder extends Beetle implements TargetSearcher {
     private static final Profile profile = new Profile(MAX_HEALTH_POINTS, DAMAGE, MOVE_RANGE, ATTACK_RANGE, HEAL_POINTS);
 
     public Finder() {
-        super(profile, new ValidAirAttackTilesGenerator(), new KickBackAttack());
+        super(profile, new ValidAirAttackTilesGenerator(), new HPAttack(new KickBackAttack()));
     }
 
     public Finder(Finder finder) {

@@ -2,6 +2,7 @@ package model.game_engine;
 
 import model.board.Board;
 
+// Memento pattern - Memento
 public class GameEngineMemento {
     private Board board;
 

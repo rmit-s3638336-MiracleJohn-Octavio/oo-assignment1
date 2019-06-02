@@ -1,7 +1,10 @@
 package model.insect;
 
+import com.google.java.contract.Ensures;
 import model.board.Board;
 import model.board.Tile;
+import model.board.valid_tiles_gen.ValidActionTilesGenerator;
+import model.game_engine.GameEngine;
 import model.insect.attacks.Attack;
 import model.board.valid_tiles_gen.ValidPlaceTilesGenerator;
 import model.board.valid_tiles_gen.ValidTilesGenerator;
@@ -74,6 +77,7 @@ public abstract class Insect {
         return profile;
     }
 
+    @Ensures("paralysis > 0")
     public void setParalysis(int paralysis) {
         this.paralysis = paralysis;
     }
@@ -116,18 +120,18 @@ public abstract class Insect {
     private List<Tile> getValidTiles(Board board, ValidTilesGenerator generator, int range) {
         List<Tile> validTiles = new ArrayList<>();
 
-        validTiles.addAll(generator.getValidTiles(this, board, 1, 0, range));
-        validTiles.addAll(generator.getValidTiles(this, board, -1, 0, range));
-        validTiles.addAll(generator.getValidTiles(this, board, 0, 1, range));
-        validTiles.addAll(generator.getValidTiles(this, board, 0, -1, range));
+        validTiles.addAll(generator.getValidTiles(this, board, ValidActionTilesGenerator.EAST, ValidActionTilesGenerator.NULL, range));
+        validTiles.addAll(generator.getValidTiles(this, board, ValidActionTilesGenerator.WEST, ValidActionTilesGenerator.NULL, range));
+        validTiles.addAll(generator.getValidTiles(this, board, ValidActionTilesGenerator.NULL, ValidActionTilesGenerator.SOUTH, range));
+        validTiles.addAll(generator.getValidTiles(this, board, ValidActionTilesGenerator.NULL, ValidActionTilesGenerator.NORTH, range));
 
         Collections.sort(validTiles);
 
         return validTiles;
     }
 
-    public void attack(Board board, Player player, Insect attackee) {
-        attack.attack(this, board, player, attackee);
+    public void attack(GameEngine gameEngine, Insect attackee) {
+        attack.attack(gameEngine, this, attackee);
     }
 
     public abstract Insect mementoClone();

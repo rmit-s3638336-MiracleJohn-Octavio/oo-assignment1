@@ -5,12 +5,9 @@
     -fx-background-color: #1e1b1c;
 }
 
-{
-    /*-fx-font-family: "Itim";*/
-}
-
 #boardContainer {
-    -fx-font-size: 50;
+    -fx-font-family: "Gochi Hand";
+    -fx-font-size: 60;
     -fx-text-fill: #F7CE86;
 }
 
@@ -18,29 +15,26 @@
     -fx-font-family: "Gochi Hand";
     -fx-font-size: 20px;
     -fx-text-fill: #432A31;
-
-    /*-fx-translate-x: 20;*/
-    /*-fx-translate-y: 15;*/
 }
 
 #errorMessage {
     -fx-font-family: "Itim";
     -fx-font-size: 17px;
     -fx-text-fill: 	#632621;
-
-    /*-fx-translate-x: 20;*/
-    /*-fx-translate-y: 37;*/
 }
 
-
-#errorMessageContainer, #buttonsContainer {
-        -fx-padding: 15 20;
-}
-
-#errorMessageContainer {
+#infoPane {
     -fx-background-color: #F7CE86;
-    -fx-background-insets: 10;
+    -fx-background-insets: 10 10 27 10;
     -fx-background-radius: 7;
+    -fx-padding: 15 20;
+}
+
+#heal {
+    -fx-translate-y: 3;
+    -fx-text-fill: #DE9C46;
+
+    -fx-background-color: #382F33;
 }
 
 Button {
@@ -49,7 +43,4 @@ Button {
     -fx-text-fill: #382F33;
 
     -fx-background-color: #DE9C46;
-    -fx-padding: 10 20;
-
-    -fx-translate-y: 10;
 }

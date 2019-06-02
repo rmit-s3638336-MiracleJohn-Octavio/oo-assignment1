@@ -11,10 +11,6 @@ public class Helper {
     public static final int PANE_WIDTH = 147; // For Left and Right Pane
     public static final int NO_OF_INSECTS_PER_PANEL = 3;
 
-    public static void printMe(String message) {
-        System.out.println(message);
-    }
-
     public static boolean isEven(int value) {
         boolean returnValue = false;
         if (value % 2 == 0) {

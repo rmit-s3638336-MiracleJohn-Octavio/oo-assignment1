@@ -21,6 +21,6 @@ public abstract class Beetle extends Insect {
 
     @Override
     public List<Tile> getValidPlaceTiles(Board board) {
-        return super.getValidPlaceTilesGenerator().getValidTiles(this, board, ValidTilesGenerator.WEST, ValidTilesGenerator.SOUTH, 2);
+        return super.getValidPlaceTilesGenerator().getValidTiles(this, board, ValidTilesGenerator.WEST, ValidTilesGenerator.SOUTH, PLACE_RANGE);
     }
 }

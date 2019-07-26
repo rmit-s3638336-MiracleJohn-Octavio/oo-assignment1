@@ -11,7 +11,7 @@ public class Player {
     private int insectCount;
 
     private boolean undoable;
-    private final int UNDO_LIMIT;
+    private final int UNDO_LIMIT = 3;
     private int undoCount;
 
     private Target target;
@@ -27,7 +27,6 @@ public class Player {
         insectCount = 0;
 
         undoable = true;
-        UNDO_LIMIT = 3;
         undoCount = 0;
 
         this.target = target;

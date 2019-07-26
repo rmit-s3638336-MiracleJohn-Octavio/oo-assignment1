@@ -20,8 +20,7 @@ public class Board {
     private void initBoard() {
         for (int row = 0; row < tiles.length; row++) {
             for (int col = 0; col < tiles[row].length; col++) {
-                Tile tile = new Tile(row, col);
-                tiles[row][col] = tile;
+                tiles[row][col] = new Tile(row, col);
             }
         }
     }
@@ -30,8 +29,7 @@ public class Board {
         tiles = new Tile[board.getBoardSize()][board.getBoardSize()];
         for (int row = 0; row < tiles.length; row++) {
             for (int col = 0; col < tiles[row].length; col++) {
-                Tile tile = new Tile(board.getTile(row, col));
-                tiles[row][col] = tile;
+                tiles[row][col] = new Tile(board.getTile(row, col));
             }
         }
     }

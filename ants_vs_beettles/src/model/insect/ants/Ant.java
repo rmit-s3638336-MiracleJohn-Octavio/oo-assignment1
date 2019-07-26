@@ -21,7 +21,7 @@ public abstract class Ant extends Insect {
 
     @Override
     public List<Tile> getValidPlaceTiles(Board board) {
-        return super.getValidPlaceTilesGenerator().getValidTiles(this, board, ValidTilesGenerator.EAST, ValidTilesGenerator.SOUTH, 2);
+        return super.getValidPlaceTilesGenerator().getValidTiles(this, board, ValidTilesGenerator.EAST, ValidTilesGenerator.SOUTH, PLACE_RANGE);
     }
 }
 

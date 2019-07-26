@@ -21,6 +21,8 @@ import java.util.List;
 // GRASP - High Cohesion
 // GRASP - Polymorphism
 public abstract class Insect {
+    public static int PLACE_RANGE = 2;
+
     private int healthPoints;
     private Profile profile;
     private Tile tile;
